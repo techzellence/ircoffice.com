@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+        <meta charset="UTF-8">
+        <link rel="canonical" href="/visa">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="apple-touch-icon" href="https://irp-cdn.multiscreensite.com/cdcb83ef/dms3rep/multi/iconhigh.png">
+        <link rel="icon" type="image/x-icon" href="https://irp-cdn.multiscreensite.com/cdcb83ef/site_favicon_16_1584586043309.ico">
+        
+        <title>
+            Immigrant Resource Center Office
+          </title>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+          <meta name="keywords" content="Immigrant Resource Center Office,
+          Green Card,
+          N-400,
+          Citizenship,
+          Immigration Service,
+          Immigration help,">
+          <meta name="description" content="An immigrant owned family owned that was established in 1990 to support the immigration process of the thriving migrant communities. We have helped thousands of clients in the past three decades and we are proud to have enabled so many happy unions and joyful moments.">
+          <meta name="twitter:card" content="summary">
+          <meta name="twitter:title" content="Immigrant Resource Center Office">
+          <meta name="twitter:description" content="An immigrant owned family owned that was established in 1990 to support the immigration process of the thriving migrant communities. We have helped thousands of clients in the past three decades and we are proud to have enabled so many happy unions and joyful moments.">
+          <meta property="og:description" content="An immigrant owned family owned that was established in 1990 to support the immigration process of the thriving migrant communities. We have helped thousands of clients in the past three decades and we are proud to have enabled so many happy unions and joyful moments.">
+          <meta property="og:title" content="Immigrant Resource Center Office">
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+          <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Catamaran:wght@200;400;600;700&family=Prata&family=Raleway:wght@300;500;600;700&display=swap" rel="stylesheet">
+          <script src="./map.js"></script>
+          <!--gsap including-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<!--gsap including end-->
+<!--form submission polyfills-->
+<script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/FormData.js" integrity="sha256-3XoZx0Oksw4GnTTA5497hz0lqKYSnwIRB4YeTeyvq4o=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.0/lib/index.min.js"></script>
+<!--form submission polyfill end-->
+          <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+          <link rel="stylesheet" href="./ace-responsive-menu.css">
+          <link rel="stylesheet" href="css/style.css">
+          
+          
+    </head>
+    <body>
+        <!------------------------------------Notification popup It can be deleted-------------------------------------------------->
+        <div class="top-notification" style="background: rgb(240, 132, 33);">
+            <p class="paragraph-notification">For latest COVID-19 immigration announcements check at USCIS website.</p>
+            <div class="notification-close" id="close-icon">×</div>
+        </div>
+
+         <!------------------------------------Notification popup It can be deleted-------------------------------------------------->
+
+                 <!------------------------------------Notification popup It can be deleted-------------------------------------------------->
+        <div class="bottom-notification" style="background: rgb(240, 132, 33);">
+            <p class="paragraph-notification pn-2">For latest COVID-19 immigration announcements check at USCIS website.</p>
+            <div class="notification-close-2" id="close-icon-2">×</div>
+        </div>
+
+         <!------------------------------------Notification popup It can be deleted-------------------------------------------------->
+         
+            <div class="navbar-container" style="box-shadow: rgba(0, 0, 0, 0.25) 0 3px 11px 0; position: sticky !important; top:0; left:0; right: 0;">
+                <img src="./img/company-logo.jpeg" alt="" class="nav__logo" width="224px">
+
+                            <!--Navbar Start-->
+            <nav>
+                <!-- Menu Toggle btn-->
+                <div class="menu-toggle">
+                    <a href="tel:(612) 822-5747" id="1192189405" dm_dont_rewrite_url="false" file="false"><svg width="20" height="20" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M51.3333 42C46.6667 46.6667 46.6667 51.3333 42 51.3333C37.3333 51.3333 32.6667 46.6667 28 42C23.3333 37.3333 18.6667 32.6667 18.6667 28C18.6667 23.3333 23.3333 23.3333 28 18.6667C32.6667 14 18.6667 0 14 0C9.33333 0 0 14 0 14C0 23.3333 9.59 42.2567 18.6667 51.3333C27.7387 60.41 46.6667 70 56 70C56 70 70 60.6667 70 56C70 51.3333 56 37.3333 51.3333 42" fill="#E58027"/>
+                        </svg> 
+                </a>
+                    <div class="mobile-icon"><img src="./img/logo-640w.jpeg" width="77px" alt="" class="nav__logo-mobile"></div>
+                    
+                    <button type="button" id="menu-btn">
+                        
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Responsive Menu Structure-->
+                <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+                <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
+                      <li>
+                        <a href="./index.html">
+                            <span class="title active-title">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown__title dropdown__1" href="javascript:;">
+                            <span class="title drop__title">About Us</span>
+                            <img src="./img/dropdown-small.png"  alt="" class="toggole-arrow">        
+                        </a>
+                        <!-- Level Two-->
+                        <ul>
+                            <li>
+                                <a href="#who-are-we">Who Are We</a>
+                            </li>
+                            <li>
+                                <a href="#why-us">Why Us</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown__title dropdown__2" href="javascript:;">
+                            <span class="title drop__title">Services</span>
+                            <img src="./img/dropdown-small.png"  alt="" class="toggole-arrow toggole-arrow-2">
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="./greencard.html">Green Card
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./citizenship.html">Citizenship
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./visa.html">Visa
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="last ">
+                        <a href="./contact.html">
+                            <span class="title">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!--Navbar ENd-->
+            <div class="btn btn--primary" id="btn-phone-number">Call Us</div>
+            </div>
+
+           <!--mobile menu-->
+
+           <nav class="site-navbar">
+            <ul>
+                <img src="./img/company-logo.jpeg" alt=""  width="150px" style="margin-top: 10px; margin-bottom: 2rem;">
+                <div class="list">
+                    <li><a href="./index.html" class="active-nav-item">home</a></li>
+                    <li><div class="dropdown-list-mobile dl_1" style="cursor: pointer; margin-bottom: 10px;"><span class="dropdown-title-text-mobile" style="margin-right: -5px;">About Us</span><img src="./img/dropdown-small.png"  alt="" class="toggole-arrow arr-3" style="margin-bottom: 2px;"></div>
+                        <div class="dropdown-nav-mobile dm_1">
+                            <a href="#who-are-we" class="touch-d-link">Who Are We</a>
+                            <a href="#why-us" class="touch-d-link">Why Us</a>
+                        </div>
+                    </li>
+                    <li><div class="dropdown-list-mobile dl_2" style="cursor: pointer;"><span class="dropdown-title-text-mobile" style="margin-right: -5px;">Service</span><img src="./img/dropdown-small.png"  alt="" class="toggole-arrow arr-4" style="margin-bottom: 2px;"></div>
+                        <div class="dropdown-nav-mobile dm_2">
+                            <a href="./greencard.html" class="touch-d-link">Green Card</a>
+                            <a href="./citizenship.html" class="touch-d-link">Citizenship</a>
+                            <a href="./visa.html" class="touch-d-link">Visa</a>
+                        </div>
+                    </li>
+                    <li><a href="./contact.html">contact</a></li>
+                </div>
+
+                <div class="mobile-nav-bottom">
+                    <div class="bottom-content" style="position: relative;z-index: 200;">
+                        <div style="text-align: center;" class="follow">Follow us</div>
+                        <div class="social-bottom-link">
+                            <a href="mailto:info@ircoffice.com" class="s-b-l" target="_blank"><img src="./img/gmail-icon.png" alt=""></a>
+                            <a href="https://facebook.com/" class="s-b-l" target="_blank"><img src="./img/facebook-shape.png" alt=""></a>
+                            <a href="https://twitter.com/" class="s-b-l" target="_blank"><img src="./img/twitter-so-icon.png" alt=""></a>
+                            <a href=http://instagram.com/" class="s-b-l" target="_blank"><img src="./img/instagram-blue.png" alt=""></a>  
+                        </div>
+                        <a href="./contact.html" class="btn-contact-fooeter" style="width: 85vw; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 200px !important;">Contact</a>
+                    </div>
+
+                </div>
+              </ul>
+                    <!-- nav-toggler for mobile version only -->
+                <div class="nav-toggler">
+                    <span></span>
+                </div>
+            <div class="mobile-nav-logo"><img src="./img/logo-640w.jpeg" width="77px" alt="" class="nav__logo-mobile"></div>
+            <a href="tel:(612) 822-5747" id="1192189405" dm_dont_rewrite_url="false" file="false"><svg width="20" height="20" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M51.3333 42C46.6667 46.6667 46.6667 51.3333 42 51.3333C37.3333 51.3333 32.6667 46.6667 28 42C23.3333 37.3333 18.6667 32.6667 18.6667 28C18.6667 23.3333 23.3333 23.3333 28 18.6667C32.6667 14 18.6667 0 14 0C9.33333 0 0 14 0 14C0 23.3333 9.59 42.2567 18.6667 51.3333C27.7387 60.41 46.6667 70 56 70C56 70 70 60.6667 70 56C70 51.3333 56 37.3333 51.3333 42" fill="#E58027"/>
+                </svg> 
+        </a>
+    </nav>
+
+    <!--mobile navigation end-->
+
+
+        <!--website hero image with form-->
+        <header class="header-2 header--home">
+            <div class="header-home__content header__home--animation flex-center">
+                <h1 class="heading__primary align-middle my-25">
+                    Your <span class="secondary-color-text">one-stop center</span> for your Immigration needs
+                </h1>
+                <p class="header__paragraph align-middle my-25">
+                    Our skilled immigration experts are here to guide you through out your immigration process, we help you get your application process right and fast.
+                </p>
+            <a href="#why-us" class="btn btn--primary btn--animated">Learn More</a>
+            </div>
+        </header>
+
+        <section class="section section__form">
+            <div class="form-box form__home--animation" style="box-shadow: rgba(0, 0, 0, 0.25) 0 3px 11px 0;">
+                <h2 class="heading-form align-middle my-20">
+                    ASK OUR EXPERTS
+                </h2>
+                <p class="paragraph-form align-middle my-30">We are here to help you with your application process.</p>
+                <form  class="form" name="form-consultation" id="form__consultation" >
+
+                    <div class="u-margin-bottom-medium">
+                    </div>
+
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Name" name="name" id="name" required>
+                        <label for="name" class="form__label">Full name</label>
+                    </div>
+
+                    <div class="form__group">
+                        <input type="email" class="form__input" placeholder="Email" id="email" name="email" required>
+                        <label for="email" class="form__label">Email address</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="tel" class="form__input" placeholder="phone" id="phone" name="phone" required>
+                        <label for="email" class="form__label">Email address</label>
+                    </div>
+                    <div class="form__group">
+                        <label for="email" class="form__label">Messege</label>
+                        <textarea  id="messege" name="message" class="form__input text-area my-40" placeholder="How can help?" spellcheck="false"></textarea>
+                    </div>
+
+                    <input id="subject" name="subject" type="hidden" value="consultation">
+
+                    <div class="form__group align-middle">
+                        <button type="submit" class="btn btn--primary" style="margin-bottom: 3rem;">REQUEST A CONSULTATION</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <div class="divider"></div>
+
+        <!--section services of the company-->
+
+        <section class="section section-services">
+            <h2 class="heading__section align-middle my-15">
+                OUR SERVICES
+            </h2>
+            <p class="paragraph-section align-middle my-20">
+                Preparing an entire immigration application is complex and you could face potential issues and major errors that could cost you thousands of dollars and even long delays or rejection in your process. We are here to help you with our <span class="service-21"> 21 years of experience</span> to take the complexity out of your filing and application process and at a very affordable rate.
+            </p>
+
+            <div class="divider-image align-middle my-40">
+                <img src="../img/Divider-Decorative_01.png" alt="" class="decorative-divider">
+            </div>
+
+            <div class="service__information-table">
+                <div class="service-grid-title cc-2-column">
+                        <div class="title-1 cc-title">Service</div>
+                        <div class="title-1 cc-title">Form No</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name max-service-name">Naturalization/Citizenship Applications</div>
+                    <div class="service-form-no">N-400/N-600</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Medical Certification for Disability Exceptions (if you qualify)</div>
+                    <div class="service-form-no">N-648</div>
+                </div>
+
+                <div class="service-features">
+                    <div class="service-name">Adjustment (green card) applications forms I-485& other forms in support to it.</div>
+                    <div class="service-form-no">I-485</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Green card renewal (form I-90 Electronically)</div>
+                    <div class="service-form-no">I-90</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Petition to Remove Condition on Residence (I-751) and supporting evidence</div>
+                    <div class="service-form-no">I-751</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">G-325Forms (biographic information)</div>
+                    <div class="service-form-no">G-325</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">DV-Lottery Application</div>
+                    <div class="service-form-no">DV-Entry</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Employment Authorization Card</div>
+                    <div class="service-form-no">I-765</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Family-Based Immigration Applications- I-130 form K3/K4 non-immigrant visas</div>
+                    <div class="service-form-no">I-130, K3/K4</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Fiancé(e) and Spouse Visas</div>
+                    <div class="service-form-no">I-129/K1</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Asylum Case</div>
+                    <div class="service-form-no">Varies</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Appeals & EOIRS</div>
+                    <div class="service-form-no">Varies</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">All Affidavits of (Marriage, Divorce, Identity)</div>
+                    <div class="service-form-no">Varies</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Fee waiver applications</div>
+                    <div class="service-form-no">Varies</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Custody Transfer</div>
+                    <div class="service-form-no">Varies</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Expedited USA passport</div>
+                    <div class="service-form-no">Varies</div>
+                </div>
+
+                <div class="service-features">
+                    <div class="service-name">Foreign Visas (most of world countries)</div>
+                    <div class="service-form-no">Varies</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Address Change with USCIS (AR-11)</div>
+                    <div class="service-form-no">AR-11</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Tourist Visa Invitation  B1/B2</div>
+                    <div class="service-form-no">B1/B2</div>
+                </div>
+                <div class="service-features">
+                    <div class="service-name">Medical Invitation to USA</div>
+                    <div class="service-form-no">PR</div>
+                </div>
+
+                <div class="service-features">
+                    <div class="service-name">Land Sales, or Transfers land (certain countries apply)</div>
+                    <div class="service-form-no">PR</div>
+                </div>
+                        
+                <div class="service-features">
+                    <div class="service-name">Notary Public</div>
+                    <div class="service-form-no">PR</div>
+                </div>
+
+                <div class="service-features">
+                    <div class="service-name">Passport Photo Available</div>
+                    <div class="service-form-no">PR</div>
+                </div>
+
+                <div class="service-features">
+                    <div class="service-name">National Visa Center form DS-230</div>
+                    <div class="service-form-no">DS-230</div>
+                </div>
+
+                <div class="service-features">
+                    <div class="service-name">Choice of Agent</div>
+                    <div class="service-form-no">DS-3032</div>
+                </div>
+
+                <div class="service-features">
+                    <div class="service-name">Affidavit of Support</div>
+                    <div class="service-form-no">I-864</div>
+                </div>
+                
+                    </div>
+
+        </section>
+      
+        <!--section services of the company End-->
+
+        <!--tab layout-->
+
+        <section class="section section-greencard__services">
+            <div data-ft class="tab-wrapper">
+                <nav class="tabammount_4 tab-sticky">
+                    <a href="#tab-1" class="tab-name align-middle active">Green Card</a>
+                    <a href="#tab-2" class="tab-name align-middle">Citizenship</a>
+                    <a href="#tab-3" class="tab-name align-middle">Visa</a>
+                    <a href="#tab-4" class="tab-name align-middle">Umra Package</a>
+                </nav>
+                <div class="all-tab-content-holder">
+               <!--Tab 1 content  Start-->     
+                    <div id="tab-1" class="tab-content-wrapper">
+                        <h3 class="heading__tab my-25">Green Card</h2>
+        <p class="my-35 tab-paragraph">If you have recently become married to a U.S. citizen, you may be wondering if you can obtain citizenship yourself. First of all - congratulations! Our team at IRC is ready to help you and your spouse complete the journey of love and begin your lives together in the United States!</p>
+
+        <p class="my-35 tab-paragraph">By obtaining a Green Card, the spouse of a current U.S. citizen can both live and work in any part of the United States of America. Once an individual obtains their Green Card, they will hold a “permanent resident” identification until the day they wish to apply for naturalization as a full U.S. citizen. The citizenship process can begin after three years. </p>
+
+        <p class="my-35 tab-paragraph">For many individuals, obtaining a Green Card is the natural way to start the journey of becoming a citizen. However, the process can be stressful and complicated. At IRC, our team of skilled immigration professionals can help you walk through the process from the initial filling of your application, to the finishing line of your process.</p>
+
+        <p class="my-35 tab-paragraph">The following are the different types of Green Card applications.</p>
+
+
+        <ul class="green-card green-card--list my-35">
+            <li>Adjustment Status (green card)</li>
+            <li>Green Card Replacement</li>
+            <li>Green Card Lottery</li>
+            <li>VAWA : Violence Against Women Act</li>
+        </ul>
+        <!--button-->
+        <a href="./greencard.html" class="btn btn--blue btn--animated">Learn More</a>
+
+                    </div>
+
+                    <!--Tab 1 content  End-->
+
+                    <!--Tab 2 content  Start-->
+                    <div id="tab-2" class="tab-content-wrapper">
+                        <h3 class="heading__tab my-25">Naturalization Applications</h2>
+                            <p class="my-35 tab-paragraph">Are you ready to become a naturalized U.S. citizen? The process may seem overwhelming and intimidating, but with the right help by your side, you can quickly and successfully complete your journey to full citizenship.</p>
+
+                            <p class="my-35 tab-paragraph">In order to begin the naturalization process, you must complete the Application for Naturalization form - also known as Form N-400. This application begins the process for current green card holders to apply for full citizenship through the U.S. government. Before you begin - there are many eligibility requirements that must be met. IRC’s team of trained immigration advisors stand ready to make sure that you have met all the requirements to be considered for naturalization.</p>
+
+                            <p class="my-35 tab-paragraph">From filling out the N-400 with the U.S. Citizenship and Immigration Services (USCIS) Department to completing the steps to fully comply with the expectations of the Department of Homeland Security, IRC is ready to guide you step by step through the naturalization process. </p>
+
+
+                            <p class="my-35 tab-paragraph">At an affordable cost, our team can help you complete your citizenship application, collect all necessary and required documents and walk you step by step and hand in hand, we can help you make your citizenship dreams come true. Your American dream starts today!</p>
+            
+                            <p class="my-10 tab-paragraph">The following are the application processes we can help you with.</p>
+
+                            <ul class="green-card green-card--list my-35">
+                                <li>Naturalization Adult</li>
+                                <li>Naturalization child applying under his/her parent</li>
+                                <li>Child Birth Abroad (Package) </li>
+                                <li>Medical Certification Disability Exemptions</li>
+                            </ul>
+
+                            <p class="my-35 tab-paragraph">Click <a class="tab-text-link" href="#">here to get talk to an expert today..</a></p>
+                            <a href="./citizenship.html" class="btn btn--blue btn--animated">Learn More</a>
+                    </div>
+                    
+                    <!--Tab 2 Content End-->
+
+                    <!--Tab 3 Content Start-->
+                    <div id="tab-3" class="tab-content-wrapper">
+                        <h3 class="heading__tab my-25">Visa Applications</h2>
+                            <p class="my-35 tab-paragraph">For many countries, the ability to quickly and effortlessly travel across international borders requires a current and valid visa. While the requirement of having a visa may seem simple, the process of obtaining one can be complicated and covered in red tape.</p>
+
+                            <p class="my-35 tab-paragraph">If you are beginning the process of applying for a visa, the team at IRCO  stands ready to help you each step of the way. From applications to processing, our team of skilled immigration experts can give you peace of mind while you prepare to travel. Our team can help you acquire a variety of visas, in the following categories</p>
+            
+            
+                            <ul class="green-card green-card--list my-35">
+                                <li>Foriegn Visas
+                                    <ol class="green-card--inner my-15">
+                                        <li>EU/Schengen</li>
+                                        <li>UK</li>
+                                        <li>Australia</li>
+                                        <li>Ethiopia</li>
+                                        <li>Kenya</li>
+                                        <li>Uganda</li>
+                                        <li>South Africa</li>
+                                        <li>Saudi Arabia</li>
+                                        <li>Zambia</li>
+                                    </ol>
+                                </li>
+                            </ul>
+
+                            <ul class="green-card green-card--list my-35">
+                                <li>Immigration Visas
+                                    <ol class="green-card--inner my-15">
+                                        <li>Marriage visa</li>
+                                        <li>Fiancé’s Visa</li>
+                                        <li>K1/3/4 expedited family reunion visas</li>
+                                        <li>Tourist Visas B1/B2 or visitor visas</li>
+                                        <li>Medical visa</li>
+                                    </ol>
+                                </li>
+                            </ul>
+                            <p class="my-35 tab-paragraph">Each visa is different and requires various applications and requirements to receive them. Depending on the country that you intend to travel to, or whether you are filling family reunification visas there may be extra requirements to fulfill along the way. IRC team is ready to help you make the process simple and easy for you and your family.</p>
+                            <p class="my-20 tab-paragraph">Check out the full suite of online tools and resources from IRCO  as you begin your immigration process. When you are ready to get moving, we are ready to get you there!</p>
+                            <!--button-->
+                            <a href="./visa.html" class="btn btn--blue btn--animated">Learn More</a>
+                    </div>
+                    <!--Tab 3  Content End-->
+
+                    <!--Tab 4 Content Start-->
+                    <div id="tab-4" class="tab-content-wrapper">
+                        <h3 class="heading__tab my-25">Visa & Ticketing</h2>
+                            
+                            <p class="my-20 tab-paragraph">The Kingdom of Saudi Arabia is temporarily suspending Umrah for citizens and residents in the kingdom due to the coronavirus outbreak, the Saudi Press Agency (SPA) reported on Wednesday.</p>
+                            <p class="my-20 tab-paragraph">The decision will be “reviewed continuously”, and the suspension will be lifted once the situation is under control, SPA quoted an official source at the ministry of Interior as saying.</p>
+                            <!--button-->
+                            <a href="https://gulfbusiness.com/saudi-temporarily-suspends-umrah-for-citizens-residents-over-coronavirus-outbreak-spa/" raw_url="https://gulfbusiness.com/saudi-temporarily-suspends-umrah-for-citizens-residents-over-coronavirus-outbreak-spa/"  class="btn btn--blue btn--animated" target="_blank">Read More</a>
+                    </div>
+                    <!--Tab 4 Content End-->
+
+                </div>
+            </div>
+        </section>
+    
+
+        <!--Why Choose Us-->
+
+        <section class="section section-why-choose" id="why-us">
+            <h2 class="heading__section align-middle my-15">
+                WHY CHOOSE US
+            </h2>
+            <p class="paragraph-section--2 align-middle" style="margin-bottom: 60px;">
+                We take the complexity out of your application filing process and your immigration paper work and we make it simple and easy.
+            </p>
+            <!--facility card 1-->
+            <div class="facility-container">
+                <div class="facility__card">
+                    <div class="shape-container align-middle">
+
+                        <svg width="70px" height="auto" viewBox="0.00 0.00 100 100" id="1735524544"> <g> <path d="M40.8,3.7c13-5.7,30-5.3,40.2,4.7c4.2,4.1,6.9,9.6,8.4,15.2c3.3,12.1,4.3,24.6,3,37.1C91.3,71,88.7,84.5,81.3,92.3 			c-10.6,11.2-26.6,8.5-39.3,2.5c-5.2-2.5-10.2-5.4-14.9-8.7c-9-6.2-16.5-13.7-19.1-24.6C5.6,51.7,7.9,41.7,12.6,33 			C17.5,24,24,16,31.7,9.3C34.5,7,37.5,5.1,40.8,3.7z" style="fill:rgba(23, 65, 113, 1);"></path> 
+                        </g> 
+                        
+                        </svg>
+
+                        <h3 class="shape-text">1</h3>
+
+                        
+
+
+                    </div>
+
+                    <h4 class="facility__heading align-middle my-20">Responsive</h4>
+                    <p class="facility__pargraph align-middle my-20">We don't just fill your paperwork, we navigate the immigration complexities for you and we will keep you in the loop in the the process..</p>
+                    <div class="arrow-icon align-middle">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" id="1479741662" class="svg-right" data-icon-name="ar-arrow_long_right"> <g id="1195287121"> <g id="1944156141"> <g id="1684418092"> <g id="1295127915"> <polygon points="48.3,26.8 46.9,28.2 54.2,35 46.9,41.8 48.3,43.2 57.1,35 				" id="1332565205"></polygon> 
+                        </g> 
+                        </g> 
+                        </g> 
+                         <g id="1887052297"> <rect x="12.9" y="34" width="42.2" height="2" id="1823810323"></rect> 
+                        </g> 
+                        </g> 
+                        </svg>
+                    </div>
+
+                </div>
+
+                <!--facility card 2-->
+                <div class="facility__card">
+                    <div class="shape-container align-middle">
+
+                        <svg width="70px" height="auto" viewBox="0.00 0.00 100 100" id="1735524544"> <g> <path d="M40.8,3.7c13-5.7,30-5.3,40.2,4.7c4.2,4.1,6.9,9.6,8.4,15.2c3.3,12.1,4.3,24.6,3,37.1C91.3,71,88.7,84.5,81.3,92.3 			c-10.6,11.2-26.6,8.5-39.3,2.5c-5.2-2.5-10.2-5.4-14.9-8.7c-9-6.2-16.5-13.7-19.1-24.6C5.6,51.7,7.9,41.7,12.6,33 			C17.5,24,24,16,31.7,9.3C34.5,7,37.5,5.1,40.8,3.7z" style="fill:rgba(23, 65, 113, 1);"></path> 
+                        </g> 
+                        
+                        </svg>
+
+                        <h3 class="shape-text">2</h3>
+
+                        
+
+
+                    </div>
+                    <h4 class="facility__heading align-middle my-20">Affordable</h4>
+                    <p class="facility__pargraph align-middle my-20">Spending less than you can estimate and avoid the potential pitfalls that can lead your application to be denied. Let our expert hands help you today.</p>
+                    <div class="arrow-icon align-middle">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" id="1479741662" class="svg-right" data-icon-name="ar-arrow_long_right"> <g id="1195287121"> <g id="1944156141"> <g id="1684418092"> <g id="1295127915"> <polygon points="48.3,26.8 46.9,28.2 54.2,35 46.9,41.8 48.3,43.2 57.1,35 				" id="1332565205"></polygon> 
+                        </g> 
+                        </g> 
+                        </g> 
+                         <g id="1887052297"> <rect x="12.9" y="34" width="42.2" height="2" id="1823810323"></rect> 
+                        </g> 
+                        </g> 
+                        </svg>
+                    </div>
+
+                </div>
+
+                 <!--facility card 3-->
+                <div class="facility__card">
+                    <div class="shape-container align-middle">
+
+                        <svg width="70px" height="auto" viewBox="0.00 0.00 100 100" id="1735524544"> <g> <path d="M40.8,3.7c13-5.7,30-5.3,40.2,4.7c4.2,4.1,6.9,9.6,8.4,15.2c3.3,12.1,4.3,24.6,3,37.1C91.3,71,88.7,84.5,81.3,92.3 			c-10.6,11.2-26.6,8.5-39.3,2.5c-5.2-2.5-10.2-5.4-14.9-8.7c-9-6.2-16.5-13.7-19.1-24.6C5.6,51.7,7.9,41.7,12.6,33 			C17.5,24,24,16,31.7,9.3C34.5,7,37.5,5.1,40.8,3.7z" style="fill:rgba(23, 65, 113, 1);"></path> 
+                        </g> 
+                        
+                        </svg>
+
+                        <h3 class="shape-text">3</h3>
+
+                        
+
+
+                    </div>
+                    <h4 class="facility__heading align-middle my-20">Experience</h4>
+                    <p class="facility__pargraph align-middle my-20">With our 21  years of experience we are proud of multilingual and creative immigration experts that have helped our clients achieve their immigration needs.</p>
+                    <div class="arrow-icon align-middle">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" id="1479741662" class="svg-right" data-icon-name="ar-arrow_long_right"> <g id="1195287121"> <g id="1944156141"> <g id="1684418092"> <g id="1295127915"> <polygon points="48.3,26.8 46.9,28.2 54.2,35 46.9,41.8 48.3,43.2 57.1,35 				" id="1332565205"></polygon> 
+                        </g> 
+                        </g> 
+                        </g> 
+                         <g id="1887052297"> <rect x="12.9" y="34" width="42.2" height="2" id="1823810323"></rect> 
+                        </g> 
+                        </g> 
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--tab layout End-->
+<!--section slider start-->
+<div class="slider__image-wrapper">
+    <h2 class="slider__heading align-middle my-15">What our clients say about us</h2>
+    <div class="divider__slider"></div>
+    <div class="slider__container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"> <div class="stars">*****</div>
+                <p class="paragraph__slider my-25">Very good people who were very nice. they answered my many questions and did not mind explaining things over and over. thank you guys for all your help. I recommend visiting them on the weekend, they are open on Saturday. </p> 
+                <a href="#" class="btn btn--primary btn--animated">Micheal Adamu</a>
+               </div>
+                <div class="swiper-slide"> <div class="stars">*****</div>
+                <p class="paragraph__slider my-25">I drove today (Saturday) from Prior Lake, about hour drive not expecting the process would be very easy. the staff was very nice and welcoming. i filed all documents within a short time. they say they will follow up with me. i recommend this office to help explain the complicated immigration rules.</p> 
+                <a href="#" class="btn btn--primary btn--animated">Vladmir Purchenka</a></div>
+                <div class="swiper-slide"><div class="stars">*****</div>
+                <p class="paragraph__slider my-25">
+                    I completed everything I needed within an hour. I had Ayan help me and she was super helpful and understanding. I had lots of questions about what would happen next and she was very knowledgeable. Thank you to all in the office.
+                </p> 
+                <a href="#" class="btn btn--primary btn--animated">Lucina Gail</a></div>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</div>
+
+
+        <!--section who are we-->
+        <section class="section section-about-company" style="padding-top: 10rem; padding-bottom: 10rem;" id="who-are-we">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="heading__section who-are-we my-25">
+                        WHO ARE WE
+                    </h2>
+                    <p class="paragraph-section--3 paragraph-middle my-40">
+                        We are an immigrant owned family business which was established in 1999 to support the immigration process of the thriving migrant communities. We have helped thousands of clients in the past two decades and we are proud to have enabled so many happy unions and joyful moments. 
+                    </p>
+                </div>
+    
+                <div class="about-image">
+                </div>
+            </div>
+
+
+        </section>
+
+        
+       
+    
+        <!--section-book-a-consultation-->
+
+        <section class="section section-booking">
+            <h3 class="heading__booking align-middle my-30 pu-70">Book a consultation</h3>
+            <p class="paragraph-form align-middle my-40 max-410">
+                Have a question? We’re here to help. Send us a message and we’ll get be in touch.
+            </p>
+
+            <div class="form-wrapper">
+                <form  class="form" name="form-booking">
+                    
+                    <div class="form-row-1 my-30">
+                        <div class="form__group">
+                            <label for="name" class="form__label--booking">Name</label>
+                            <input type="text" class="form__input--booking"  id="name" name="name" required>
+                        </div>
+    
+                        <div class="form__group">
+                            <label for="email" class="form__label--booking">Email</label>
+                            <input type="email" class="form__input--booking"  id="email" name='email' required>
+                        </div>
+                        <div class="form__group">
+                            <label for="email" class="form__label--booking">Subject</label>
+                            <input type="tel" class="form__input--booking"  id="phone" name="subject" required>
+                        </div>
+
+                    </div>
+
+                   
+                    
+                    <div class="form__group my-35">
+                        <label for="email" class="form__label--booking">Messege</label>
+                        <textarea  id="messege" class="form__input--booking text-area-booking" name='message'  spellcheck="false"></textarea>
+                    </div>
+
+                    <div class="form__group align-middle">
+                        <button type="submit" class="btn btn--primary">Book Now</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+                <!--google map start-->
+                <div class="map__wrapper">
+                    <div id="map"></div>
+                </div>
+                
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=
+        AIzaSyCSzWSINBQvo4SyF28JLFlfbLLcCh8ApVg&callback=initMap">
+            </script>
+        
+                <!--google map end-->
+
+        <!--footer Start-->
+            <footer class="footer">
+                <div class="footer__main">
+                    <div class="footer__column">
+                        <div class="footer__logo-wrapper">
+                            <img src="./img/company-logo.jpeg" alt="" class="nav__logo--footer" width="224px">
+                        </div>
+                            <p class="footer__paragraph">Immigrant Resource Center is a private entity that is registered in Minnesota and provides professional immigration and travel services at your direction. We is not a law firm or substitute for an attorney or law firm and we are not  affiliated with USCIS or any government agency. Your access to and use of this site is subject to additional Terms of Use.</p>
+                        </div>
+    
+                        <div class="footer__column">
+                            <h3 class="footer__header">Quick Links</h3>
+                            <ul class="footer__list">
+                                <li class="footer__list-item"> <a href="./index.html">Home</a></li>
+                                <li class="footer__list-item"><div class="dropdown-footer-1" style="cursor: pointer;"><span class="fd-title" style="margin-right: 5px;">About Us</span><img src="./img/dropdown-small.png"  alt="" class="toggole-arrow arr-1" style="margin-left: 4px;"></div>
+                                <!-- Level Two-->
+                                <ul class="footer__dropdown fd-1">
+                                    <li class="footer__dropdown--item">
+                                        <a href="#who-are-we">Who Are We</a>
+                                    </li>
+                                    <li class="footer__dropdown--item">
+                                        <a href="#why-us">Why Us</a>
+                                    </li>
+                                </ul>
+                                </li>
+                                <li class="footer__list-item"><div class="dropdown-footer-2" style="cursor: pointer;"><span class="fd-title" style="margin-right: 5px;">Services</span><img src="./img/dropdown-small.png"  alt="" class="toggole-arrow arr-2" style="margin-left: 4px;"></div>  
+                                                                <!-- Level Two-->
+                                <ul class="footer__dropdown fd-2">
+                                    <li class="footer__dropdown--item">
+                                        <a href="./greencard.html">Green Card</a>
+                                    </li>
+                                    <li class="footer__dropdown--item">
+                                        <a href="./citizenship.html">Citizenship</a>
+                                    </li>
+                                    <li class="footer__dropdown--item">
+                                        <a href="./visa.html">Visa</a>
+                                    </li>
+                                </ul></li>
+                                <li class="footer__list-item"> <a href="./contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="footer__column">
+                            <h3 class="footer__header">Buisness hours</h3>
+                            <ul class="footer__list">
+                                <li class="footer__list-item">Monday - Friday: 9am to 6pm</li>
+                                <li class="footer__list-item">Saturday: 10am to 5pm</li>
+                                <li class="footer__list-item"><a href="tel:(612) 822-5747" runtime_url="tel:(612) 822-5747" style="color: rgb(255, 255, 255); text-decoration: none;"><b>(612) 822-5747</b></a></li>
+                               
+                            </ul>
+                        </div>
+    
+                        <div class="footer__column">
+                            <h3 class="footer__header">Address</h3>
+                            <ul class="footer__list">
+                                <li class="footer__list-item">1 W Lake St Ste#165, Minneapolis, MN 
+                                    United States, 55408</li>
+                            </ul>
+                            <div class="social-icon-block">
+                                <a href="https://facebook.com/" class="footer-icon"><img src="./img/fb-s.png" alt="facebook"></a>
+                                <a href="https://facebook.com/" class="footer-icon"><img src="./img/twitter-s.png" alt="twitter"></a>
+                                <a href="https://twitter.com/" class="footer-icon"><img src="./img/instagram-s.png" alt="instagram"></a>
+                                <a href="http://yelp.com/biz/" class="footer-icon"><img src="./img/yelp-s.png" alt="yelp"></a>
+                                <a href="https://web.whatsapp.com/send?phone=" class="footer-icon"><img src="./img/whatsapp-s.png" alt="whatsapp"></a>
+                            </div>
+                        </div>
+                    
+                </div>
+
+                <div class="footer__bottom">
+                    <p class="footer__bottom-column">© 2020 
+                        | All Rights Reserved |<span class="copyright-text"> Immigrant Resource Center Office</span></p>
+                    <p class="footer__bottom-column"> Designed by <span class="copyright-text">Techzellence</span></a></p>
+                    <p class="footer__bottom-column"> <span class="copyright-text">Privacy Policye</span></p>
+                </div>
+               
+            </footer>
+        <!--footer end-->
+<!--toggole script start-->
+<script>
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+function cursorMove(mql){
+
+if(mql.matches) {
+  document.querySelector('.dropdown__1').addEventListener('click', function (){
+      document.querySelector('.toggole-arrow').classList.toggle('rotate-icon');
+  });
+
+  document.querySelector('.dropdown__2').addEventListener('click', function (){
+      document.querySelector('.toggole-arrow-2').classList.toggle('rotate-icon');
+  });
+
+}else {
+    console.log('Custom cursor disabled');
+}
+
+}
+
+cursorMove(mediaQuery);
+  
+mediaQuery.addListener(cursorMove);
+document.querySelector('.fd-1').style.display = 'none';
+document.querySelector('.fd-2').style.display = 'none';
+document.querySelector('.dm_1').style.display = 'none';
+document.querySelector('.dm_2').style.display = 'none';
+var dropdownOpen_1 = function() {
+    var x = document.querySelector('.fd-1');
+    document.querySelector('.arr-1').classList.toggle('rotate-icon');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}; 
+
+var dropdownOpen_2 = function() {
+    var x = document.querySelector('.fd-2');
+    document.querySelector('.arr-2').classList.toggle('rotate-icon');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}; 
+
+var dropdownOpen_3 = function() {
+    var x = document.querySelector('.dm_1');
+    document.querySelector('.arr-3').classList.toggle('rotate-icon');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}; 
+
+
+var dropdownOpen_4 = function() {
+    var x = document.querySelector('.dm_2');
+    document.querySelector('.arr-4').classList.toggle('rotate-icon');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}; 
+
+document.querySelector('.dropdown-footer-1').addEventListener('click', dropdownOpen_1);
+document.querySelector('.dropdown-footer-2').addEventListener('click', dropdownOpen_2);
+document.querySelector('.dl_1').addEventListener('click', dropdownOpen_3);
+document.querySelector('.dl_2').addEventListener('click', dropdownOpen_4);
+
+//Call us button
+
+var textChange = function() {
+    var text = document.getElementById("btn-phone-number");
+    if (text.innerHTML === "Call Us") {
+    text.innerHTML = "(612) 822-5747";
+  } else {
+    text.innerHTML = "Call Us";
+  }
+}; 
+
+document.getElementById("btn-phone-number").addEventListener('click', textChange);
+
+</script>
+
+<!--toggole script end-->
+
+
+	<!-- Swiper JS -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+	<!-- Initialize Swiper -->
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: true
+    });
+	</script>
+
+<!--Tab-script-->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="./jquery.flextabs.js"></script>
+
+<script type="text/javascript">
+$('[data-ft]').flexTabs({
+// Параметры...
+});
+</script>
+<script src="./ace-responsive-menu.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#respMenu").aceResponsiveMenu({
+            resizeWidth: '768', // Set the same in Media query
+            animationSpeed: 'fast', //slow, medium, fast
+            accoridonExpAll: false //Expands all the accordion menu on click
+        });
+
+    });
+</script>
+
+<!--form Script-->
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxKCcTuYEQH3lm5Y8pWQyBSqDqRSpap7s5pRKCB_dCEBUT6z7G48nY6/exec'
+            const form = document.forms['form-consultation']
+            const form_2 = document.forms['form-booking']
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => document.getElementById('form__consultation').innerHTML = `<h1 class="success-message">Thank you for contacting us.<br/>You will get back to you as soon as possible</h1>`)
+                .catch(error => console.error('Error!', error.message))
+            })
+
+            
+            form_2.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form_2)})
+                .then(response => alert('Your form submitted Successfully'))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+<!--form Script end--> 
+<script src="./animation.js" type='text/javascript'></script>
+<script>
+    gsap.set('.top-notification', {
+  
+  height: 0
+
+})
+gsap.set('.bottom-notification', {
+  
+  yPercent: 100
+
+})
+var tn = gsap.timeline({delay: 2});
+tn.to('.top-notification', {
+    
+    
+    duration: 0.8,
+    // ease: "back.out(1.2)",
+    height: 'auto'
+  })
+
+  var bn = gsap.timeline({delay: 1});
+bn.to('.bottom-notification', {
+    
+    
+    duration: 0.8,
+    // ease: "back.out(1.2)",
+    yPercent: 0
+  })
+
+    document.getElementById("close-icon").addEventListener("click", function() {
+document.getElementById("close-icon-2").click();
+
+  gsap.to('.top-notification', {
+    
+   
+    duration: 0.4,
+    // ease: "back.out(1.2)",
+    height: '0',
+    delay: 0.1
+
+})
+});
+
+//mobile notification
+
+document.getElementById("close-icon-2").addEventListener("click", function() {
+    document.getElementById("close-icon").click();
+  gsap.to('.bottom-notification', {
+    
+   
+    duration: 0.4,
+    yPercent: 100,
+    delay: 0.1
+
+})
+});
+</script>         
+        
+    </body>
+</html>
