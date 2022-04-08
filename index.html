@@ -211,7 +211,7 @@
                     ASK OUR EXPERTS
                 </h2>
                 <p class="paragraph-form align-middle my-30">We are here to help you with your application process.</p>
-                <form  class="form" name="form-consultation" netlify >
+                <form  class="form" name="form-consultation" id="form__consultation" netlify>
 
                     <div class="u-margin-bottom-medium">
                     </div>
@@ -924,7 +924,7 @@ $('[data-ft]').flexTabs({
             const form_2 = document.forms['form-booking']
             form.addEventListener('submit', e => {
               e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              fetch("/", { method: 'POST', body: new FormData(form)})
                 .then(response => document.getElementById('form__consultation').innerHTML = `<h1 class="success-message">Thank you for contacting us.<br/>You will get back to you as soon as possible</h1>`)
                 .catch(error => console.error('Error!', error.message))
             })
@@ -932,7 +932,7 @@ $('[data-ft]').flexTabs({
             
             form_2.addEventListener('submit', e => {
               e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form_2)})
+              fetch("/", { method: 'POST', body: new FormData(form_2)})
                 .then(response => alert('Your form submitted Successfully'))
                 .catch(error => console.error('Error!', error.message))
             })
