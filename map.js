@@ -5,7 +5,7 @@ function initMap() {
       center: leanGreen,
       mapTypeControl: false,
     });
-    const GoogleMapApiKey = process.env.GOOGLEMAP_API_KEY
+    const GoogleMapApiKey = "AIzaSyDDQ4uTmdd8bQZsogQIbRxE6ZEdQ5PNMOE"
     const address = "1 W Lake St suite #165, Minneapolis, MN 55408, United States";
     const image = "./img/marker-icon.png";
     const contentString =
