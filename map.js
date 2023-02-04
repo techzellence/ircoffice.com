@@ -19,7 +19,7 @@ function initMap() {
           Open From 9AM TO 6PM<br/>(Except Sunday)
         </div>
 
-        <a class="portal" href="https://www.google.com/maps/dir/?api=${GoogleMapApiKey}&destination=${address}" target="_blank">
+        <a class="portal" href="https://maps.googleapis.com/maps/api/js?key=${GoogleMapApiKey}&callback=initMap" target="_blank">
         <div  class="store-info-address">
           <div class="circle">
             <img class="logo-location" src="https://uploads-ssl.webflow.com/5f9986f433fe7b863804586b/5fc0306c2d07ef3ee3bc9569_Location.svg" alt="">
