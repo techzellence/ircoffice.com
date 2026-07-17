@@ -12,6 +12,7 @@
     "typecheck": "astro check && tsc --noEmit"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^5.0.0",
     "gsap": "^3.5.1",
     "leaflet": "^1.9.4",
