@@ -26,6 +26,11 @@ const { title, description, canonical } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Cardo&family=Catamaran:wght@200;400;600;700&family=Prata&family=Raleway:wght@300;500;600;700&display=swap"
     />
     <link rel="stylesheet" href="/css/style.css" />
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+      is:inline></script>
     <slot name="head" />
   </head>
   <body>
