@@ -31,7 +31,7 @@
 ### Task 1: Astro scaffold and test harness
 
 **Files:**
-- Create: `package.json`, `astro.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `.gitignore`, `.dev.vars.example`
+- Create: `package.json`, `astro.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `.gitignore`, `.dev.vars.example`, `.env.example`
 - Create: `src/lib/version.ts`, `tests/unit/version.test.ts`
 
 **Interfaces:**
@@ -142,6 +142,7 @@ export default defineConfig({
 node_modules/
 dist/
 .astro/
+.env
 .dev.vars
 .wrangler/
 test-results/
@@ -150,13 +151,34 @@ tests/visual/**/*-actual.png
 tests/visual/**/*-diff.png
 ```
 
+There are two separate secret files, and conflating them is a trap worth naming explicitly:
+
+- **`.dev.vars`** feeds the Pages **Function** at runtime via Wrangler. Server-side secrets only. Never reaches the browser.
+- **`.env`** feeds the **Astro build** via `import.meta.env`. Only `PUBLIC_`-prefixed values, and they are compiled into the HTML — so anything here is public by definition.
+
+Putting `RESEND_API_KEY` in `.env` would publish it. Both files are gitignored; only the `.example` variants are committed.
+
 `.dev.vars.example`:
 
 ```
+# Server-side only. Consumed by the Pages Function via Wrangler.
+# NEVER prefix these with PUBLIC_ and never move them to .env.
 RESEND_API_KEY=re_placeholder_do_not_commit_a_real_key
 CONTACT_RECIPIENT=someone@ircoffice.com
 TURNSTILE_SECRET_KEY=placeholder
 ```
+
+`.env.example`:
+
+```
+# Build-time, PUBLIC_ prefixed. These are compiled into the shipped HTML
+# and are visible to anyone viewing source. Only ever put values here that
+# are safe to publish. Both of these are designed to be public.
+PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
+PUBLIC_CF_BEACON_TOKEN=placeholder
+```
+
+`1x00000000000000000000AA` is Cloudflare's documented always-passes Turnstile test site key, which lets local development work without a real Turnstile site.
 
 `src/lib/version.ts`:
 
@@ -609,6 +631,38 @@ describe('onRequestPost', () => {
     expect(res.status).toBe(429);
   });
 
+  it('counts a failed submission against the rate limit, not just successes', async () => {
+    const env = makeEnv();
+    await onRequestPost({
+      request: makeRequest({ ...validBody, email: 'nonsense' }),
+      env,
+    } as never);
+    // A request that never reaches Resend must still burn quota, or the
+    // endpoint can be hammered for free.
+    expect(env.RATE_LIMIT.put).toHaveBeenCalledWith(
+      'rl:203.0.113.5',
+      '1',
+      expect.objectContaining({ expirationTtl: 3600 }),
+    );
+  });
+
+  it('counts a honeypot hit against the rate limit', async () => {
+    const env = makeEnv();
+    await onRequestPost({
+      request: makeRequest({ ...validBody, website: 'http://spam.example' }),
+      env,
+    } as never);
+    expect(env.RATE_LIMIT.put).toHaveBeenCalled();
+  });
+
+  it('does not increment once already over the limit', async () => {
+    const env = makeEnv({
+      RATE_LIMIT: { get: vi.fn().mockResolvedValue('5'), put: vi.fn() },
+    });
+    await onRequestPost({ request: makeRequest(validBody), env } as never);
+    expect(env.RATE_LIMIT.put).not.toHaveBeenCalled();
+  });
+
   it('returns 502 when Resend fails, so the UI can report an honest error', async () => {
     vi.stubGlobal(
       'fetch',
@@ -704,6 +758,16 @@ export async function onRequestPost(context: any): Promise<Response> {
     return json({ error: 'Too many requests. Please try again later.' }, 429);
   }
 
+  // Increment on ATTEMPT, not on success. Counting only successful sends
+  // would let an attacker hammer Turnstile verification and validation
+  // indefinitely without ever tripping the limit. KV is eventually
+  // consistent, so this is best-effort — it raises the cost of abuse, it
+  // does not make it impossible. Cloudflare WAF rate limiting is the
+  // hard control; this is defence in depth.
+  await env.RATE_LIMIT.put(`rl:${ip}`, String(attempts + 1), {
+    expirationTtl: RATE_LIMIT_WINDOW_SECONDS,
+  });
+
   const form = await request.formData();
   const raw: Record<string, string> = {};
   for (const [key, value] of form.entries()) {
@@ -757,10 +821,6 @@ export async function onRequestPost(context: any): Promise<Response> {
     });
     return json({ error: 'We could not send your message. Please call us at (612) 822-5747.' }, 502);
   }
-
-  await env.RATE_LIMIT.put(`rl:${ip}`, String(attempts + 1), {
-    expirationTtl: RATE_LIMIT_WINDOW_SECONDS,
-  });
 
   return json({ ok: true }, 200);
 }
@@ -1259,21 +1319,35 @@ Expected: FAIL
     const triggers = Array.from(
       container.querySelectorAll<HTMLAnchorElement>('.flextabs__toggle'),
     );
-    const panels = triggers
-      .map((t) => document.querySelector<HTMLElement>(t.getAttribute('href') ?? ''))
-      .filter((p): p is HTMLElement => p !== null);
+
+    // querySelector('') throws SyntaxError rather than returning null, so an
+    // anchor with no href would take the whole script down. Resolve panels
+    // defensively and drop any trigger whose panel is missing, keeping the
+    // two arrays index-aligned.
+    const pairs = triggers
+      .map((trigger) => {
+        const href = trigger.getAttribute('href');
+        const panel = href && href.startsWith('#') && href.length > 1
+          ? document.querySelector<HTMLElement>(href)
+          : null;
+        return { trigger, panel };
+      })
+      .filter((p): p is { trigger: HTMLAnchorElement; panel: HTMLElement } => p.panel !== null);
+
+    const triggerEls = pairs.map((p) => p.trigger);
+    const panels = pairs.map((p) => p.panel);
 
     function activate(index: number): void {
       panels.forEach((panel, i) => {
         panel.hidden = i !== index;
       });
-      triggers.forEach((trigger, i) => {
+      triggerEls.forEach((trigger, i) => {
         trigger.classList.toggle('flextabs__toggle--active', i === index);
         trigger.setAttribute('aria-selected', String(i === index));
       });
     }
 
-    triggers.forEach((trigger, index) => {
+    triggerEls.forEach((trigger, index) => {
       trigger.setAttribute('role', 'tab');
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
@@ -1281,7 +1355,7 @@ Expected: FAIL
       });
     });
 
-    if (triggers.length > 0) activate(0);
+    if (triggerEls.length > 0) activate(0);
   });
 </script>
 ```
