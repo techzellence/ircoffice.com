@@ -1,0 +1,24 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  pubDate: Date;
+}
+
+const { title, description, canonical, pubDate } = Astro.props;
+---
+
+<BaseLayout
+  title={`${title} | Immigrant Resource Center`}
+  description={description}
+  canonical={canonical}
+>
+  <main class="blog-post">
+    <h1>{title}</h1>
+    <time datetime={pubDate.toISOString()}>{pubDate.toLocaleDateString('en-US')}</time>
+    <slot />
+  </main>
+</BaseLayout>
