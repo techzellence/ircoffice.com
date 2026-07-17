@@ -1,16 +1,19 @@
 ---
 // Ported from the legacy index.html body (nav/footer/forms/map extracted to
-// components in Tasks 4-6). This is a STATIC port: no GSAP, Swiper, jQuery,
-// or animation.js are wired up here — Task 8 owns all homepage client
-// behaviour (scroll animations, testimonials carousel, service tabs, mobile
-// nav toggle). The carousel and tab markup below is preserved verbatim so
-// Task 8 has structure to attach to; only the <script> tags are omitted.
+// components in Tasks 4-6). Task 7 landed this as a static port with no client
+// behaviour wired up; Task 8 wires it all: scroll animations and the notification
+// banners (src/scripts/animation.ts, imported globally from BaseLayout), the
+// testimonials carousel (src/scripts/carousel.ts, imported below), and the service
+// tabs (src/components/Tabs.astro, wrapping the tab markup in this file). The
+// vendored npm packages (gsap, swiper) replace the removed CDN scripts and the deleted
+// flextabs plugin.
 //
 // Section id rename (cross-task interface, see Nav.astro): the legacy
 // `id="who-are-we"` / `id="why-us"` become `id="WhoAreWe"` / `id="WhyUs"` to
 // match the anchors Nav/Footer already link to (`/#WhoAreWe`, `/#WhyUs`).
 import ConsultForm from '../components/ConsultForm.astro';
 import Map from '../components/Map.astro';
+import Tabs from '../components/Tabs.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -23,8 +26,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!--
     COVID notice banners, ported verbatim from index.html body content (homepage-only, not part
     of the shared Nav/Footer chrome per Task 4). GSAP entrance/exit animation and the close-icon
-    click handlers are owned by animation.js (Task 8); until then these render at their normal
-    (visible) height, which is the correct static-port intermediate state.
+    click handlers are wired in src/scripts/animation.ts (imported globally from BaseLayout).
   -->
   <div class="top-notification" style="background: rgb(240, 132, 33);">
     <p class="paragraph-notification">
@@ -208,12 +210,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!--tab layout-->
 
   <section class="section section-greencard__services">
-    <div data-ft class="tab-wrapper">
+    <Tabs>
+    <div class="tab-wrapper">
       <nav class="tabammount_4 tab-sticky">
-        <a href="#tab-1" class="tab-name align-middle active">Green Card</a>
-        <a href="#tab-2" class="tab-name align-middle">Citizenship</a>
-        <a href="#tab-3" class="tab-name align-middle">Visa</a>
-        <a href="#tab-4" class="tab-name align-middle">Umra Package</a>
+        <a href="#tab-1" class="flextabs__toggle tab-name align-middle active">Green Card</a>
+        <a href="#tab-2" class="flextabs__toggle tab-name align-middle">Citizenship</a>
+        <a href="#tab-3" class="flextabs__toggle tab-name align-middle">Visa</a>
+        <a href="#tab-4" class="flextabs__toggle tab-name align-middle">Umra Package</a>
       </nav>
       <div class="all-tab-content-holder">
         <!--Tab 1 content  Start-->
@@ -397,6 +400,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <!--Tab 4 Content End-->
       </div>
     </div>
+    </Tabs>
   </section>
 
   <!--Why Choose Us-->
@@ -555,7 +559,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h2 class="slider__heading align-middle my-15">What our clients say about us</h2>
     <div class="divider__slider"></div>
     <div class="slider__container">
-      <div class="swiper-container">
+      <!--
+        `swiper` class added alongside the legacy `swiper-container`: Swiper 11 renamed its root
+        element class from `swiper-container` to `swiper` (the JS still accepts any element
+        regardless of class, but the vendored CSS's layout rules — position, overflow, sizing —
+        target `.swiper`, not `.swiper-container`). See carousel.ts / task report for details.
+      -->
+      <div class="swiper-container swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="stars">*****</div>
@@ -633,4 +643,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <Map />
   </div>
   <!--google map end-->
+
+  <script>
+    import '../scripts/carousel';
+  </script>
 </BaseLayout>

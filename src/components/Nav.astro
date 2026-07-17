@@ -180,3 +180,27 @@ const isContact = currentPath === '/contact';
     </svg>
   </a>
 </nav>
+
+<script>
+  // Ported from the legacy animation.js, which ran this at module scope against
+  // `.nav-toggler` / `.site-navbar` and threw on any page missing them. Scoped here next
+  // to the markup it operates on, and guarded so a page without a mobile nav is a no-op.
+  const navToggler = document.querySelector<HTMLElement>('.nav-toggler');
+  const navMenu = document.querySelector<HTMLElement>('.site-navbar ul');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.site-navbar a');
+
+  if (navToggler && navMenu) {
+    navToggler.addEventListener('click', () => {
+      navToggler.classList.toggle('toggler-open');
+      navMenu.classList.toggle('open');
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (navMenu.classList.contains('open')) {
+          navToggler.click();
+        }
+      });
+    });
+  }
+</script>
