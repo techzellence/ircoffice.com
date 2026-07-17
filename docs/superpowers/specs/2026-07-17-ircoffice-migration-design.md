@@ -260,6 +260,33 @@ introduces.
 - Blog posts themselves (the blog ships empty and ready)
 - Upsell/service-expansion planning (separate workstream)
 
+## Addendum (2026-07-17): full Duda export received
+
+After the plan was written, the client provided the complete Duda export (real
+HTML + CSS for every page at desktop/tablet/mobile). It revised several
+assumptions:
+
+- **`/about` and `/umra` are unfinished template pages.** Live `/about` carries
+  generic copywriting-agency boilerplate ("we love writing content…"); live
+  `/umra` is literal Lorem ipsum plus Duda campaign-template filler. Neither is
+  real IRC content. **Decision:** these are not pixel-matched. Claude drafts
+  accurate, UPL-safe content for both (immigration + Umrah services); the client
+  reviews before launch. This overrides the "pixel-match" bar for these two
+  pages only — you cannot faithfully reproduce Lorem ipsum on a live site.
+- **`/blog` is confirmed empty** (RSS feed has zero items). Ships empty-ready.
+- **`/privacy` does not exist** in the export despite the footer linking to it.
+  Created fresh as an accurate policy — nothing to match.
+- **Orphaned export-only pages** (three hash-named popup/newsletter drafts and a
+  `/registration` newsletter page) are absent from the live sitemap. **Decision:**
+  ignored — not reproduced, not redirected.
+- **SEO baseline is worse than recorded above:** every page ships an identical
+  `<title>`, meta description, and keyword set, with no semantic headings. The
+  per-page `BaseLayout` metadata already corrects this.
+- **Fidelity approach confirmed:** clean Astro rebuild on the recreation's
+  responsive CSS, with the export as the content-truth reference and Task 13's
+  screenshot diffs against the live site as the fidelity check — not a literal
+  port of Duda's machine-generated CSS.
+
 ## Open items requiring client input
 
 These block deployment, not development:
