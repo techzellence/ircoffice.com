@@ -1,5 +1,9 @@
 ---
 import Disclaimer from './Disclaimer.astro';
+
+// Computed at build time so the copyright year never goes stale (the legacy
+// footer was frozen at "2020").
+const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
@@ -88,9 +92,9 @@ import Disclaimer from './Disclaimer.astro';
 
   <div class="footer__bottom">
     <p class="footer__bottom-column">
-      © 2020 | All Rights Reserved |<span class="copyright-text"> Immigrant Resource Center Office</span>
+      © {year} | All Rights Reserved |<span class="copyright-text"> Immigrant Resource Center Office</span>
     </p>
     <p class="footer__bottom-column"> Powered by <span class="copyright-text">Techzellence</span></p>
-    <p class="footer__bottom-column"> <span class="copyright-text">Privacy Policye</span></p>
+    <p class="footer__bottom-column"><a class="footer__link" href="/privacy">Privacy Policy</a></p>
   </div>
 </footer>
