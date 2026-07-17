@@ -1,0 +1,96 @@
+---
+import Disclaimer from './Disclaimer.astro';
+---
+
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__column">
+      <div class="footer__logo-wrapper">
+        <img src="/img/company-logo.jpeg" alt="" class="nav__logo--footer" width="224px" />
+      </div>
+      <Disclaimer />
+    </div>
+
+    <div class="footer__column">
+      <h3 class="footer__header">Quick Links</h3>
+      <ul class="footer__list">
+        <li class="footer__list-item"><a href="/">Home</a></li>
+        <li class="footer__list-item">
+          <div class="dropdown-footer-1" style="cursor: pointer;">
+            <span class="fd-title" style="margin-right: 5px;">About Us</span>
+            <img
+              src="/img/dropdown-small.png"
+              alt=""
+              class="toggole-arrow arr-1"
+              style="margin-left: 4px;"
+            />
+          </div>
+          <!-- Level Two-->
+          <ul class="footer__dropdown fd-1">
+            <li class="footer__dropdown--item">
+              <a href="/#WhoAreWe">Who Are We</a>
+            </li>
+            <li class="footer__dropdown--item">
+              <a href="/#WhyUs">Why Us</a>
+            </li>
+          </ul>
+        </li>
+        <li class="footer__list-item">
+          <div class="dropdown-footer-2" style="cursor: pointer;">
+            <span class="fd-title" style="margin-right: 5px;">Services</span>
+            <img
+              src="/img/dropdown-small.png"
+              alt=""
+              class="toggole-arrow arr-2"
+              style="margin-left: 4px;"
+            />
+          </div>
+          <!-- Level Two-->
+          <ul class="footer__dropdown fd-2">
+            <li class="footer__dropdown--item">
+              <a href="/green-card">Green Card</a>
+            </li>
+            <li class="footer__dropdown--item">
+              <a href="/citizenship">Citizenship</a>
+            </li>
+            <li class="footer__dropdown--item">
+              <a href="/visa">Visa</a>
+            </li>
+          </ul>
+        </li>
+        <li class="footer__list-item"><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__column">
+      <h3 class="footer__header">Buisness hours</h3>
+      <ul class="footer__list">
+        <li class="footer__list-item">Monday - Friday: 9am to 6pm</li>
+        <li class="footer__list-item">Saturday: 10am to 5pm</li>
+        <li class="footer__list-item">
+          <a href="tel:(612) 822-5747" style="color: rgb(255, 255, 255); text-decoration: none;">
+            <b>(612) 822-5747</b>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__column">
+      <h3 class="footer__header">Address</h3>
+      <ul class="footer__list">
+        <li class="footer__list-item">1 W Lake St Ste#165, Minneapolis, MN United States, 55408</li>
+      </ul>
+      <div class="social-icon-block">
+        <!-- Social links omitted pending real URLs from client -->
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p class="footer__bottom-column">
+      © 2020 | All Rights Reserved |<span class="copyright-text"> Immigrant Resource Center Office</span>
+    </p>
+    <p class="footer__bottom-column"> Powered by <span class="copyright-text">Techzellence</span></p>
+    <p class="footer__bottom-column"> <span class="copyright-text">Privacy Policye</span></p>
+  </div>
+</footer>

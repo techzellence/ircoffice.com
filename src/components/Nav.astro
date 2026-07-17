@@ -1,0 +1,182 @@
+---
+// Shared nav, extracted from index.html's `.navbar-container` + `nav.site-navbar`
+// blocks (cross-checked against contact.html). Two markup variants ship together
+// because the legacy CSS/JS toggles between them by viewport width, not this
+// component — that toggle behavior is restored in a later task (animation.js).
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+const isContact = currentPath === '/contact';
+---
+
+<div
+  class="navbar-container"
+  style="box-shadow: rgba(0, 0, 0, 0.25) 0 3px 11px 0; position: sticky !important; top:0; left:0; right: 0;"
+>
+  <img src="/img/company-logo.jpeg" alt="" class="nav__logo" width="224px" />
+
+  <!--Navbar Start-->
+  <nav>
+    <!-- Menu Toggle btn-->
+    <div class="menu-toggle">
+      <a href="tel:(612) 822-5747">
+        <svg width="20" height="20" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M51.3333 42C46.6667 46.6667 46.6667 51.3333 42 51.3333C37.3333 51.3333 32.6667 46.6667 28 42C23.3333 37.3333 18.6667 32.6667 18.6667 28C18.6667 23.3333 23.3333 23.3333 28 18.6667C32.6667 14 18.6667 0 14 0C9.33333 0 0 14 0 14C0 23.3333 9.59 42.2567 18.6667 51.3333C27.7387 60.41 46.6667 70 56 70C56 70 70 60.6667 70 56C70 51.3333 56 37.3333 51.3333 42"
+            fill="#E58027"
+          ></path>
+        </svg>
+      </a>
+      <div class="mobile-icon">
+        <img src="/img/logo-640w.jpeg" width="77px" alt="" class="nav__logo-mobile" />
+      </div>
+
+      <button type="button" id="menu-btn">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Responsive Menu Structure-->
+    <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+    <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
+      <li>
+        <a href="/">
+          <span class:list={['title', isHome && 'active-title']}>Home</span>
+        </a>
+      </li>
+      <li>
+        <a class="dropdown__title dropdown__1" href="javascript:;">
+          <span class="title drop__title">About Us</span>
+          <img src="/img/dropdown-small.png" alt="" class="toggole-arrow" />
+        </a>
+        <!-- Level Two-->
+        <ul>
+          <li>
+            <a href="/#WhoAreWe">Who Are We</a>
+          </li>
+          <li>
+            <a href="/#WhyUs">Why Us</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="dropdown__title dropdown__2" href="javascript:;">
+          <span class="title drop__title">Services</span>
+          <img src="/img/dropdown-small.png" alt="" class="toggole-arrow toggole-arrow-2" />
+        </a>
+        <ul>
+          <li>
+            <a href="/green-card">Green Card</a>
+          </li>
+          <li>
+            <a href="/citizenship">Citizenship</a>
+          </li>
+          <li>
+            <a href="/visa">Visa</a>
+          </li>
+        </ul>
+      </li>
+      <li class="last ">
+        <a href="/contact">
+          <span class:list={['title', isContact && 'active-title']}>Contact</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!--Navbar End-->
+  <div class="btn btn--primary" id="btn-phone-number">Call Us</div>
+</div>
+
+<!--mobile menu-->
+
+<nav class="site-navbar">
+  <ul>
+    <img
+      src="/img/company-logo.jpeg"
+      alt=""
+      width="150px"
+      style="margin-top: 10px; margin-bottom: 2rem;"
+    />
+    <div class="list">
+      <li>
+        <a href="/" class:list={[isHome && 'active-nav-item']}>home</a>
+      </li>
+      <li>
+        <div
+          class="dropdown-list-mobile dl_1"
+          style="cursor: pointer; margin-bottom: 10px;"
+        >
+          <span class="dropdown-title-text-mobile" style="margin-right: -5px;">About Us</span>
+          <img
+            src="/img/dropdown-small.png"
+            alt=""
+            class="toggole-arrow arr-3"
+            style="margin-bottom: 2px;"
+          />
+        </div>
+        <div class="dropdown-nav-mobile dm_1">
+          <a href="/#WhoAreWe" class="touch-d-link">Who Are We</a>
+          <a href="/#WhyUs" class="touch-d-link">Why Us</a>
+        </div>
+      </li>
+      <li>
+        <div class="dropdown-list-mobile dl_2" style="cursor: pointer;">
+          <span class="dropdown-title-text-mobile" style="margin-right: -5px;">Service</span>
+          <img
+            src="/img/dropdown-small.png"
+            alt=""
+            class="toggole-arrow arr-4"
+            style="margin-bottom: 2px;"
+          />
+        </div>
+        <div class="dropdown-nav-mobile dm_2">
+          <a href="/green-card" class="touch-d-link">Green Card</a>
+          <a href="/citizenship" class="touch-d-link">Citizenship</a>
+          <a href="/visa" class="touch-d-link">Visa</a>
+        </div>
+      </li>
+      <li>
+        <a href="/contact" class:list={[isContact && 'active-nav-item']}>contact</a>
+      </li>
+    </div>
+
+    <div class="mobile-nav-bottom">
+      <div class="bottom-content" style="position: relative; z-index: 200;">
+        <div style="text-align: center;" class="follow">Follow us</div>
+        <div class="social-bottom-link">
+          <a href="mailto:info@ircoffice.com" class="s-b-l" target="_blank">
+            <img src="/img/gmail-icon.png" alt="" />
+          </a>
+          <!-- Social links omitted pending real URLs from client -->
+        </div>
+        <a
+          href="/contact"
+          class="btn-contact-fooeter"
+          style="width: 85vw; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 200px !important;"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  </ul>
+  <!-- nav-toggler for mobile version only -->
+  <div class="nav-toggler">
+    <span></span>
+  </div>
+  <div class="mobile-nav-logo">
+    <img src="/img/logo-640w.jpeg" width="77px" alt="" class="nav__logo-mobile" />
+  </div>
+  <a href="tel:(612) 822-5747">
+    <svg width="20" height="20" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M51.3333 42C46.6667 46.6667 46.6667 51.3333 42 51.3333C37.3333 51.3333 32.6667 46.6667 28 42C23.3333 37.3333 18.6667 32.6667 18.6667 28C18.6667 23.3333 23.3333 23.3333 28 18.6667C32.6667 14 18.6667 0 14 0C9.33333 0 0 14 0 14C0 23.3333 9.59 42.2567 18.6667 51.3333C27.7387 60.41 46.6667 70 56 70C56 70 70 60.6667 70 56C70 51.3333 56 37.3333 51.3333 42"
+        fill="#E58027"
+      ></path>
+    </svg>
+  </a>
+</nav>
