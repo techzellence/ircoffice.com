@@ -1,0 +1,493 @@
+---
+// Ported from the legacy visa.html body. Nav, Footer (with its own Disclaimer), and the
+// BaseLayout head are supplied by BaseLayout.astro. Static port, same approach as Task 7/8: the
+// tab block is wrapped in <Tabs> exactly as src/pages/index.astro does, trigger anchors carry the
+// flextabs__toggle class. No page-level GSAP/Swiper/jQuery script tags.
+//
+// visa.html has no visible <div id="map"> in the body (only the head's font stylesheet uses a
+// googleapis.com host, not maps.googleapis.com) — there is no Map component usage on this page.
+//
+// Duda page-editor cruft stripped from the two external <a> links in tab-2 (matching the Task 7
+// precedent of stripping dm_dont_rewrite_url/file/runtime_url/numeric id): the legacy `value`,
+// `type="url"`, and `data-runtime-url` attributes duplicated `href` and carried no meaning here.
+import ConsultForm from '../components/ConsultForm.astro';
+import Tabs from '../components/Tabs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Visa Services | Immigrant Resource Center"
+  description="Visa application assistance in Minneapolis, including visitor, fianc&eacute;(e),
+    and family visas."
+  canonical="https://www.ircoffice.com/visa"
+>
+  <!--website hero image with form-->
+  <header class="header header-flexbox">
+    <div class="container-main">
+      <div class="header__main-area">
+        <div class="header-flexbox-content-left">
+          <h1 class="heading__primary--greencard my-25">
+            <span class="secondary-color-text">Get help with your<br />Visa Application</span>
+          </h1>
+          <p class="header__paragraph--greencard my-25" style="max-width: 400px;">
+            When you are ready to get moving, we are ready to get you there!
+          </p>
+        </div>
+        <!--form start-->
+        <div class="form-box--greencard">
+          <h2
+            class="heading-form align-middle my-15"
+            style="color: rgb(49, 49, 49); font-weight: 600;"
+          >
+            Get Help Today
+          </h2>
+          <p class="paragraph-form paragraph-form--greencard align-middle my-30">
+            Drop us a line and we&rsquo;ll get back to you!
+          </p>
+          <ConsultForm subject="Visa" formId="form__visa" />
+        </div>
+        <!--form end-->
+      </div>
+    </div>
+  </header>
+
+  <!--section what is green card-->
+  <section class="section section-greencard-definition">
+    <h2 class="heading__section align-middle my-15">Why you need help?</h2>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      There are so many and different types and applications for visa based on your reason for
+      stay and business and they can all be very complex and difficult to know all the
+      requirements. We are here for you to guide with our experience.
+    </p>
+    <a href="#visa-services" class="btn--primary__blue btn--animated">Learn More</a>
+  </section>
+
+  <!--tab layout-->
+  <section class="section section-greencard__services" id="visa-services">
+    <h2 class="service__header my-20">Visa Applications</h2>
+    <p class="service__paragraph my-35">
+      these are the different applications and forms based on your intended stay and direction.
+    </p>
+    <Tabs>
+      <div class="tab-wrapper">
+        <nav class="tabammount_3 tab-sticky">
+          <a href="#tab-1" class="flextabs__toggle tab-name align-middle active">
+            Petition for Alien Relative
+          </a>
+          <a href="#tab-2" class="flextabs__toggle tab-name align-middle">
+            Fianc&eacute;&rsquo;s Visa
+          </a>
+          <a href="#tab-3" class="flextabs__toggle tab-name align-middle">Visitor visas</a>
+        </nav>
+        <div class="all-tab-content-holder">
+          <!--Tab 1 content  Start-->
+          <div id="tab-1" class="tab-content-wrapper">
+            <h3 class="heading__tab my-25">Form I-130</h3>
+            <p class="my-35 tab-paragraph">
+              The U.S. immigration system has two major categories of family-based immigrants:
+              immediate relatives and family preference. If a U.S. citizen or permanent resident
+              petitions a foreign family member, the immigrant will fall into one of these two
+              categories. The first step in the process of getting a green card through marriage
+              is to submit Form I-130 (officially called the &ldquo;Petition for Alien
+              Relative&rdquo;) to U.S. Citizenship and Immigration Services (USCIS), which is part
+              of the U.S. Department of Homeland Security.
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              The main purpose of the I-130 form, along with supporting documents, is to establish
+              that a valid family relation exists.
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              The person filing the I-130 is called the &ldquo;petitioner&rdquo; or
+              &ldquo;sponsor.&rdquo; The petitioner is a U.S. citizen or current green card
+              holder. The person seeking a visa is called the &ldquo;beneficiary&rdquo;
+            </p>
+
+            <p class="tab-paragraph">
+              There are few different categories that an beneficiary would fall under.
+            </p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>Spouse of a U.S. citizen</li>
+              <li>Unmarried child (under 21 years of age) of a U.S. citizen</li>
+              <li>Orphan adopted abroad by a U.S. citizen</li>
+              <li>Orphan to be adopted in the United States by a U.S. citizen</li>
+              <li>Parent of a U.S. citizen (who is at least 21 years old)</li>
+            </ul>
+
+            <p class="tab-paragraph">The family preference categories include:</p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>Unmarried, adult sons and daughters (age 21 or over) of U.S. citizens</li>
+              <li>Spouses and unmarried children (under age 21) of permanent residents</li>
+              <li>Unmarried adult sons and daughters of permanent residents</li>
+              <li>Married sons and daughters (any age) of U.S. citizens</li>
+              <li>Brothers and sisters of adult U.S. citizens</li>
+            </ul>
+
+            <p class="my-35 tab-paragraph">
+              For up to date filing instructions, application checklist, fees and all requirements
+              please contact us.
+            </p>
+
+            <a href="/contact" class="btn--primary__blue btn--animated">Contact Us</a>
+          </div>
+          <!--Tab 1 content  End-->
+
+          <!--Tab 2 content  Start-->
+          <div id="tab-2" class="tab-content-wrapper">
+            <h3 class="heading__tab my-25">Form I-129F, Petition For Alien Fianc&eacute;(e)</h3>
+            <p class="my-35 tab-paragraph">
+              If you are a U.S. citizen who wants to bring your foreign fianc&eacute;(e) to the
+              United States in order to get married, you will need to file a Form I-129F,
+              Petition For Alien Fianc&eacute;(e). This is the first step to obtaining a K-1
+              nonimmigrant visa for your fianc&eacute;(e). The K-1 nonimmigrant visa is also known
+              as a fianc&eacute;(e) visa.
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              In order to obtain a K-1 fianc&eacute;(e) visa, you and your fianc&eacute;(e) must
+              intend to marry each other within 90 days of your fianc&eacute;(e) entering the U.S
+              as a K-1 nonimmigrant. Your marriage must be valid, meaning both you and your
+              fianc&eacute;(e) have a bona fide intent to establish a life together and the
+              marriage is not for the sole purpose of obtaining an immigration benefit.
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              If your fianc&eacute;(e) marries you within 90 days of being admitted to the United
+              States as a K-1 nonimmigrant, he or she may apply for lawful permanent resident
+              status in the United States (a Green Card).
+            </p>
+
+            <p class="my-35 tab-paragraph" style="font-weight: 700; font-size: 2.2rem;">
+              Eligibility for Fianc&eacute;(e) Visas.
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              You may be eligible to bring your fianc&eacute;(e) to the United States on a
+              fianc&eacute;(e) visa if you meet the following requirements:
+            </p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>You are a U.S. citizen;</li>
+              <li>
+                You and your fianc&eacute;(e) intend to marry one another within 90 days of your
+                fianc&eacute;(e)&rsquo;s admission to the United States on a K-1 nonimmigrant
+                visa;
+              </li>
+              <li>
+                You and your fianc&eacute;(e) are both legally free to marry (this means you both
+                are legally able to marry in the United States and any previous marriages have
+                been legally terminated by divorce, death, or annulment); and
+              </li>
+              <li>
+                You and your fianc&eacute;(e) met each other in person at least once within the
+                2-year period before you file your petition. You may request a waiver of this
+                in-person meeting requirement if you can show that meeting in person would:
+                <ol class="green-card--inner my-15">
+                  <li>
+                    Violate strict and long-established customs of your fianc&eacute;(e)&rsquo;s
+                    foreign culture or social practice; or
+                  </li>
+                  <li>Result in extreme hardship to you, the U.S. citizen petitioner.</li>
+                </ol>
+              </li>
+            </ul>
+
+            <p class="my-35 tab-paragraph" style="font-weight: 700; font-size: 2.2rem;">
+              Process for Bringing your Fianc&eacute;(e) to the United States
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              The process for bringing your fianc&eacute;(e) to the United States involves USCIS,
+              the U.S. Department of State (DOS), and U.S. Customs and Border Protection (CBP). At
+              each stage in the process, background and security checks may be conducted on both
+              you and your fianc&eacute;(e). This may include checks in various databases for
+              national security, criminal history, and other information about you and your
+              fianc&eacute;(e). These checks are conducted using fingerprints, names, or other
+              biographic or biometric information.
+            </p>
+
+            <p class="my-35 tab-paragraph" style="font-weight: 700; font-size: 2.2rem;">
+              Step 1: Petition for Fianc&eacute;(e) &ndash; USCIS
+            </p>
+            <p class="my-35 tab-paragraph">
+              You file Form I-129F, Petition for Alien Fianc&eacute;(e) according to the form
+              instructions. This form asks USCIS to recognize the relationship between you and
+              your fianc&eacute;(e).
+
+              We review your Form I-129F and the documents you submitted. We may mail you a
+              request for evidence if we need additional documentation or information.
+
+              If you establish your eligibility, we approve your Form I-129F and recognize the
+              claimed fianc&eacute;(e) relationship. Otherwise, we deny your Form I-129F and
+              notify you of the reasons for denial.
+
+              We send the approved Form I-129F to the DOS National Visa Center (NVC).
+            </p>
+
+            <p class="my-35 tab-paragraph" style="font-weight: 700; font-size: 2.2rem;">
+              Step 2: Visa Application &ndash; Form DS160 DOS&ndash; USCIS
+            </p>
+            <p class="my-35 tab-paragraph">
+              The NVC forwards the approved Form I-129F to the U.S. Embassy or consulate where
+              your fianc&eacute;(e) will apply for a K-1 nonimmigrant visa. This is generally the
+              U.S. Embassy or consulate where your fianc&eacute;(e) lives.
+
+              The U.S. Embassy or consulate notifies you when the visa interview for your
+              fianc&eacute;(e) is scheduled.
+
+              Your fianc&eacute;(e) applies for the K-1 nonimmigrant visa and brings the required
+              forms and documents to the visa interview.
+
+              The DOS consular officer determines whether your fianc&eacute;(e) qualifies for the
+              K-1 nonimmigrant visa.
+
+              If the consular officer grants the K-1 nonimmigrant visa, it is valid for up to 6
+              months for a single entry.
+
+              If the consular officer does not find the relationship to be bona fide, DOS will not
+              issue a K-1 nonimmigrant visa and instead will return the Form I-129F to USCIS.
+              Generally, if DOS returns a Form I-129F to us after it has expired, we will allow it
+              to remain expired. However, you may choose to file a new Form I&#8209;129F.
+
+              Please print and keep a copy of all applications, confirmations, and communications
+              with your process.
+            </p>
+
+            <p class="my-35 tab-paragraph" style="font-weight: 700; font-size: 2.2rem;">
+              Step 3: Inspection at a Port of Entry &ndash; CBP
+            </p>
+            <p class="my-35 tab-paragraph">
+              If DOS issues a K-1 nonimmigrant visa, your fianc&eacute;(e) travels to the United
+              States and seeks admission at a port of entry while the K-1 nonimmigrant visa is
+              valid. As with any visa, a K-1 nonimmigrant visa does not guarantee admission to the
+              United States. A CBP officer at the port of entry will make the ultimate decision
+              about whether to admit your fianc&eacute;(e).
+            </p>
+
+            <p class="my-35 tab-paragraph" style="font-weight: 700; font-size: 2.2rem;">
+              Step 4: Marriage
+            </p>
+            <p class="my-35 tab-paragraph">
+              If your fianc&eacute;(e) is admitted as a K-1 nonimmigrant, you and your
+              fianc&eacute;(e) have 90 days to marry each other.
+            </p>
+
+            <p class="my-35 tab-paragraph" style="font-weight: 700; font-size: 2.2rem;">
+              Step 5: Adjustment of Status &ndash; USCIS
+            </p>
+            <p class="my-35 tab-paragraph">
+              If you marry within 90 days, your fianc&eacute;(e)&mdash;now your
+              spouse&mdash;may apply for a Green Card by filing Form I-485, Application to
+              Register Permanent Residence or Adjust Status.
+
+              We review Form I-485 and the documents your spouse submitted. We may mail a request
+              for evidence to your spouse if we need additional documentation or information.
+
+              You and your spouse will usually be required to appear for an interview.
+
+              If you were married for less than two years at the time the Form I-485 is approved,
+              USCIS will grant your spouse conditional permanent resident status and issue a Green
+              Card valid for 2 years. Your spouse will need to remove the conditions on his or her
+              residence by filing Form I-751, Petition to Remove Conditions on Residence in the 90
+              days before his or her Green Card expires.
+            </p>
+
+            <p class="my-35 tab-paragraph" style="font-weight: 700; font-size: 2.2rem;">
+              Source:
+              <a
+                href="https://www.uscis.gov/family/family-us-citizens/visas-fiancees-us-citizens"
+                target="_blank"
+                class="tab-inner-link"
+                style="text-decoration: underline;"
+              >
+                USCIS
+              </a>
+            </p>
+
+            <a href="/contact" class="btn--primary__blue btn--animated">Contact Us Now</a>
+          </div>
+          <!--Tab 2 Content End-->
+
+          <!--Tab 3 Content Start-->
+          <div id="tab-3" class="tab-content-wrapper">
+            <h3 class="heading__tab my-25">B1/B2 Business - Tourism - Medical</h3>
+            <p class="my-35 tab-paragraph">
+              The US Visa policies change and quite often. Latest policy and travel are always
+              available at the US State Department website.
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              Generally, a citizen of a foreign country who wishes to enter the United States must
+              first obtain a visa, either a nonimmigrant visa for a temporary stay, or an
+              immigrant visa for permanent residence. Visitor visas are nonimmigrant visas for
+              persons who want to enter the United States temporarily for business (visa category
+              B-1), for tourism (visa category B-2), or for a combination of both purposes
+              (B-1/B-2).
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              Here are some examples of activities permitted with a visitor visa:
+            </p>
+
+            <p class="tab-paragraph">Business (B-1)</p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>Consult with business associates</li>
+              <li>
+                Attend a scientific, educational, professional, or business convention or
+                conference
+              </li>
+              <li>Settle an estate</li>
+              <li>Negotiate a contract</li>
+            </ul>
+
+            <p class="my-35 tab-paragraph">
+              <a
+                href="https://travel.state.gov/content/dam/visas/PDF-other/VisaFlyer_B1B2_March_2015.pdf"
+                target="_blank"
+                class="tab-link--inner"
+                style="text-decoration: underline;"
+              >
+                Learn more about Business Travel to the United States (PDF - 362 KB) on a visitor
+                visa.
+              </a>
+            </p>
+
+            <p class="tab-paragraph">Tourism (B-2)</p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>Tourism</li>
+              <li>Vacation (holiday)</li>
+              <li>Visit with friends or relatives</li>
+              <li>Medical treatment</li>
+              <li>
+                Participation in social events hosted by fraternal, social, or service
+                organizations.
+              </li>
+              <li>
+                Participation by amateurs in musical, sports, or similar events or contests, if
+                not being paid for participating.
+              </li>
+            </ul>
+
+            <p class="my-35 tab-paragraph">
+              Enrollment in a short recreational course of study, not for credit toward a degree
+              (for example, a two-day cooking class while on vacation)
+            </p>
+
+            <p class="my-25 tab-paragraph">
+              Learn more about Visitor Visas --
+              <a
+                href="https://travel.state.gov/content/dam/visas/PDF-other/VisaFlyer_B1B2_March_2015.pdf"
+                target="_blank"
+                class="tab-link--inner"
+                style="text-decoration: underline;"
+              >
+                Business and Pleasure (PDF - 1020 KB).
+              </a>
+            </p>
+
+            <a href="/contact" class="btn--primary__blue btn--animated">Learn More</a>
+          </div>
+          <!--Tab 3 Content End-->
+        </div>
+      </div>
+    </Tabs>
+  </section>
+
+  <!--Section save time-->
+  <section class="section section__save-time">
+    <div class="facility__wrapper">
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Save Time</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Spend Less</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Friendly Support</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading align-middle">Friendly Support</h4>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,383 @@
+---
+// Ported from the legacy greencard.html body. Nav, Footer (with its own Disclaimer), and the
+// BaseLayout head are supplied by BaseLayout.astro (Nav/Footer chrome and the head's Google Maps
+// script are not part of this page's markup at all). Static port, same approach as Task 7/8: the
+// tab block is wrapped in <Tabs> exactly as src/pages/index.astro does, trigger anchors carry the
+// flextabs__toggle class. No page-level GSAP/Swiper/jQuery script tags.
+//
+// greencard.html has no visible <div id="map"> in the body (only the head's font stylesheet uses
+// a googleapis.com host, not maps.googleapis.com) — there is no Map component usage on this page.
+import ConsultForm from '../components/ConsultForm.astro';
+import Tabs from '../components/Tabs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Green Card Services | Immigrant Resource Center"
+  description="Green card application assistance in Minneapolis. Family-based, employment-based,
+    and adjustment of status support."
+  canonical="https://www.ircoffice.com/green-card"
+>
+  <!--website hero image with form-->
+  <header class="header header-flexbox">
+    <div class="container-main">
+      <div class="header__main-area">
+        <div class="header-flexbox-content">
+          <h1 class="heading__primary--greencard align-middle my-25">
+            <span class="secondary-color-text">Green Card<br />Applications</span>
+          </h1>
+          <p class="header__paragraph--greencard align-middle my-25">
+            Get to know the different green card applications and how we can help your process
+          </p>
+        </div>
+        <!--form-->
+        <div class="form-box--greencard">
+          <h2
+            class="heading-form align-middle my-15"
+            style="color: rgb(49, 49, 49); font-weight: 600;"
+          >
+            Get Help Today
+          </h2>
+          <p class="paragraph-form paragraph-form--greencard align-middle my-30">
+            Drop us a line and we&rsquo;ll get back to you!
+          </p>
+          <ConsultForm subject="Green Card" formId="form__greencard" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!--section what is green card-->
+  <section class="section section-greencard-definition">
+    <h2 class="heading__section align-middle my-15">What is a Green Card anyway?</h2>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      Green card is a permanent resident card that allows you to stay and work permanently in the
+      United States as you guessed the term Green Card is derived from its original color,
+    </p>
+    <a href="#greencard-services" class="btn--primary__blue btn--animated">Learn More</a>
+  </section>
+
+  <!--tab layout-->
+  <section class="section section-greencard__services" id="greencard-services">
+    <h2 class="service__header my-20">Green Card Applications</h2>
+    <p class="service__paragraph my-35">
+      The Green Card process is often a complex one and will require a great attention to
+      details. Here are some of the different applications and forms that you submit based on
+      your current immigration status.
+    </p>
+    <Tabs>
+      <div class="tab-wrapper">
+        <nav class="tabammount_3 tab-sticky">
+          <a href="#tab-1" class="flextabs__toggle tab-name align-middle active">
+            Petition to Remove Conditions on Green Card
+          </a>
+          <a href="#tab-2" class="flextabs__toggle tab-name align-middle">Adjustment of status</a>
+          <a href="#tab-3" class="flextabs__toggle tab-name align-middle">VAWA</a>
+        </nav>
+        <div class="all-tab-content-holder">
+          <!--Tab 1 content  Start-->
+          <div id="tab-1" class="tab-content-wrapper">
+            <h3 class="heading__tab my-25">Form I-751</h3>
+            <p class="my-35 tab-paragraph">
+              You received your Green Card upon arriving the US and reuniting with your spouse
+              and you notice you have a 2 year only Green Card. Do not worry. This just means
+              that you were married to your spouse for less than two years when you got the Green
+              Card and you have not yet proven a bonafide marriage which is to says you are
+              required to further prove that you marriage was entered in good faith and not just
+              for the immigration benefits. This also doesn't mean that you have less rights than
+              a normal resident.
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              This is what this application is about, and we will guide throughout the process to
+              remove the conditions from your permanent residence status.
+            </p>
+
+            <p class="tab-paragraph">Here is what you need to know:</p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>
+                You are required to file this Petition to Remove Conditions - Form I-751 during
+                the 90 days before your current Green Card expires.
+              </li>
+              <li>You and your spouse will file this jointly.</li>
+              <li>
+                Gather additional evidence as you can to prove that your marriage is not sham.
+              </li>
+              <li>
+                Application Fee - you should always check USCIS website for the up to date fees
+                (you can contact us as well)
+              </li>
+            </ul>
+
+            <h2 class="heading__tab my-25">Evidence Checklist</h2>
+            <p class="my-10 tab-paragraph">
+              You are required to prove that your marriage was entered in good faith and that
+              your relationship is not a sham just to get immigration benefits. The office
+              reviewing your application will determine if your evidence is enough to remove your
+              condition from your green card and providing as many items from the following list
+              as you can will be recommended.
+            </p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>Marriage certificates</li>
+              <li>Joint bank accounts</li>
+              <li>Joint credit card statements</li>
+              <li>joint federal and state tax returns</li>
+              <li>
+                Photographs of you and your spouse taken before and during your marriage, wedding
+                photographs preferably those that include parents and other relatives from both
+                families.
+              </li>
+              <li>
+                Rental agreements, leases, or mortgages showing that you have lived together
+                and/or haveleased or bought property in both spouses' names
+              </li>
+              <li>
+                Your mutual child's birth certificate or a doctor's report indicating that you are
+                pregnant
+              </li>
+              <li>utility bills in both your names</li>
+              <li>
+                evidence that one spouse has made the other a beneficiary on his/her life or
+                health insurance or retirement account
+              </li>
+              <li>Affidavit letter from people that know your marriage and relationship</li>
+              <li>others you think are relevant.</li>
+            </ul>
+
+            <p class="my-10 tab-paragraph">
+              Filing your application can be quite overwhelming even when you meet all the
+              requirements and small mistakes can get your application delayed or worse rejected.
+              At Immigrant Reource Center Office we have helped so many clients in the past two
+              decades and we can ensure that you get the best our of your application process.
+            </p>
+
+            <p class="my-25 tab-paragraph">
+              contact us today by filling the form at the top of this page or clicking the button
+              below.
+            </p>
+
+            <a href="/contact" class="btn--primary__blue btn--animated">Contact Us Now</a>
+          </div>
+          <!--Tab 1 content  End-->
+
+          <!--Tab 2 content  Start-->
+          <div id="tab-2" class="tab-content-wrapper">
+            <h3 class="heading__tab my-25">Form I-485</h3>
+            <p class="my-35 tab-paragraph">
+              Adjustment of status is the process that you can use to apply for lawful permanent
+              resident status (also known as applying for a Green Card) when you are present in
+              the United States. This means that you may get a Green Card without having to
+              return to your home country to complete visa processing.
+            </p>
+
+            <p class="my-10 tab-paragraph">Application Checklist:</p>
+
+            <ol class="green-card--inner my-15">
+              <li>Government Valid identification.</li>
+              <li>
+                Copy of your admission status refugee/asylum; immigrant petition for alien worker
+                or any other form your are legally admitted in the USA.
+              </li>
+              <li>Address shows residence in the state.</li>
+              <li>Employment history.</li>
+              <li>
+                If you have arrested please obtain certified letter from applicable courts about
+                type of charges
+              </li>
+              <li>
+                Two recent immigration photo (we do take photos here for free if you file your
+                application here at IRC).
+              </li>
+              <li>Names if your parents, Date and place of birth if available.</li>
+              <li>
+                Name of your spouse and childen and their dates of birth and place of birth
+                current resident.
+              </li>
+              <li>Date &amp;place of marriage your and spouse</li>
+            </ol>
+            <a href="/contact" class="btn--primary__blue btn--animated">Talk to an expert</a>
+          </div>
+          <!--Tab 2 Content End-->
+
+          <!--Tab 3 Content Start-->
+          <div id="tab-3" class="tab-content-wrapper">
+            <h3 class="heading__tab my-25">Violence Against Women Act</h3>
+            <p class="my-35 tab-paragraph">
+              Under the federal Violence Against Women Act (VAWA), you may be eligible to become
+              a lawful permanent resident (get a Green Card) if you are the victim of battery or
+              extreme cruelty committed by:
+            </p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>A U.S. citizen spouse or former spouse;</li>
+              <li>A U.S. citizen parent;</li>
+              <li>A U.S. citizen son or daughter;</li>
+              <li>A lawful permanent resident (LPR) spouse or former spouse; or</li>
+              <li>An LPR parent.</li>
+            </ul>
+
+            <p class="my-10 tab-paragraph">
+              You may self-petition under VAWA by filing a Petition for Amerasian, Widow(er), or
+              Special Immigrant (Form I-360) without your abusive family member&rsquo;s knowledge
+              or consent. A person who files a VAWA self-petition is generally known as a VAWA
+              self-petitioner. If your self-petition is approved and you meet other eligibility
+              requirements, you may be eligible to apply to become a lawful permanent resident.
+            </p>
+
+            <p class="my-20 tab-paragraph">
+              In order to be eligible for a Green Card as a VAWA self-petitioner, you must meet
+              the following requirements:
+            </p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>
+                You properly file Form I-485, Application to Register Permanent Residence or
+                Adjust Status;
+              </li>
+              <li>
+                You are physically present in the United States at the time you file your Form
+                I-485;
+              </li>
+              <li>You are eligible to receive an immigrant visa;</li>
+              <li>joint federal and state tax returns</li>
+              <li>
+                An immigrant visa is immediately available to you at the time you file your Form
+                I-485 and when USCIS makes a final decision on your application;
+              </li>
+              <li>None of the bars to adjustment of status apply to you;</li>
+              <li>
+                You are admissible to the United States for lawful permanent residence or eligible
+                for a waiver of inadmissibility or other form of relief; and
+              </li>
+              <li>You merit the favorable exercise of USCIS&rsquo; discretion.</li>
+            </ul>
+
+            <p class="my-35 tab-paragraph">Eligible to Receive an Immigrant Visa</p>
+            <p class="my-20 tab-paragraph">
+              You are eligible to receive an immigrant visa based on:
+            </p>
+
+            <ul class="green-card green-card--list my-35">
+              <li>
+                An approved VAWA self-petition (Form I-360, Petition for Amerasian, Widow(er), or
+                Special Immigrant);
+              </li>
+              <li>
+                A previously filed VAWA self-petition that remains pending (if ultimately
+                approved); or
+              </li>
+              <li>
+                A VAWA self-petition (if ultimately approved) filed together with your Form I-485.
+              </li>
+            </ul>
+            <p class="my-35 tab-paragraph">
+              At Immigrant Resource Center Office, we will protect your confidentiality and help
+              you with the process of filing your application and give you all the information
+              you needin every step of the way.
+            </p>
+
+            <p class="my-30 tab-paragraph">Please contact our office today.</p>
+
+            <a href="/contact" class="btn--primary__blue btn--animated">Talk to Us</a>
+          </div>
+          <!--Tab 3 Content End-->
+        </div>
+      </div>
+    </Tabs>
+  </section>
+
+  <!--Section save time-->
+  <section class="section section__save-time">
+    <div class="facility__wrapper">
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Save Time</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Spend Less</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Friendly Support</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading align-middle">Friendly Support</h4>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
