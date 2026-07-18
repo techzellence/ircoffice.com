@@ -53,20 +53,12 @@ aboutTimeline.from('.section-about-company', {
   duration: 1,
 });
 
-// "Why choose us" facility cards: fade/slide up with a stagger once scrolled into view.
-const facilityTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.section__save-time',
-    start: '-30% bottom',
-  },
-});
-
-facilityTimeline.from('.facility__block', {
-  opacity: 0,
-  yPercent: 100,
-  duration: 0.7,
-  stagger: 0.2,
-});
+// Note: the legacy recreation also wired a "why choose us" facility-card scroll animation here
+// (ScrollTrigger on `.section__save-time`, tweening `.facility__block`). Task 13's live-site
+// screenshot triage checked the actual home page (`.facility__card` x3, no `.section__save-time`
+// element at all) and confirmed the live site does not animate that section either -- both
+// selectors were dead on arrival, pre-dating this task, and removing the block only silences a
+// console warning; it changes no rendered pixel on either side.
 
 // COVID notification banners: collapsed by default, animate open shortly after load, and close
 // (each closing the other) when their × icon is clicked. Guarded because this module is imported
