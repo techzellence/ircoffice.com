@@ -23,25 +23,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     application assistance."
   canonical="https://www.ircoffice.com/"
 >
-  <!--
-    COVID notice banners, ported verbatim from index.html body content (homepage-only, not part
-    of the shared Nav/Footer chrome per Task 4). GSAP entrance/exit animation and the close-icon
-    click handlers are wired in src/scripts/animation.ts (imported globally from BaseLayout).
-  -->
-  <div class="top-notification" style="background: rgb(183, 94, 12);">
-    <p class="paragraph-notification">
-      For latest COVID-19 immigration announcements check at USCIS website.
-    </p>
-    <div class="notification-close" id="close-icon">×</div>
-  </div>
-
-  <div class="bottom-notification" style="background: rgb(183, 94, 12);">
-    <p class="paragraph-notification pn-2">
-      For latest COVID-19 immigration announcements check at USCIS website.
-    </p>
-    <div class="notification-close-2" id="close-icon-2">×</div>
-  </div>
-
   <!--website hero image with form-->
   <header class="header-2 header--home">
     <div class="header-home__content header__home--animation flex-center">
