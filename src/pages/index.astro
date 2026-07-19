@@ -15,6 +15,9 @@ import ConsultForm from '../components/ConsultForm.astro';
 import Map from '../components/Map.astro';
 import Tabs from '../components/Tabs.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { FOUNDED_YEAR, getYearsInBusiness } from '../lib/business';
+
+const years = getYearsInBusiness();
 ---
 
 <BaseLayout
@@ -57,8 +60,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h2 class="heading__section align-middle my-15">OUR SERVICES</h2>
     <p class="paragraph-section align-middle my-20">
       Preparing an entire immigration application is complex. Potential issues and major errors
-      could cost you thousands of dollars, or cause long delays or even rejection. With over two
-      decades of experience, we take the complexity out of your filing and application process at
+      could cost you thousands of dollars, or cause long delays or even rejection. With {years}
+      years of experience, we take the complexity out of your filing and application process at
       an affordable rate.
     </p>
 
@@ -197,7 +200,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="#tab-1" class="flextabs__toggle tab-name align-middle active">Green Card</a>
         <a href="#tab-2" class="flextabs__toggle tab-name align-middle">Citizenship</a>
         <a href="#tab-3" class="flextabs__toggle tab-name align-middle">Visa</a>
-        <a href="#tab-4" class="flextabs__toggle tab-name align-middle">Umra Package</a>
+        <a href="#tab-4" class="flextabs__toggle tab-name align-middle">Umrah Package</a>
       </nav>
       <div class="all-tab-content-holder">
         <!--Tab 1 content  Start-->
@@ -255,8 +258,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Naturalization form - also known as Form N-400. This application begins the process
             for current Green Card holders to apply for full citizenship through the U.S.
             government. Before you begin - there are many eligibility requirements that must be
-            met. IRC&rsquo;s team of trained immigration advisors stands ready to make sure that
-            you have met all the requirements to be considered for naturalization.
+            met. IRC&rsquo;s team of trained immigration specialists can help you gather your
+            documents and prepare a complete application.
           </p>
 
           <p class="my-35 tab-paragraph">
@@ -344,8 +347,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             for you and your family.
           </p>
           <p class="my-20 tab-paragraph">
-            Check out the full suite of online tools and resources from IRC as you begin your
-            immigration process. When you are ready to get moving, we are ready to get you there!
+            Talk to us as you begin your travel plans, and we will walk you through what each
+            application needs. When you are ready to get moving, we are ready to get you there!
           </p>
           <!--button-->
           <a href="/visa" class="btn btn--blue btn--animated">Learn More</a>
@@ -357,7 +360,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h3 class="heading__tab my-25">Visa & Ticketing</h3>
 
           <p class="my-20 tab-paragraph">
-            The Kingdom of Saudi Arabia is temporarily suspending Umra for citizens and
+            The Kingdom of Saudi Arabia is temporarily suspending Umrah for citizens and
             residents in the kingdom due to the coronavirus outbreak, the Saudi Press Agency
             (SPA) reported on Wednesday.
           </p>
@@ -500,7 +503,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <h4 class="facility__heading align-middle my-20">Experience</h4>
         <p class="facility__pargraph align-middle my-20">
-          With over two decades of experience, we are proud of our multilingual and creative
+          With {years} years of experience, we are proud of our multilingual and creative
           immigration experts, who have helped our clients meet their immigration needs.
         </p>
         <div class="arrow-icon align-middle">
@@ -591,9 +594,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="about-content">
         <h2 class="heading__section who-are-we my-25">WHO ARE WE</h2>
         <p class="paragraph-section--3 paragraph-middle my-40">
-          We are an immigrant-owned family business, established in 1999 to support the
+          We are an immigrant-owned family business, established in {FOUNDED_YEAR} to support the
           immigration process of the thriving immigrant communities. We have helped thousands of
-          clients over the past two decades, and we are proud to have enabled so many happy
+          clients over the past {years} years, and we are proud to have enabled so many happy
           unions and joyful moments.
         </p>
       </div>

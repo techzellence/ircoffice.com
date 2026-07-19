@@ -23,6 +23,7 @@
 //   per the task brief, not the Disclaimer component (Footer already renders that globally).
 // - "Visit us": reuses the green-card--list bullet styling for the address/phone/hours lines.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { FOUNDED_YEAR } from '../lib/business';
 ---
 
 <BaseLayout
@@ -50,7 +51,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h2 class="heading__section align-middle my-15">Who we are</h2>
     <p class="paragraph-section align-middle my-30 max-width-600">
       Immigrant Resource Center is an immigrant-owned, family-run business in the heart of
-      Minneapolis. Established in 1999, we were founded to support the thriving immigrant
+      Minneapolis. Established in {FOUNDED_YEAR}, we were founded to support the thriving immigrant
       communities of the Twin Cities through what can be a complex and stressful set of
       processes. Over the years we have helped thousands of clients work through their
       immigration and travel paperwork, and we are proud to have played a small part in so many
@@ -58,7 +59,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </p>
     <p class="paragraph-section align-middle my-30 max-width-600">
       We sit on West Lake Street, in the community we serve, and many of our clients come to us
-      through the recommendation of a family member or neighbour we have helped before.
+      through the recommendation of a family member or neighbor we have helped before.
     </p>
   </section>
 
@@ -66,20 +67,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section-greencard__services">
     <h2 class="heading__section align-middle my-15">What we help with</h2>
     <p class="paragraph-section align-middle my-20 max-width-600">
-      We assist individuals and families with the preparation and organisation of immigration
+      We assist individuals and families with the preparation and organization of immigration
       and travel paperwork, including:
     </p>
     <ul class="green-card green-card--list my-35">
       <li><strong>Green Card</strong> applications and supporting forms</li>
       <li><strong>Citizenship and naturalization</strong> applications</li>
       <li><strong>Visa</strong> applications, including family and visitor visas</li>
-      <li><strong>USCIS form preparation</strong> and document organisation</li>
+      <li><strong>USCIS form preparation</strong> and document organization</li>
       <li>
-        <strong>Umra travel packages</strong> — visa arrangements, tickets, and accommodation
+        <strong>Umrah travel packages</strong> — visa arrangements, tickets, and accommodation
       </li>
     </ul>
     <p class="paragraph-section align-middle my-30 max-width-600">
-      We take the time to explain each step, help you gather and organise the right documents,
+      We take the time to explain each step, help you gather and organize the right documents,
       and make sure your forms are complete before they are filed.
     </p>
   </section>

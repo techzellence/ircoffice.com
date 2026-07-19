@@ -1,9 +1,10 @@
 ---
 import Disclaimer from './Disclaimer.astro';
+import { getCurrentYear } from '../lib/business';
 
 // Computed at build time so the copyright year never goes stale (the legacy
 // footer was frozen at "2020").
-const year = new Date().getFullYear();
+const year = getCurrentYear();
 ---
 
 <footer class="footer">
@@ -82,7 +83,9 @@ const year = new Date().getFullYear();
     <div class="footer__column">
       <h3 class="footer__header">Address</h3>
       <ul class="footer__list">
-        <li class="footer__list-item">1 W Lake St Ste#165, Minneapolis, MN United States, 55408</li>
+        <li class="footer__list-item">
+          1 W Lake St Ste #165, Minneapolis, MN 55408, United States
+        </li>
       </ul>
       <div class="social-icon-block">
         <!-- Social links omitted pending real URLs from client -->
