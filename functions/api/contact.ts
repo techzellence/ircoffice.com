@@ -47,20 +47,33 @@ export async function onRequestPost(context: any): Promise<Response> {
   const { request, env } = context as { request: Request; env: Env };
   const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
 
-  const attempts = Number((await env.RATE_LIMIT.get(`rl:${ip}`)) ?? '0');
-  if (attempts >= RATE_LIMIT_MAX) {
-    return json({ error: 'Too many requests. Please try again later.' }, 429);
-  }
+  // If the KV namespace is not bound (a deploy-configuration mistake), `env.RATE_LIMIT` is
+  // undefined. Dereferencing it would throw and return 500 for EVERY submission — silently
+  // losing every lead, which is the exact failure this rewrite existed to eliminate. Rate
+  // limiting is defence in depth by this function's own design; Turnstile below is the control
+  // that actually stops bots. So a missing binding degrades to "Turnstile only" and shouts in
+  // the logs, rather than taking the contact form down site-wide.
+  if (env.RATE_LIMIT) {
+    const attempts = Number((await env.RATE_LIMIT.get(`rl:${ip}`)) ?? '0');
+    if (attempts >= RATE_LIMIT_MAX) {
+      return json({ error: 'Too many requests. Please try again later.' }, 429);
+    }
 
-  // Increment on ATTEMPT, not on success. Counting only successful sends
-  // would let an attacker hammer Turnstile verification and validation
-  // indefinitely without ever tripping the limit. KV is eventually
-  // consistent, so this is best-effort — it raises the cost of abuse, it
-  // does not make it impossible. Cloudflare WAF rate limiting is the
-  // hard control; this is defence in depth.
-  await env.RATE_LIMIT.put(`rl:${ip}`, String(attempts + 1), {
-    expirationTtl: RATE_LIMIT_WINDOW_SECONDS,
-  });
+    // Increment on ATTEMPT, not on success. Counting only successful sends
+    // would let an attacker hammer Turnstile verification and validation
+    // indefinitely without ever tripping the limit. KV is eventually
+    // consistent, so this is best-effort — it raises the cost of abuse, it
+    // does not make it impossible. Cloudflare WAF rate limiting is the
+    // hard control; this is defence in depth.
+    await env.RATE_LIMIT.put(`rl:${ip}`, String(attempts + 1), {
+      expirationTtl: RATE_LIMIT_WINDOW_SECONDS,
+    });
+  } else {
+    console.error(
+      'RATE_LIMIT KV namespace is not bound — per-IP rate limiting is DISABLED. ' +
+        'Bind it in wrangler.toml / the Pages dashboard. Turnstile is still enforced.',
+    );
+  }
 
   const form = await request.formData();
   const raw: Record<string, string> = {};

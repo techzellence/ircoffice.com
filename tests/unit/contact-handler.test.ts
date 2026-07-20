@@ -113,6 +113,20 @@ describe('onRequestPost', () => {
     expect(resendCall).toBeUndefined();
   });
 
+  it('still delivers the lead when the RATE_LIMIT binding is missing', async () => {
+    // A missing KV binding is a deploy-config mistake. Dereferencing it would throw and 500 on
+    // every submission, silently losing every lead — the exact failure this rewrite removed.
+    // It must degrade to "Turnstile only" and log, not take the form down.
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    const env = makeEnv({ RATE_LIMIT: undefined });
+
+    const res = await onRequestPost({ request: makeRequest(validBody), env } as never);
+
+    expect(res.status).toBe(200);
+    expect(consoleError).toHaveBeenCalledWith(expect.stringContaining('RATE_LIMIT'));
+    consoleError.mockRestore();
+  });
+
   it('rejects a rate-limited IP with 429', async () => {
     const env = makeEnv({
       RATE_LIMIT: { get: vi.fn().mockResolvedValue('5'), put: vi.fn() },
