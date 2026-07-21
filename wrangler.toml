@@ -9,14 +9,13 @@ pages_build_output_dir = "dist"
 
 # Per-IP rate limiting for the contact form (functions/api/contact.ts).
 #
-# REQUIRED BEFORE FIRST DEPLOY — create the namespace and paste its id here:
-#   npx wrangler kv namespace create RATE_LIMIT
+# Namespace "ircoffice-RATE_LIMIT", created in the Main account (a63cfc19…).
 #
 # If this binding is missing the function degrades to Turnstile-only and logs loudly; it will
 # NOT take the contact form down. Verify it is live after deploy (see docs/DEPLOYMENT.md).
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "395ed050cf484e52b770c999be1157bb"
 
 # Secrets are set with `wrangler pages secret put <NAME>` or in the Pages dashboard, never in
 # this file and never in git:
