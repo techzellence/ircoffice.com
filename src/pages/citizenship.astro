@@ -1,0 +1,280 @@
+---
+// Ported from the legacy citizenship.html body. Nav, Footer (with its own Disclaimer), and the
+// BaseLayout head are supplied by BaseLayout.astro. Static port, same approach as Task 7/8: the
+// tab block is wrapped in <Tabs> exactly as src/pages/index.astro does, trigger anchors carry the
+// flextabs__toggle class. No page-level GSAP/Swiper/jQuery script tags.
+//
+// citizenship.html has no visible <div id="map"> in the body (only the head's font stylesheet
+// uses a googleapis.com host, not maps.googleapis.com) — there is no Map component usage on this
+// page.
+import ConsultForm from '../components/ConsultForm.astro';
+import Tabs from '../components/Tabs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Citizenship & Naturalization | Immigrant Resource Center"
+  description="Citizenship and naturalization application assistance in Minneapolis."
+  canonical="https://www.ircoffice.com/citizenship"
+>
+  <!--website hero image with form-->
+  <header class="header header-flexbox">
+    <div class="container-main">
+      <div class="header__main-area">
+        <div class="header-flexbox-content-left">
+          <h1 class="heading__primary--greencard my-25">
+            <span class="secondary-color-text">Citizenship <br />Applications</span>
+          </h1>
+          <p class="header__paragraph--greencard my-25" style="max-width: 500px;">
+            Get to know about the naturalization process and how we can help.
+          </p>
+        </div>
+
+        <!--form start-->
+        <div class="form-box--greencard">
+          <h2
+            class="heading-form align-middle my-15"
+            style="color: rgb(49, 49, 49); font-weight: 600;"
+          >
+            Get Help Today
+          </h2>
+          <p class="paragraph-form paragraph-form--greencard align-middle my-30">
+            Drop us a line and we&rsquo;ll get back to you!
+          </p>
+          <ConsultForm subject="Citizenship" formId="form__citizenship" />
+        </div>
+      </div>
+    </div>
+    <!--form end-->
+  </header>
+
+  <!--section what is green card-->
+  <section class="section section-greencard-definition">
+    <h2 class="heading__section align-middle my-15">What we can do for you</h2>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      IRC helps you complete your entire naturalization application, including all forms and
+      supporting documents, and provides support from the moment your application is filed until
+      you obtain U.S. citizenship.
+    </p>
+    <a href="#citizenship-services" class="btn--primary__blue btn--animated">Learn More</a>
+  </section>
+
+  <!--tab layout-->
+  <section class="section section-greencard__services" id="citizenship-services">
+    <h2 class="service__header my-20">Citizenship Application Process</h2>
+    <p class="service__paragraph my-35">
+      The following will guide you through the application process.
+    </p>
+    <Tabs>
+      <div class="tab-wrapper">
+        <nav class="tabammount_2 tab-sticky">
+          <a href="#tab-1" class="flextabs__toggle tab-name align-middle active">
+            Apply for Citizenship
+          </a>
+          <a href="#tab-2" class="flextabs__toggle tab-name align-middle">
+            Consular Report of Birth Abroad (CRBA)
+          </a>
+        </nav>
+        <div class="all-tab-content-holder">
+          <!--Tab 1 content  Start-->
+          <div id="tab-1" class="tab-content-wrapper">
+            <h3 class="heading__tab my-25">Form N-400</h3>
+            <p class="my-35 tab-paragraph">
+              Before you apply for naturalization, you must meet a few requirements. Depending on
+              your situation, there are different requirements that may apply to you.
+            </p>
+
+            <p class="my-35 tab-paragraph">Naturalization Application Checklist:</p>
+            <ol class="green-card--inner my-15">
+              <li>You must be at least 18 years old.</li>
+              <li>Have been a permanent resident of the United States and have a Green Card.</li>
+              <li>
+                Five years as a permanent resident if not through marriage, or 3 years if you
+                obtained your Green Card through marriage.
+              </li>
+              <li>
+                During the last five years, you have not been outside the USA for more than 30
+                months.
+              </li>
+              <li>
+                During the last five years, or last three years (if you qualify), you have not
+                taken a trip outside the USA that lasted more than one year.
+              </li>
+              <li>
+                That you have lived as a resident in the state where you are applying for
+                citizenship for at least 3 months.
+              </li>
+              <li>You can read, write, and speak basic English.</li>
+              <li>
+                That you know the fundamentals of USA history and the principles and form of USA
+                government.
+              </li>
+              <li>
+                List the names of your spouse and children, and their dates and places of birth.
+              </li>
+              <li>Date and place of marriage.</li>
+            </ol>
+
+            <!--button-->
+            <a href="/contact" class="btn--primary__blue btn--animated">Get Started Today</a>
+          </div>
+          <!--Tab 1 content  End-->
+
+          <!--Tab 2 content  Start-->
+          <div id="tab-2" class="tab-content-wrapper">
+            <h3 class="heading__tab my-25">DS-2029</h3>
+            <p class="my-35 tab-paragraph">
+              A Consular Report of Birth Abroad of a Citizen of the United States (Form FS-240) is
+              an official document certifying acquisition of citizenship for a child born outside
+              of the United States.
+            </p>
+
+            <p class="my-35 tab-paragraph">
+              When applying for a Consular Report of Birth Abroad for a child who has never been
+              documented as a U.S. citizen, the documentary evidence listed below should be
+              presented. In certain instances, additional evidence may be required.
+
+              Unless otherwise provided, all documentation submitted must be originals or
+              certified copies of the originals bearing the
+
+              seal of the issuing vital records office, court, or other authority.
+            </p>
+
+            <ol class="green-card--inner my-15">
+              <li>Child's birth certificate.</li>
+              <li>
+                Evidence of the parent(s)' U.S. citizenship and identity. This may consist of a
+                U.S. passport, U.S. passport card, Consular Report of Birth Abroad, Naturalization
+                Certificate, Certificate of Citizenship, or timely filed U.S. birth certificate.
+                For other forms of acceptable U.S. citizenship evidence, contact the U.S. consul. A
+                passport or government-issued photo ID must be presented as proof of identity.
+              </li>
+              <li>
+                Evidence of the U.S. citizen parent(s)' physical presence or residence in the
+                United States prior to the birth of the child. Such evidence may include, but is
+                not limited to, affidavits, school, employment, tax, bank, and medical records,
+                utility bills, rent receipts, or other official public documents. Evidence of time
+                spent abroad working for the U.S. government, U.S. Armed Forces or qualifying
+                international organization, or as a dependent child of a person working abroad
+                for such entities prior to the birth of the child is also acceptable in some
+                cases.
+              </li>
+              <li>Parents' marriage certificate, if applicable.</li>
+              <li>
+                Evidence of the termination of any previous marriages of the parents (divorce
+                decree, annulment decree, or death certificate).
+              </li>
+              <li>
+                If a person other than a parent or the child is applying for the Consular Report
+                of Birth Abroad, the person must present a certified copy of legal guardianship or
+                a notarized affidavit from the parent(s) authorizing the person to make the
+                application.
+              </li>
+            </ol>
+
+            <p class="my-35 tab-paragraph">
+              At Immigrant Resource Center Office, we make sure that you get the process right on
+              the first application and that you avoid mistakes that could delay your
+              application. Reach out to us today.
+            </p>
+            <a href="/contact" class="btn--primary__blue btn--animated">Learn More</a>
+          </div>
+          <!--Tab 2 Content End-->
+        </div>
+      </div>
+    </Tabs>
+  </section>
+
+  <!--Section save time-->
+  <section class="section section__save-time">
+    <div class="facility__wrapper">
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Save Time</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Spend Less</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading--small align-middle">Friendly Support</h4>
+      </div>
+
+      <div class="facility__block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 70 70"
+          id="1112241606"
+          class="checkmark"
+          data-icon-name="wp-checked_icon"
+          data-hover-effect="float"
+        >
+          <g id="1299641105">
+            <path
+              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
+              s23-10.3,23-23S47.7,12,35,12z"
+              id="1262257561"></path>
+            <polygon
+              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
+              id="1219245274"></polygon>
+          </g>
+        </svg>
+        <h4 class="facility__heading align-middle">Friendly Support</h4>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

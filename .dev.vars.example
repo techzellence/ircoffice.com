@@ -1,0 +1,5 @@
+# Server-side only. Consumed by the Pages Function via Wrangler.
+# NEVER prefix these with PUBLIC_ and never move them to .env.
+RESEND_API_KEY=re_placeholder_do_not_commit_a_real_key
+CONTACT_RECIPIENT=someone@ircoffice.com
+TURNSTILE_SECRET_KEY=placeholder

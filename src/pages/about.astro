@@ -1,0 +1,141 @@
+---
+// New page (Task 10): /about did not exist as real content on the legacy site (the exported
+// about.html body was copywriting-agency boilerplate and Lorem ipsum), so this is a drafted page
+// rather than a port. Copy is the verbatim, approved text from
+// .superpowers/sdd/task-10-content.md — do not paraphrase.
+//
+// Visual patterns reused from src/pages/green-card.astro and src/pages/index.astro so this page
+// looks native to the rest of the site:
+// - Hero: same `header header-flexbox` / `header__main-area` / `header-flexbox-content` /
+//   `heading__primary--greencard` classes as green-card.astro's hero, minus the form-box (this
+//   page has no form) — `header__main-area` is given an inline `justify-content: center` since
+//   it normally splits two children (text + form) with `space-between`.
+// - "Who we are": `section-greencard-definition` (the grey, centered intro-copy block used for
+//   "What is a Green Card anyway?" on green-card.astro).
+// - "What we help with": `section-greencard__services` for the padding rhythm (used for the tab
+//   section on green-card.astro; reused here purely for its `padding-top`/`padding-bottom`, no
+//   tabs), with the `green-card green-card--list` bullet styling used throughout the site for
+//   service lists.
+// - "How we work": `section-why-choose` + `facility-container`/`facility__card` card styling,
+//   the same classes as index.astro's "WHY CHOOSE US" section, without that section's decorative
+//   numbered-shape/arrow SVGs (kept simple per the task brief: "plain styled sections are fine").
+// - "Important notice": rendered as plain section markup (heading__section + paragraph-section)
+//   per the task brief, not the Disclaimer component (Footer already renders that globally).
+// - "Visit us": reuses the green-card--list bullet styling for the address/phone/hours lines.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { FOUNDED_YEAR } from '../lib/business';
+---
+
+<BaseLayout
+  title="About Us | Immigrant Resource Center"
+  description="Immigrant Resource Center is an immigrant-owned, family-run immigration and travel
+    services firm in Minneapolis, helping Twin Cities families navigate green card, citizenship,
+    visa, and Umrah travel processes."
+  canonical="https://www.ircoffice.com/about"
+>
+  <!--website hero image-->
+  <header class="header header-flexbox">
+    <div class="container-main">
+      <div class="header__main-area" style="justify-content: center;">
+        <div class="header-flexbox-content">
+          <h1 class="heading__primary--greencard align-middle my-25">
+            <span class="secondary-color-text">About Immigrant Resource Center</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!--section who we are-->
+  <section class="section-greencard-definition">
+    <h2 class="heading__section align-middle my-15">Who we are</h2>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      Immigrant Resource Center is an immigrant-owned, family-run business in the heart of
+      Minneapolis. Established in {FOUNDED_YEAR}, we were founded to support the thriving immigrant
+      communities of the Twin Cities through what can be a complex and stressful set of
+      processes. Over the years we have helped thousands of clients work through their
+      immigration and travel paperwork, and we are proud to have played a small part in so many
+      reunions and new beginnings.
+    </p>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      We sit on West Lake Street, in the community we serve, and many of our clients come to us
+      through the recommendation of a family member or neighbor we have helped before.
+    </p>
+  </section>
+
+  <!--section what we help with-->
+  <section class="section-greencard__services">
+    <h2 class="heading__section align-middle my-15">What we help with</h2>
+    <p class="paragraph-section align-middle my-20 max-width-600">
+      We assist individuals and families with the preparation and organization of immigration
+      and travel paperwork, including:
+    </p>
+    <ul class="green-card green-card--list my-35">
+      <li><strong>Green Card</strong> applications and supporting forms</li>
+      <li><strong>Citizenship and naturalization</strong> applications</li>
+      <li><strong>Visa</strong> applications, including family and visitor visas</li>
+      <li><strong>USCIS form preparation</strong> and document organization</li>
+      <li>
+        <strong>Umrah travel packages</strong> — visa arrangements, tickets, and accommodation
+      </li>
+    </ul>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      We take the time to explain each step, help you gather and organize the right documents,
+      and make sure your forms are complete before they are filed.
+    </p>
+  </section>
+
+  <!--section how we work-->
+  <section class="section-why-choose">
+    <h2 class="heading__section align-middle my-15" style="margin-bottom: 4rem;">
+      How we work
+    </h2>
+    <div class="facility-container">
+      <div class="facility__card">
+        <h4 class="facility__heading align-middle my-20">Rooted in the community.</h4>
+        <p class="facility__pargraph align-middle my-20">
+          We are immigrants ourselves and we understand the process from the inside, in more
+          than one language.
+        </p>
+      </div>
+
+      <div class="facility__card">
+        <h4 class="facility__heading align-middle my-20">Clear and affordable.</h4>
+        <p class="facility__pargraph align-middle my-20">
+          We keep our pricing straightforward and explain what each service involves before you
+          commit.
+        </p>
+      </div>
+
+      <div class="facility__card">
+        <h4 class="facility__heading align-middle my-20">Responsive.</h4>
+        <p class="facility__pargraph align-middle my-20">
+          When you have a question, you can reach a real person who knows your file.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!--section important notice (verbatim, legally load-bearing; deliberate reinforcement of the
+      Footer's global Disclaimer, not a duplication to remove)-->
+  <section class="section-greencard-definition" style="padding-top: 8rem; padding-bottom: 8rem;">
+    <h2 class="heading__section align-middle my-15">Important notice</h2>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      Immigrant Resource Center is a private entity that is registered in Minnesota and provides
+      professional immigration and travel services at your direction. We are not a law firm or a
+      substitute for an attorney or law firm, and we are not affiliated with USCIS or any
+      government agency. We do not provide legal advice. Your access to and use of this site is
+      subject to additional Terms of Use.
+    </p>
+  </section>
+
+  <!--section visit us-->
+  <section class="section-greencard__services" style="padding-bottom: 10rem;">
+    <h2 class="heading__section align-middle my-15">Visit us</h2>
+    <ul class="green-card green-card--list my-35">
+      <li><strong>Address:</strong> 1 W Lake St Ste #165, Minneapolis, MN 55408</li>
+      <li><strong>Phone:</strong> (612) 822-5747</li>
+      <li><strong>Hours:</strong> Monday–Friday 9am–6pm, Saturday 10am–5pm</li>
+    </ul>
+  </section>
+</BaseLayout>

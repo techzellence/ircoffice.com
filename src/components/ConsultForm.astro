@@ -1,0 +1,108 @@
+---
+interface Props {
+  subject: string;
+  formId: string;
+  /**
+   * Submit button color. ConsultForm renders on both dark navy panels (hero, booking
+   * sections) and light page sections. `blue` (the default, `.btn--blue`) matches the
+   * legacy behavior and reads fine on light backgrounds; `orange` (`.btn--primary`, the
+   * same accent used by the "Learn More"/"Call Us" buttons) is required wherever the form
+   * sits on a navy/dark panel, since a navy button on a navy panel is invisible.
+   */
+  variant?: 'blue' | 'orange';
+}
+
+const { subject, formId, variant = 'blue' } = Astro.props;
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+
+<form class="form" id={formId} novalidate>
+  <div class="form__group">
+    <label class="form__label" for={`${formId}-name`}>Name</label>
+    <input class="form__input input-information" type="text" id={`${formId}-name`}
+           name="name" maxlength="100" placeholder="Name" required />
+  </div>
+  <div class="form__group">
+    <label class="form__label" for={`${formId}-email`}>Email</label>
+    <input class="form__input input-information" type="email" id={`${formId}-email`}
+           name="email" maxlength="254" placeholder="Email" required />
+  </div>
+  <div class="form__group">
+    <label class="form__label" for={`${formId}-phone`}>Phone</label>
+    <input class="form__input input-information" type="tel" id={`${formId}-phone`}
+           name="phone" maxlength="40" placeholder="Phone" required />
+  </div>
+  <div class="form__group">
+    <label class="form__label" for={`${formId}-message`}>Message</label>
+    <textarea class="form__input input-information" id={`${formId}-message`}
+              name="message" maxlength="5000" style="height: 50px;" spellcheck="false"
+              placeholder="How can we help?"></textarea>
+  </div>
+
+  <input type="hidden" name="subject" value={subject} />
+
+  {/* Honeypot: hidden from humans, irresistible to bots. */}
+  <div class="form__hp" aria-hidden="true">
+    <label for={`${formId}-website`}>Leave this field empty</label>
+    <input type="text" id={`${formId}-website`} name="website" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
+
+  <p class="form__error" role="alert" hidden></p>
+
+  <div class="form__group">
+    <button type="submit" class:list={['btn', variant === 'orange' ? 'btn--primary' : 'btn--blue']}>
+      Send Message
+    </button>
+  </div>
+</form>
+
+<style>
+  .form__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form.form').forEach((form) => {
+    const errorEl = form.querySelector<HTMLElement>('.form__error');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (errorEl) errorEl.hidden = true;
+      if (button) button.disabled = true;
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: new FormData(form),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+
+        form.innerHTML =
+          '<h1 class="success-message">Thank you for contacting us.<br/>' +
+          'We will get back to you as soon as possible</h1>';
+      } catch (error) {
+        console.error('Contact form submission failed', {
+          formId: form.id,
+          message: error instanceof Error ? error.message : String(error),
+        });
+        if (errorEl) {
+          errorEl.textContent =
+            'Sorry, we could not send your message. Please call us at (612) 822-5747.';
+          errorEl.hidden = false;
+        }
+        if (button) button.disabled = false;
+      }
+    });
+  });
+</script>

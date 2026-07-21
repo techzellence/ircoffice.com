@@ -1,0 +1,28 @@
+# Cloudflare Pages configuration.
+#
+# Kept in the repo rather than configured only in the dashboard so the bindings the site needs
+# are reviewable and travel with the code. Secrets are NOT here — see below.
+
+name = "ircoffice"
+compatibility_date = "2026-07-01"
+pages_build_output_dir = "dist"
+
+# Per-IP rate limiting for the contact form (functions/api/contact.ts).
+#
+# Namespace "ircoffice-RATE_LIMIT", created in the Main account (a63cfc19…).
+#
+# If this binding is missing the function degrades to Turnstile-only and logs loudly; it will
+# NOT take the contact form down. Verify it is live after deploy (see docs/DEPLOYMENT.md).
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "395ed050cf484e52b770c999be1157bb"
+
+# Secrets are set with `wrangler pages secret put <NAME>` or in the Pages dashboard, never in
+# this file and never in git:
+#   RESEND_API_KEY         Resend API key
+#   CONTACT_RECIPIENT      inbox that receives leads (server-side constant; never user-supplied)
+#   TURNSTILE_SECRET_KEY   Turnstile server-side secret
+#
+# Build-time public vars go in the Pages build settings (they are compiled into the HTML):
+#   PUBLIC_TURNSTILE_SITE_KEY
+#   PUBLIC_CF_BEACON_TOKEN

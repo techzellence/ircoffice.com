@@ -1,0 +1,48 @@
+<div class="flextabs">
+  <slot />
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.flextabs').forEach((container) => {
+    const triggers = Array.from(
+      container.querySelectorAll<HTMLAnchorElement>('.flextabs__toggle'),
+    );
+
+    // querySelector('') throws SyntaxError rather than returning null, so an
+    // anchor with no href would take the whole script down. Resolve panels
+    // defensively and drop any trigger whose panel is missing, keeping the
+    // two arrays index-aligned.
+    const pairs = triggers
+      .map((trigger) => {
+        const href = trigger.getAttribute('href');
+        const panel = href && href.startsWith('#') && href.length > 1
+          ? document.querySelector<HTMLElement>(href)
+          : null;
+        return { trigger, panel };
+      })
+      .filter((p): p is { trigger: HTMLAnchorElement; panel: HTMLElement } => p.panel !== null);
+
+    const triggerEls = pairs.map((p) => p.trigger);
+    const panels = pairs.map((p) => p.panel);
+
+    function activate(index: number): void {
+      panels.forEach((panel, i) => {
+        panel.hidden = i !== index;
+      });
+      triggerEls.forEach((trigger, i) => {
+        trigger.classList.toggle('flextabs__toggle--active', i === index);
+        trigger.setAttribute('aria-selected', String(i === index));
+      });
+    }
+
+    triggerEls.forEach((trigger, index) => {
+      trigger.setAttribute('role', 'tab');
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        activate(index);
+      });
+    });
+
+    if (triggerEls.length > 0) activate(0);
+  });
+</script>

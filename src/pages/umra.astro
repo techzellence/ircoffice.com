@@ -1,0 +1,112 @@
+---
+// New page (Task 10): /umra did not exist as real content on the legacy site (the exported
+// umra.html body was copywriting-agency boilerplate and Lorem ipsum), so this is a drafted page
+// rather than a port. Copy is the verbatim, approved text from
+// .superpowers/sdd/task-10-content.md — do not paraphrase.
+//
+// Two pieces of the content file's /umra copy are intentionally NOT rendered here:
+// - The "> Note for the site owner: ..." blockquote under "Current package details" — that is
+//   guidance to whoever maintains the site (fill in this season's package details), not
+//   visitor-facing copy. Only the line that follows it is rendered.
+// - No redundant <Disclaimer> import — the Footer renders that globally; the "Important notice"
+//   section below is deliberate body-copy reinforcement, not a duplicate.
+//
+// Visual patterns reused from src/pages/green-card.astro and src/pages/index.astro:
+// - Hero: `header header-flexbox` / `header__main-area` / `header-flexbox-content` /
+//   `heading__primary--greencard`, same as about.astro — heading only, no form-box, because the
+//   content file places the contact form later in the page (after "Current package details"),
+//   not in the hero.
+// - "Travel with people who understand": `section-greencard-definition` (grey intro-copy block).
+// - "What a package can include": `section-greencard__services` padding rhythm +
+//   `green-card green-card--list` bullets.
+// - Contact form: `section-booking` / `heading__booking` / `paragraph-form` / `form-wrapper`,
+//   the same combination as index.astro's "Book a consultation" section, so a standalone
+//   in-page contact block (as opposed to the hero form-box used on green-card/citizenship/visa)
+//   looks native to the site.
+// - "Important notice": plain section markup (heading__section + paragraph-section), per the
+//   task brief.
+import ConsultForm from '../components/ConsultForm.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Umrah Travel Packages | Immigrant Resource Center"
+  description="Umrah travel assistance from Immigrant Resource Center in Minneapolis: visa
+    arrangements, tickets, and accommodation, handled by a team that speaks your language."
+  canonical="https://www.ircoffice.com/umra"
+>
+  <!--website hero image-->
+  <header class="header header-flexbox">
+    <div class="container-main">
+      <div class="header__main-area" style="justify-content: center;">
+        <div class="header-flexbox-content">
+          <h1 class="heading__primary--greencard align-middle my-25">
+            <span class="secondary-color-text">Umrah Travel Packages</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!--section travel with people who understand-->
+  <section class="section-greencard-definition">
+    <h2 class="heading__section align-middle my-15">Travel with people who understand</h2>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      Alongside our immigration services, Immigrant Resource Center helps members of our
+      community make the journey for Umrah. We handle the travel arrangements so you can focus
+      on the pilgrimage itself, and we do it in a language you are comfortable with, from an
+      office you can walk into.
+    </p>
+  </section>
+
+  <!--section what a package can include-->
+  <section class="section-greencard__services">
+    <h2 class="heading__section align-middle my-15">What a package can include</h2>
+    <ul class="green-card green-card--list my-35">
+      <li>
+        <strong>Umrah visa arrangements</strong> — we help prepare and process the travel visa.
+      </li>
+      <li><strong>Flights and transport</strong> — booking your tickets and onward travel.</li>
+      <li><strong>Accommodation</strong> — arranging your stay for the duration of the trip.</li>
+      <li>
+        <strong>Travel support</strong> — a point of contact who can answer questions before and
+        during your travel.
+      </li>
+    </ul>
+  </section>
+
+  <!--section current package details (visitor-facing line only; the site-owner note above it in
+      the content file is not rendered — see file-level comment)-->
+  <section class="section-greencard-definition">
+    <h2 class="heading__section align-middle my-15">Current package details</h2>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      To ask about this season's Umrah packages, availability, and pricing, contact us using the
+      form below or call (612) 822-5747.
+    </p>
+  </section>
+
+  <!--section-book-a-consultation, same pattern as index.astro-->
+  <section class="section-booking">
+    <h3 class="heading__booking align-middle my-30 pu-70">Get in touch</h3>
+    <p class="paragraph-form align-middle my-40 max-410">
+      Drop us a line and we'll get back to you about Umrah travel.
+    </p>
+
+    <div class="form-wrapper">
+      <ConsultForm subject="Umrah" formId="form__umra" variant="orange" />
+    </div>
+  </section>
+
+  <!--section important notice (verbatim, legally load-bearing; deliberate reinforcement of the
+      Footer's global Disclaimer, not a duplication to remove)-->
+  <section class="section-greencard__services" style="padding-bottom: 10rem;">
+    <h2 class="heading__section align-middle my-15">Important notice</h2>
+    <p class="paragraph-section align-middle my-30 max-width-600">
+      Immigrant Resource Center is a private entity that is registered in Minnesota and provides
+      professional immigration and travel services at your direction. We are not a law firm or a
+      substitute for an attorney or law firm, and we are not affiliated with USCIS or any
+      government agency. We do not provide legal advice. Your access to and use of this site is
+      subject to additional Terms of Use.
+    </p>
+  </section>
+</BaseLayout>
