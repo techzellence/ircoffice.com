@@ -2,6 +2,8 @@
 // byte-identical to what the pages render and to the client's Google Business
 // Profile — mismatched name/address/phone actively harms local ranking.
 
+import { FOUNDED_YEAR } from './business';
+
 export interface BusinessInfo {
   name: string;
   telephone: string;
@@ -27,7 +29,9 @@ export const BUSINESS: BusinessInfo = {
   addressCountry: 'US',
   latitude: 44.948306738076035,
   longitude: -93.27877182892344,
-  foundingYear: 1999,
+  // Imported from business.ts to ensure the founding year cannot drift between
+  // visible copy and structured SEO data.
+  foundingYear: FOUNDED_YEAR,
 };
 
 export interface Crumb {
