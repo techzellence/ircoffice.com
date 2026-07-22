@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
+import { breadcrumbSchema, professionalServiceSchema } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -23,6 +24,18 @@ const {
 // Scrapers (WhatsApp, Facebook, X) require absolute URLs; a relative og:image
 // is the usual reason a card validates in a tool but renders blank in a chat.
 const ogImageUrl = new URL(ogImage, SITE_ORIGIN).href;
+
+const businessSchema = professionalServiceSchema(SITE_ORIGIN);
+
+// Breadcrumbs only make sense below the root; the home page is the root.
+const pagePath = new URL(canonical).pathname;
+const crumbs =
+  pagePath === '/'
+    ? null
+    : breadcrumbSchema(SITE_ORIGIN, [
+        { name: 'Home', path: '/' },
+        { name: (title.split('|')[0] ?? title).trim(), path: pagePath },
+      ]);
 ---
 
 <!doctype html>
@@ -62,6 +75,8 @@ const ogImageUrl = new URL(ogImage, SITE_ORIGIN).href;
       async
       defer
       is:inline></script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(businessSchema)} />
+    {crumbs && <script type="application/ld+json" is:inline set:html={JSON.stringify(crumbs)} />}
     <slot name="head" />
   </head>
   <body>
