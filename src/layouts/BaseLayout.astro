@@ -6,9 +6,23 @@ interface Props {
   title: string;
   description: string;
   canonical: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
 }
 
-const { title, description, canonical } = Astro.props;
+const SITE_ORIGIN = 'https://www.ircoffice.com';
+
+const {
+  title,
+  description,
+  canonical,
+  ogType = 'website',
+  ogImage = '/og-card.png',
+} = Astro.props;
+
+// Scrapers (WhatsApp, Facebook, X) require absolute URLs; a relative og:image
+// is the usual reason a card validates in a tool but renders blank in a chat.
+const ogImageUrl = new URL(ogImage, SITE_ORIGIN).href;
 ---
 
 <!doctype html>
@@ -19,6 +33,23 @@ const { title, description, canonical } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Immigrant Resource Center" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Immigrant Resource Center — Immigration & Travel Services, Minneapolis"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" href="/img/favicon.ico" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
