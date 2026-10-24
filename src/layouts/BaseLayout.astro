@@ -36,6 +36,12 @@ const crumbs =
         { name: 'Home', path: '/' },
         { name: (title.split('|')[0] ?? title).trim(), path: pagePath },
       ]);
+
+const rawBeaconToken: string | undefined = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+const beaconToken =
+  rawBeaconToken && rawBeaconToken.trim() !== '' && rawBeaconToken !== 'undefined'
+    ? rawBeaconToken
+    : null;
 ---
 
 <!doctype html>
@@ -86,10 +92,17 @@ const crumbs =
     <script>
       import '../scripts/animation';
     </script>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon={`{"token": "${import.meta.env.PUBLIC_CF_BEACON_TOKEN}"}`}
-      is:inline></script>
+    {
+      // Without a token the beacon posts "undefined" to Cloudflare and logs a CORS error on
+      // every page, so leave it out entirely until the token is configured.
+      beaconToken && (
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: beaconToken })}
+          is:inline
+        />
+      )
+    }
   </body>
 </html>

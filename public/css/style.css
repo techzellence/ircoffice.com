@@ -14,3 +14,8 @@
    separate top-level .site-navbar block (see Nav.astro) with its own toggler, so this element
    has no job in the current architecture at any viewport; hide it unconditionally. */
 .menu-toggle{display:none}.footer__link{color:#fff}.footer__link:hover{text-decoration:underline}
+/* Below 860px the navy form box was pinned to height:500px. That height was chosen while the
+   Turnstile widget never rendered (the site key was missing in production), so once the widget
+   appeared, plus an error message, the Send button spilled out of the panel onto the white
+   section below. Let the box grow with its content instead. */
+@media only screen and (max-width:860px){.form-box{height:auto;min-height:500px}}

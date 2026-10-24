@@ -23,6 +23,27 @@ describe('buildEmail', () => {
     expect(text).toContain('Question about green cards.');
   });
 
+  it('fences and indents a multi-line message so it cannot pass for the details block', () => {
+    // The visitor controls the message. Unfenced, a line like "Email: someone@else.example"
+    // would look exactly like the real details above it.
+    const message = 'Hi\r\nEmail: someone@else.example\r\nPhone: 000';
+    const { text } = buildEmail({ ...submission, message });
+    const lines = text.split('\n');
+
+    expect(lines).not.toContain('Email: someone@else.example');
+    expect(lines).toContain('  Email: someone@else.example');
+    expect(text).not.toContain('\r');
+    const start = lines.indexOf('--- Message from the visitor ---');
+    const end = lines.indexOf('--- End of message ---');
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+  });
+
+  it('never puts the message in the subject line', () => {
+    const { subject } = buildEmail({ ...submission, message: 'URGENT read now' });
+    expect(subject).not.toContain('URGENT');
+  });
+
   it('renders a placeholder when the message is empty', () => {
     const { text } = buildEmail({ ...submission, message: '' });
     expect(text).toContain('(no message)');

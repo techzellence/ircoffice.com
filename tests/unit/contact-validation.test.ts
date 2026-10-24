@@ -56,6 +56,15 @@ describe('validateSubmission', () => {
     expect(result.ok).toBe(false);
   });
 
+  it('accepts a multi-line message, as browsers submit textareas with CRLF', () => {
+    // The message only ever goes in the email body, never a header, so a line break there is
+    // ordinary text. Rejecting it bounced every visitor who pressed Enter in the message box.
+    const message = 'Hello,\r\n\r\nI need help with my N-400.\r\nThank you';
+    const result = validateSubmission({ ...valid, message });
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.value.message).toBe(message);
+  });
+
   it('rejects a missing name', () => {
     const result = validateSubmission({ ...valid, name: '' });
     expect(result.ok).toBe(false);
