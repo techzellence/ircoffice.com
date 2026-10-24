@@ -16,7 +16,7 @@ const { subject, formId, variant = 'blue' } = Astro.props;
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
-<form class="form" id={formId} novalidate>
+<form class="form" id={formId} data-surface={variant === 'orange' ? 'dark' : 'light'} novalidate>
   <div class="form__group">
     <label class="form__label" for={`${formId}-name`}>Name</label>
     <input class="form__input input-information" type="text" id={`${formId}-name`}
@@ -50,6 +50,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
 
   <p class="form__error" role="alert" hidden></p>
+  <p class="form__success success-message" role="status"></p>
 
   <div class="form__group">
     <button type="submit" class:list={['btn', variant === 'orange' ? 'btn--primary' : 'btn--blue']}>
@@ -66,16 +67,69 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     height: 1px;
     overflow: hidden;
   }
+
+  .form__error {
+    margin: 1rem 0;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* Brand orange in the pairing that passes WCAG AA on each surface: the dark orange on white,
+     the light orange on the navy panels (the dark one is about 2:1 there). */
+  .form[data-surface='light'] .form__error,
+  .form[data-surface='light'] .form__success {
+    color: #b75e0c;
+  }
+
+  .form[data-surface='dark'] .form__error,
+  .form[data-surface='dark'] .form__success {
+    color: #f39b4b;
+  }
 </style>
 
 <script>
+  import { messageForFailedSubmission, messageForInvalidField } from '../lib/form-feedback';
+
+  interface TurnstileApi {
+    reset(container?: string | HTMLElement): void;
+  }
+
+  class SubmissionError extends Error {
+    constructor(
+      readonly status: number,
+      readonly body: unknown,
+    ) {
+      super(`Request failed with status ${status}`);
+    }
+  }
+
   document.querySelectorAll<HTMLFormElement>('form.form').forEach((form) => {
     const errorEl = form.querySelector<HTMLElement>('.form__error');
+    const successEl = form.querySelector<HTMLElement>('.form__success');
     const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const widget = form.querySelector<HTMLElement>('.cf-turnstile');
+
+    const showError = (message: string): void => {
+      if (!errorEl) return;
+      errorEl.textContent = message;
+      errorEl.hidden = false;
+    };
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (errorEl) errorEl.hidden = true;
+
+      // Catch an empty or malformed field here, before spending the single-use Turnstile token
+      // and a rate-limit slot on a request the server would only reject.
+      if (!form.checkValidity()) {
+        const firstInvalid = form.querySelector<HTMLInputElement>('input:invalid');
+        showError(messageForInvalidField(firstInvalid?.name));
+        firstInvalid?.focus();
+        return;
+      }
+
       if (button) button.disabled = true;
 
       try {
@@ -85,22 +139,32 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         });
 
         if (!response.ok) {
-          throw new Error(`Request failed with status ${response.status}`);
+          const body: unknown = await response.json().catch(() => null);
+          throw new SubmissionError(response.status, body);
         }
 
-        form.innerHTML =
-          '<h1 class="success-message">Thank you for contacting us.<br/>' +
-          'We will get back to you as soon as possible</h1>';
+        // Keep the status region in the document (so screen readers announce it) and drop
+        // everything else.
+        for (const child of Array.from(form.children)) {
+          if (child !== successEl) child.remove();
+        }
+        if (successEl) {
+          successEl.innerHTML =
+            'Thank you for contacting us.<br />We will get back to you as soon as possible.';
+        }
       } catch (error) {
+        const status = error instanceof SubmissionError ? error.status : undefined;
         console.error('Contact form submission failed', {
           formId: form.id,
+          status,
           message: error instanceof Error ? error.message : String(error),
         });
-        if (errorEl) {
-          errorEl.textContent =
-            'Sorry, we could not send your message. Please call us at (612) 822-5747.';
-          errorEl.hidden = false;
-        }
+        showError(
+          messageForFailedSubmission(status, error instanceof SubmissionError ? error.body : null),
+        );
+        // Turnstile tokens are single-use. Without a fresh one, every retry fails verification.
+        const turnstile = (window as Window & { turnstile?: TurnstileApi }).turnstile;
+        if (widget && turnstile) turnstile.reset(widget);
         if (button) button.disabled = false;
       }
     });
