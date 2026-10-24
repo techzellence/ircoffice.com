@@ -115,6 +115,43 @@ describe('onRequestPost', () => {
     expect(payload.text).toContain('I need help renewing my green card.');
   });
 
+  it('logs why Turnstile rejected a submission', async () => {
+    // A bare 403 told nobody whether the secret was missing, the token reused, or the visitor
+    // a bot. Siteverify's error codes are the only way to tell from the Pages logs.
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(
+        async () =>
+          new Response(
+            JSON.stringify({ success: false, 'error-codes': ['timeout-or-duplicate'] }),
+            { status: 200 },
+          ),
+      ),
+    );
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+
+    const res = await onRequestPost({ request: makeRequest(validBody), env: makeEnv() } as never);
+
+    expect(res.status).toBe(403);
+    expect(consoleError).toHaveBeenCalledWith(
+      'Turnstile verification failed',
+      expect.objectContaining({ errorCodes: ['timeout-or-duplicate'] }),
+    );
+    consoleError.mockRestore();
+  });
+
+  it('logs a missing Turnstile secret as a configuration error', async () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    const env = makeEnv({ TURNSTILE_SECRET_KEY: undefined });
+
+    const res = await onRequestPost({ request: makeRequest(validBody), env } as never);
+
+    expect(res.status).toBe(503);
+    expect(consoleError).toHaveBeenCalledWith(expect.stringContaining('TURNSTILE_SECRET_KEY'));
+    expect(fetch).not.toHaveBeenCalled();
+    consoleError.mockRestore();
+  });
+
   it('rejects an invalid submission with 400 and does not send', async () => {
     const res = await onRequestPost({
       request: makeRequest({ ...validBody, email: 'nonsense' }),

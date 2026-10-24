@@ -20,6 +20,7 @@ export interface Env {
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_SECONDS = 3600;
 const SENDER = 'IRC Website <noreply@send.ircoffice.com>';
+const CALL_US = 'We could not send your message. Please call us at (612) 822-5747.';
 
 function json(body: unknown, status: number): Response {
   return new Response(JSON.stringify(body), {
@@ -28,15 +29,33 @@ function json(body: unknown, status: number): Response {
   });
 }
 
-async function verifyTurnstile(token: string, secret: string, ip: string): Promise<boolean> {
+interface TurnstileResult {
+  success: boolean;
+  errorCodes: string[];
+  hostname?: string;
+}
+
+async function verifyTurnstile(
+  token: string,
+  secret: string,
+  ip: string,
+): Promise<TurnstileResult> {
   const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ secret, response: token, remoteip: ip }),
   });
-  if (!res.ok) return false;
-  const data = (await res.json()) as { success?: boolean };
-  return data.success === true;
+  if (!res.ok) return { success: false, errorCodes: [`siteverify-http-${res.status}`] };
+  const data = (await res.json()) as {
+    success?: boolean;
+    'error-codes'?: string[];
+    hostname?: string;
+  };
+  return {
+    success: data.success === true,
+    errorCodes: data['error-codes'] ?? [],
+    hostname: data.hostname,
+  };
 }
 
 // The Pages Functions context type is supplied by the Cloudflare runtime at
@@ -86,12 +105,30 @@ export async function onRequestPost(context: any): Promise<Response> {
     return json({ ok: true }, 200);
   }
 
-  const passedTurnstile = await verifyTurnstile(
+  // Without the secret every submission would fail verification. That is a deploy-configuration
+  // mistake, not a bot, so say so plainly in the logs and answer 503 rather than a misleading 403.
+  if (!env.TURNSTILE_SECRET_KEY) {
+    console.error(
+      'TURNSTILE_SECRET_KEY is not set — every contact form submission is being rejected. ' +
+        'Add it as a Pages secret (Settings → Variables and Secrets) and redeploy.',
+    );
+    return json({ error: CALL_US }, 503);
+  }
+
+  const turnstile = await verifyTurnstile(
     raw['cf-turnstile-response'] ?? '',
     env.TURNSTILE_SECRET_KEY,
     ip,
   );
-  if (!passedTurnstile) {
+  if (!turnstile.success) {
+    // The error codes distinguish a misconfigured key (invalid-input-secret), a reused token
+    // (timeout-or-duplicate) and a missing widget (missing-input-response).
+    console.error('Turnstile verification failed', {
+      errorCodes: turnstile.errorCodes,
+      hostname: turnstile.hostname,
+      subject: raw.subject,
+      ip,
+    });
     return json({ error: 'Verification failed. Please try again.' }, 403);
   }
 
@@ -126,7 +163,7 @@ export async function onRequestPost(context: any): Promise<Response> {
       subject: result.value.subject,
       ip,
     });
-    return json({ error: 'We could not send your message. Please call us at (612) 822-5747.' }, 502);
+    return json({ error: CALL_US }, 502);
   }
 
   return json({ ok: true }, 200);
