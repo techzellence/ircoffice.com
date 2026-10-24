@@ -100,6 +100,21 @@ describe('onRequestPost', () => {
     expect(res.status).toBe(403);
   });
 
+  it('delivers a message that spans several lines', async () => {
+    const message = 'Hello,\r\nI need help renewing my green card.\r\nThanks';
+    const res = await onRequestPost({
+      request: makeRequest({ ...validBody, message }),
+      env: makeEnv(),
+    } as never);
+    expect(res.status).toBe(200);
+
+    const resendCall = (fetch as never as ReturnType<typeof vi.fn>).mock.calls.find(
+      (c: unknown[]) => String(c[0]).includes('resend.com'),
+    );
+    const payload = JSON.parse((resendCall![1] as RequestInit).body as string);
+    expect(payload.text).toContain('I need help renewing my green card.');
+  });
+
   it('rejects an invalid submission with 400 and does not send', async () => {
     const res = await onRequestPost({
       request: makeRequest({ ...validBody, email: 'nonsense' }),

@@ -20,6 +20,10 @@ export const FIELD_LIMITS: Readonly<Record<keyof ContactSubmission, number>> = O
 
 const OPTIONAL_FIELDS: ReadonlySet<keyof ContactSubmission> = new Set(['message']);
 
+// Fields that only ever appear in the email body, where a line break is ordinary text. Every
+// other field can reach a header (subject line, Reply-To), so CR/LF stays forbidden there.
+const BODY_ONLY_FIELDS: ReadonlySet<keyof ContactSubmission> = new Set(['message']);
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
@@ -42,7 +46,7 @@ export function validateSubmission(raw: Record<string, unknown>): ValidationResu
       continue;
     }
 
-    if (hasHeaderInjection(value)) {
+    if (!BODY_ONLY_FIELDS.has(field) && hasHeaderInjection(value)) {
       errors.push(`${field} contains invalid characters`);
       continue;
     }
