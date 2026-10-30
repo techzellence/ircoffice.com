@@ -87,3 +87,12 @@ textarea.form__input { height:auto; min-height:90px; resize:vertical; }
  .home-intro .section__form { margin:0 24px; }
  .home-anniversary { width:100%; margin-left:0; }
 }
+
+/* Reserve intrinsic logo and widget space; contain the map within its own row. */
+.nav__logo,.nav__logo--footer { width:224px; height:auto; aspect-ratio:720 / 153; object-fit:contain; max-width:100%; }
+.nav__logo-mobile { width:60px; height:auto; aspect-ratio:640 / 473; object-fit:contain; }
+.map__wrapper { position:relative; isolation:isolate; overflow:hidden; }
+.map__wrapper #map { height:100%; }
+.cf-turnstile { min-height:140px; }
+.footer__logo-wrapper { width:224px; max-width:100%; }
+.footer__logo-wrapper img { display:block; }
