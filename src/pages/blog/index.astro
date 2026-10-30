@@ -15,7 +15,7 @@ const posts = (await getCollection('blog', ({ data }) => data.draft === false)).
 >
   <main class="blog-index">
     <h1>Blog</h1>
-    {posts.length === 0 && <p>Posts are coming soon.</p>}
+    {posts.length === 0 && <p>There are no articles published yet. For information about our services, visit our <a href="/green-card">green card</a>, <a href="/citizenship">citizenship</a>, or <a href="/visa">visa</a> pages, or <a href="/contact">contact our team</a>.</p>}
     <ul>
       {
         posts.map((post) => (

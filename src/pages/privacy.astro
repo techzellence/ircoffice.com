@@ -1,40 +1,18 @@
 ---
-// New page (Task 10): /privacy did not exist on the legacy site. Copy is the verbatim, approved
-// text from .superpowers/sdd/task-10-content.md — do not paraphrase.
-//
-// One piece of the content file's /privacy copy is intentionally NOT rendered: the parenthetical
-// "(We deliberately do not publish a specific privacy email until the client confirms one; the
-// phone and contact form are the published channels for now.)" under "How to reach us about
-// privacy" — that is a note to the implementer/client, not visitor-facing copy. The phone,
-// address, and direction to the Contact page/form ARE rendered.
-//
-// This is a prose content page, not a marketing page, so it deliberately does NOT reuse the
-// grey/white alternating section blocks or card styling from green-card.astro/index.astro — the
-// task brief calls for "clean, readable prose... legibility matters most". What IS reused for
-// visual consistency with the rest of the site:
-// - The plain centered page-heading treatment from contact.astro (`contact-information__heading`
-//   + `divider__contact`), instead of the big photo hero used on service pages — this page has
-//   no form or call to action, so the photo hero's two-column layout doesn't apply.
-// - `heading__section` for each subsection heading (centered, matching site convention).
-// - `paragraph-section` for body copy, but WITHOUT the site's usual `align-middle` (centered)
-//   treatment: centered multi-line text reads poorly for legal prose, so body paragraphs here are
-//   left-aligned. This is a deliberate legibility choice, not a change to the copy itself.
-// - `green-card green-card--list` for the short phone/address list, matching the bullet styling
-//   used for similar short lists on about.astro.
+// Editorial copy reviewed in October 2026; keep factual claims aligned with current services.
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Privacy Policy | Immigrant Resource Center"
-  description="How Immigrant Resource Center collects, uses, and protects the information you
-    share through this website."
+  title="Website Privacy Policy | Immigrant Resource Center"
+  description="Learn how Immigrant Resource Center handles website inquiries, email delivery, spam protection, and analytics, and how to contact us about privacy."
   canonical="https://www.ircoffice.com/privacy"
 >
   <section style="padding-top: 8rem; padding-bottom: 2rem;">
     <h1 class="contact-information__heading align-middle my-10">Privacy Policy</h1>
     <div class="divider__contact"></div>
     <p class="paragraph-section align-middle my-30 max-width-600">
-      Last updated: July 2026. This policy explains what information this website collects and
+      Last updated: October 2026. This policy explains what information this website collects and
       how it is used. It describes the website only; it is not a description of our full client
       intake process.
     </p>
@@ -43,35 +21,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section style="padding-bottom: 3rem;">
     <h2 class="heading__section align-middle my-15">Information we collect</h2>
     <p class="paragraph-section my-20 max-width-600">
-      This website collects personal information only when you choose to send it to us through a
-      contact form. When you submit a form, we collect the <strong>name, email address, phone
-      number, and message</strong> you provide. We use this information solely to respond to
-      your enquiry.
+      When you submit a contact form, we receive the <strong>name, email address, phone number, and message</strong> you provide so we can respond to your inquiry. Please keep your first message brief and leave out sensitive identity or case documents.
     </p>
     <p class="paragraph-section my-20 max-width-600">
-      We do not sell, rent, or share this information with third parties for their marketing,
-      and we only share it with the service providers who help us operate the site and receive
-      your message (described below).
+      We do not sell, rent, or share this information with third parties for their marketing, and we
+      only share it with the service providers who help us operate the site and receive your message
+      (described below).
     </p>
   </section>
 
   <section style="padding-bottom: 3rem;">
     <h2 class="heading__section align-middle my-15">How your message reaches us</h2>
     <p class="paragraph-section my-20 max-width-600">
-      Form submissions are delivered to us by email through <strong>Resend</strong>, an email
-      delivery service, and are protected against automated spam by
-      <strong>Cloudflare Turnstile</strong>. These providers process your submission only to
-      deliver it to us.
+      We use <strong>Resend</strong> to deliver form submissions by email and <strong>Cloudflare Turnstile</strong> to help detect automated spam. Cloudflare also hosts the site. These services process information needed for delivery, hosting, and security under their own policies.
+    </p>
+  </section>
+
+
+  <section style="padding-bottom: 3rem;">
+    <h2 class="heading__section align-middle my-15">Technical information and external services</h2>
+    <p class="paragraph-section my-20 max-width-600">
+      To limit spam, we count repeated form submissions from the same IP address. This counter
+      expires one hour after the most recent counted request. Error logs may include an IP address
+      and technical details about a failed submission. These records help us investigate delivery
+      and security issues.
+    </p>
+    <p class="paragraph-section my-20 max-width-600">
+      Pages request fonts from Google Fonts, and pages with maps request map tiles from
+      OpenStreetMap. Loading these resources sends technical request information, such as your IP
+      address, to the provider. Links to external websites are governed by those sites' policies.
     </p>
   </section>
 
   <section style="padding-bottom: 3rem;">
     <h2 class="heading__section align-middle my-15">Analytics</h2>
     <p class="paragraph-section my-20 max-width-600">
-      We use <strong>Cloudflare Web Analytics</strong> to understand, in aggregate, how visitors
-      use the site (for example, which pages are viewed). Cloudflare Web Analytics is
-      privacy-focused: it does <strong>not</strong> use cookies and does <strong>not</strong>
-      collect personal information or track you across other websites.
+      When enabled, <strong>Cloudflare Web Analytics</strong> helps us understand aggregate page usage. Cloudflare describes this service as cookie-free analytics that does not track visitors across websites.
     </p>
   </section>
 
@@ -87,9 +72,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section style="padding-bottom: 3rem;">
     <h2 class="heading__section align-middle my-15">Your choices</h2>
     <p class="paragraph-section my-20 max-width-600">
-      You may contact us at any time to ask what information we hold about an enquiry you sent,
-      or to ask us to delete it. Because form submissions reach us by email, deletion means
-      removing the email we received.
+      Contact us to ask about information you submitted or to request deletion. Messages are
+      delivered by email, and related technical records may also be held by service providers. We
+      can explain what we can remove and any limits that apply to your request.
     </p>
   </section>
 
@@ -113,8 +98,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p class="paragraph-section my-20 max-width-600">
       Immigrant Resource Center is a private entity that is registered in Minnesota and provides
       professional immigration and travel services at your direction. We are not a law firm or a
-      substitute for an attorney or law firm, and we are not affiliated with USCIS or any
-      government agency. We do not provide legal advice.
+      substitute for an attorney or law firm, and we are not affiliated with USCIS or any government
+      agency. We do not provide legal advice.
     </p>
   </section>
 </BaseLayout>

@@ -60,11 +60,22 @@ describe('internal links resolve across all 9 built pages', () => {
   }
 });
 
+function isLegacyInternalHtml(href: string): boolean {
+  const url = new URL(href, 'https://www.ircoffice.com');
+  return url.origin === 'https://www.ircoffice.com' && /\.html$/i.test(url.pathname);
+}
+
 describe('no leftover .html links', () => {
+  it('distinguishes retired site URLs from official external HTML resources', () => {
+    expect(isLegacyInternalHtml('/visa.html#details')).toBe(true);
+    expect(isLegacyInternalHtml('https://www.ircoffice.com/contact.html')).toBe(true);
+    expect(isLegacyInternalHtml('https://travel.state.gov/content/travel/en/us-visas/tourism-visit/visitor.html')).toBe(false);
+    expect(isLegacyInternalHtml('/visa')).toBe(false);
+  });
   for (const route of ROUTES) {
     it(`${route === '/' ? '(home)' : route} only uses clean-URL anchors`, () => {
       const html = readDistPage(route);
-      const htmlLinks = anchorHrefs(html).filter((href) => /\.html(#.*)?$/i.test(href));
+      const htmlLinks = anchorHrefs(html).filter(isLegacyInternalHtml);
 
       expect(
         htmlLinks,

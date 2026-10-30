@@ -23,9 +23,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Contact Us | Immigrant Resource Center"
-  description="Contact the Immigrant Resource Center in Minneapolis. Call (612) 822-5747 or send
-    us a message."
+  title="Contact Immigrant Resource Center | Minneapolis"
+  description="Visit Immigrant Resource Center at 1 W Lake St, Suite 165, Minneapolis. Call (612) 822-5747 or ask about immigration paperwork and travel assistance."
   canonical="https://www.ircoffice.com/contact"
 >
   <section class="section section-contact__block" style="padding-bottom: 10rem;">
@@ -36,7 +35,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!--row-1-->
       <div class="contact-information__row">
-        <a href="/">
+        <a href="#office-map" aria-label="View the office map">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 100"
@@ -119,8 +118,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="form-box--information">
         <h2 class="heading-form__information my-15">Contact</h2>
         <p class="paragraph-form--information my-30">
-          We&rsquo;d love to hear from you. Choose the most convenient method and we&rsquo;ll get
-          back to you as soon as we can.
+          Call, email, or use the form below to ask about our services. Tell us briefly what you
+          need help with. Please do not send Social Security numbers, passport numbers, or sensitive
+          case records through this form.
         </p>
         <ConsultForm subject="Contact" formId="form__contact" />
       </div>
@@ -130,7 +130,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="divider" style="width: 100%; height: 10rem;"></div>
 
   <!--map start-->
-  <div class="map__wrapper">
+  <div class="map__wrapper" id="office-map">
     <Map />
   </div>
   <!--map end-->
