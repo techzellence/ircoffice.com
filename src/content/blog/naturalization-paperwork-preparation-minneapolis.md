@@ -5,13 +5,13 @@ pubDate: 2026-10-29
 draft: false
 ---
 
-Preparing for a naturalization appointment is easier when your records are organized. Start with your immigration documents, then gather the information needed to describe your address, work, travel, and family history accurately. The current Form N-400 instructions—not a generic online checklist—determine what your application needs. [1]
+Preparing for a naturalization appointment is easier when your records are organized. Start with your immigration documents, then gather the information needed to describe your address, work, travel, and family history accurately. The current Form N-400 instructions—not a generic online checklist—determine what your application needs. <sup><a href="#source-1" aria-label="Source 1">1</a></sup>
 
 This guide explains how to prepare for a paperwork appointment. It is not an eligibility assessment or a complete list of evidence to file.
 
 ## Start with the current form and instructions
 
-Go directly to the [USCIS Form N-400 page](https://www.uscis.gov/n-400). Review the instructions, accepted form edition, filing options, fee information, and supporting-evidence requirements before you prepare a submission. [1]
+Go directly to the [USCIS Form N-400 page](https://www.uscis.gov/n-400). Review the instructions, accepted form edition, filing options, fee information, and supporting-evidence requirements before you prepare a submission. <sup><a href="#source-1" aria-label="Source 1">1</a></sup>
 
 Avoid relying on a downloaded form saved months ago or on a fee quoted in an old article. Requirements can change. Check again before filing, even if you have already started gathering records.
 
@@ -38,7 +38,7 @@ This table is an organization tool. It does not replace the form's questions or 
 
 ## Separate preparation questions from legal questions
 
-A preparation service can explain its process, help organize information, and assist with completing paperwork at your direction. Questions about whether you qualify, how a criminal history affects an application, or whether an absence interrupted residence call for qualified legal advice. [2]
+A preparation service can explain its process, help organize information, and assist with completing paperwork at your direction. Questions about whether you qualify, how a criminal history affects an application, or whether an absence interrupted residence call for qualified legal advice. <sup><a href="#source-2" aria-label="Source 2">2</a></sup>
 
 For an appointment, write down both kinds of questions. That makes it easier to identify what the service can help with and what should be referred to an attorney or accredited representative.
 
@@ -46,7 +46,7 @@ For an appointment, write down both kinds of questions. That makes it easier to 
 
 Check that the completed answers reflect the information you provided. Ask about any answer you do not understand. Keep a copy of the final submission and the documents included with it.
 
-For test or interview preparation, use USCIS's current naturalization resources. Do not assume that an old study sheet matches the requirements applicable to your application. [3][4]
+For test or interview preparation, use USCIS's current naturalization resources. Do not assume that an old study sheet matches the requirements applicable to your application. <sup><a href="#source-3" aria-label="Source 3">3</a></sup><sup><a href="#source-4" aria-label="Source 4">4</a></sup>
 
 ## Getting help in Minneapolis
 
@@ -54,10 +54,10 @@ Immigrant Resource Center assists with [citizenship paperwork and document organ
 
 ## Official resources
 
-1. [USCIS: Form N-400 and instructions](https://www.uscis.gov/n-400)
-2. [USCIS: Find Legal Services](https://www.uscis.gov/avoid-scams/find-legal-services)
-3. [USCIS: Citizenship Resource Center](https://www.uscis.gov/citizenship)
+1. <span id="source-1"></span>[USCIS: Form N-400 and instructions](https://www.uscis.gov/n-400)
+2. <span id="source-2"></span>[USCIS: Find Legal Services](https://www.uscis.gov/avoid-scams/find-legal-services)
+3. <span id="source-3"></span>[USCIS: Citizenship Resource Center](https://www.uscis.gov/citizenship)
 
-4. [USAGov: Naturalization steps and test resources](https://www.usa.gov/naturalization)
+4. <span id="source-4"></span>[USAGov: Naturalization steps and test resources](https://www.usa.gov/naturalization)
 
 *General educational information only. Immigrant Resource Center is not a law firm and does not provide legal advice. Individual requirements vary.*

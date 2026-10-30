@@ -5,6 +5,7 @@
 // component — that toggle behavior is restored in a later task (animation.js).
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/';
+const isBlog = currentPath.startsWith('/blog');
 const isContact = currentPath === '/contact';
 ---
 
@@ -78,6 +79,7 @@ const isContact = currentPath === '/contact';
           </li>
         </ul>
       </li>
+      <li><a href="/blog"><span class:list={['title', isBlog && 'active-title']}>Guides</span></a></li>
       <li class="last ">
         <a href="/contact">
           <span class:list={['title', isContact && 'active-title']}>Contact</span>
@@ -144,6 +146,9 @@ const isContact = currentPath === '/contact';
           <a href="/citizenship" class="touch-d-link">Citizenship</a>
           <a href="/visa" class="touch-d-link">Visa</a>
         </div>
+      </li>
+      <li>
+        <a href="/blog" class:list={[isBlog && 'active-nav-item']}>guides</a>
       </li>
       <li>
         <a href="/contact" class:list={[isContact && 'active-nav-item']}>contact</a>

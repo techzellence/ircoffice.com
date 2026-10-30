@@ -23,3 +23,34 @@ test('article text and its preparation table fit a narrow screen', async ({ page
   expect(dimensions.scroll).toBeLessThanOrEqual(dimensions.width + 1);
   expect(dimensions.font).toBeGreaterThanOrEqual(16);
 });
+
+test('topic filters show matching articles and can be reset', async ({ page }) => {
+  await page.goto('/blog');
+  await page.getByRole('button', { name: 'History', exact: true }).click();
+  await expect(page.locator('.article-grid > li:visible')).toHaveCount(2);
+  await expect(page.getByRole('button', { name: 'History', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Practical guides', exact: true }).click();
+  await expect(page.locator('.article-grid > li:visible')).toHaveCount(4);
+  await page.getByRole('button', { name: 'All articles', exact: true }).click();
+  await expect(page.locator('.article-grid > li:visible')).toHaveCount(6);
+});
+
+test('article navigation and citations resolve to real sections', async ({ page }) => {
+  await page.goto('/blog/naturalization-paperwork-preparation-minneapolis');
+  const links = page.locator('.contents-panel a, .article-prose sup a');
+  expect(await links.count()).toBeGreaterThan(5);
+  for (const href of await links.evaluateAll(nodes => nodes.map(n => n.getAttribute('href')!))) {
+    await expect(page.locator(`[id="${href.slice(1)}"]`)).toHaveCount(1);
+  }
+  await page.locator('.contents-panel a').first().click();
+  await expect(page).toHaveURL(/#start-with-the-current-form-and-instructions$/);
+});
+
+test('the library remains useful without JavaScript', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto('http://localhost:8788/blog');
+  await expect(page.locator('.article-grid > li:visible')).toHaveCount(6);
+  await expect(page.locator('.topic-filters')).toBeHidden();
+  await context.close();
+});

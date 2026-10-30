@@ -6,6 +6,8 @@ export const blogSchema = z.object({
   description: z.string().min(1),
   pubDate: z.coerce.date(),
   draft: z.boolean().default(false),
+  category: z.enum(['Practical guide', 'History']).default('Practical guide'),
+  featured: z.boolean().default(false),
 });
 
 const blog = defineCollection({

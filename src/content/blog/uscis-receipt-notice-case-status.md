@@ -5,7 +5,7 @@ pubDate: 2026-10-29
 draft: false
 ---
 
-After an immigration filing, a notice can tell you that an agency received something, scheduled an appointment, requested more information, or made a decision. Those messages mean different things. A receipt notice is not the same as an approval notice, and an online processing estimate is not a promise about when your case will finish. [1][2]
+After an immigration filing, a notice can tell you that an agency received something, scheduled an appointment, requested more information, or made a decision. Those messages mean different things. A receipt notice is not the same as an approval notice, and an online processing estimate is not a promise about when your case will finish. <sup><a href="#source-1" aria-label="Source 1">1</a></sup><sup><a href="#source-2" aria-label="Source 2">2</a></sup>
 
 A reliable filing system helps you keep track of the next step without relying on rumors or comparing your case with a stranger's timeline.
 
@@ -19,15 +19,15 @@ If something is unclear, ask for help promptly. A request for evidence or a noti
 
 ## Keep receipt numbers separate
 
-USCIS's online case-status tool uses a receipt number to look up a case. If you filed more than one application or petition, you may have separate receipt numbers. Checking one does not necessarily tell you the status of the others. [1][5]
+USCIS's online case-status tool uses a receipt number to look up a case. If you filed more than one application or petition, you may have separate receipt numbers. Checking one does not necessarily tell you the status of the others. <sup><a href="#source-1" aria-label="Source 1">1</a></sup><sup><a href="#source-5" aria-label="Source 5">5</a></sup>
 
 Create a private record with the form name, receipt number, filing date, and the location of the corresponding notice. Avoid posting an unredacted notice or receipt number in a public forum.
 
-Use [USCIS Case Status Online](https://egov.uscis.gov/) or your applicable USCIS online account. Reach those services from an official government website rather than from an unexpected message asking for payment or personal information. [1][3]
+Use [USCIS Case Status Online](https://egov.uscis.gov/) or your applicable USCIS online account. Reach those services from an official government website rather than from an unexpected message asking for payment or personal information. <sup><a href="#source-1" aria-label="Source 1">1</a></sup><sup><a href="#source-3" aria-label="Source 3">3</a></sup>
 
 ## Treat processing times as estimates
 
-USCIS publishes processing-time information by form and relevant processing category or office. The tool also provides guidance on when a case inquiry may be appropriate. Read the tool's explanation before applying a displayed number to your case. [2][5]
+USCIS publishes processing-time information by form and relevant processing category or office. The tool also provides guidance on when a case inquiry may be appropriate. Read the tool's explanation before applying a displayed number to your case. <sup><a href="#source-2" aria-label="Source 2">2</a></sup><sup><a href="#source-5" aria-label="Source 5">5</a></sup>
 
 A friend's faster approval does not establish that your case is overdue. Cases can differ in category, evidence, required checks, and processing location. Equally, an estimate is not a reason to ignore a request or appointment notice that gives you specific instructions.
 
@@ -45,17 +45,17 @@ Calendar reminders can help, but do not substitute a self-calculated date for th
 
 ## Know when to ask for help
 
-If you need to contact USCIS, use the official Contact Center guidance. Have your relevant notices available so you can identify the case accurately. [4]
+If you need to contact USCIS, use the official Contact Center guidance. Have your relevant notices available so you can identify the case accurately. <sup><a href="#source-4" aria-label="Source 4">4</a></sup>
 
 If your question involves a denial, an allegation, or the legal consequences of a missed deadline, consult an immigration attorney or accredited representative. Immigrant Resource Center can discuss [paperwork organization services](/contact), but cannot decide what a notice means for your legal rights.
 
 ## Official resources
 
-1. [USCIS: Checking Your Case Status Online](https://www.uscis.gov/tools/checking-your-case-status-online)
-2. [USCIS: Check Case Processing Times](https://egov.uscis.gov/processing-times/)
-3. [USCIS: Avoid Scams](https://www.uscis.gov/avoid-scams)
-4. [USCIS: Contact Center](https://www.uscis.gov/contactcenter)
+1. <span id="source-1"></span>[USCIS: Checking Your Case Status Online](https://www.uscis.gov/tools/checking-your-case-status-online)
+2. <span id="source-2"></span>[USCIS: Check Case Processing Times](https://egov.uscis.gov/processing-times/)
+3. <span id="source-3"></span>[USCIS: Avoid Scams](https://www.uscis.gov/avoid-scams)
+4. <span id="source-4"></span>[USCIS: Contact Center](https://www.uscis.gov/contactcenter)
 
-5. [USAGov: Check Your Immigration Case Status](https://www.usa.gov/immigration-case-status)
+5. <span id="source-5"></span>[USAGov: Check Your Immigration Case Status](https://www.usa.gov/immigration-case-status)
 
 *General educational information only. Follow the instructions on your own notices and seek qualified advice when needed.*

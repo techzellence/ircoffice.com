@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 
+import { readingMinutes } from '../../lib/blog';
 import PostLayout from '../../layouts/PostLayout.astro';
 
 interface StaticPath {
@@ -15,7 +16,7 @@ export async function getStaticPaths(): Promise<StaticPath[]> {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
 <PostLayout
@@ -23,6 +24,10 @@ const { Content } = await render(post);
   description={post.data.description}
   canonical={`https://ircoffice.com/blog/${post.id}`}
   pubDate={post.data.pubDate}
+  category={post.data.category}
+  minutes={readingMinutes(post.body)}
+  headings={headings}
+  postId={post.id}
 >
   <Content />
 </PostLayout>

@@ -1,44 +1,79 @@
 ---
 import { getCollection } from 'astro:content';
-
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { publicationDate, readingMinutes } from '../../lib/blog';
+import '../../styles/blog.css';
 
-const posts = (await getCollection('blog', ({ data }) => data.draft === false)).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => Number(b.data.featured) - Number(a.data.featured) || b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.data.title.localeCompare(b.data.title),
 );
+const topics = ['All articles', 'Practical guide', 'History'];
 ---
-
 <BaseLayout
-  title="Blog | Immigrant Resource Center"
+  title="Immigration Guides & History | Immigrant Resource Center"
   description="Practical immigration paperwork guides and historical explainers from Immigrant Resource Center in Minneapolis, with links to government resources."
   canonical="https://ircoffice.com/blog"
 >
-  <main class="blog-index">
-    <h1>Immigration guides and history</h1>
-    <p>Explore practical paperwork guides and the history behind U.S. immigration. Each article links to sources for further reading.</p>
-    {posts.length === 0 && <p>There are no articles published yet. For information about our services, visit our <a href="/green-card">green card</a>, <a href="/citizenship">citizenship</a>, or <a href="/visa">visa</a> pages, or <a href="/contact">contact our team</a>.</p>}
-    <ul>
-      {
-        posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.id}`}>{post.data.title}</a>
-            <time datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate.toLocaleDateString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })}
-            </time>
-            <p>{post.data.description}</p>
+  <main class="journal journal-index" id="guides">
+    <header class="journal-intro">
+      <div class="journal-wrap intro-grid">
+        <div>
+          <p class="eyebrow">The IRC reading room</p>
+          <h1>A little clarity.<br /><em>A better next step.</em></h1>
+          <p class="intro-copy">Make sense of immigration paperwork, explore the history behind it, and find reliable places to learn more.</p>
+        </div>
+        <div class="intro-note">
+          <span class="note-mark" aria-hidden="true"><svg class="journal-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14" /></svg></span>
+          <p>Practical guides.<br />Historical perspective.<br />Sources you can follow.</p>
+          <span>From Immigrant Resource Center · Minneapolis</span>
+        </div>
+      </div>
+    </header>
+    <section class="journal-wrap library" aria-labelledby="library-title">
+      <div class="library-toolbar">
+        <h2 id="library-title">Explore the library</h2>
+        <div class="topic-filters" role="group" aria-label="Filter articles by topic" hidden>
+          {topics.map((topic, i) => <button type="button" data-topic={topic} aria-pressed={i === 0 ? 'true' : 'false'}>{topic === 'Practical guide' ? 'Practical guides' : topic}</button>)}
+        </div>
+      </div>
+      <p class="article-count" role="status" aria-live="polite">{posts.length} articles to explore</p>
+      {posts.length === 0 && <p>New articles are on their way. <a href="/contact">Ask our team about our services.</a></p>}
+      <ul class="article-grid">
+        {posts.map(post => (
+          <li class:list={['article-card', post.data.featured && 'featured-card']} data-category={post.data.category}>
+            <a class="card-link" href={`/blog/${post.id}`}>
+              <div class="card-copy">
+                <div class="card-meta"><span class="topic-label">{post.data.category}</span><span>{readingMinutes(post.body)} min read</span></div>
+                {post.data.featured && <p class="featured-label">A good place to start</p>}
+                <h3>{post.data.title}</h3>
+                <p class="card-description">{post.data.description}</p>
+                <div class="card-bottom"><time datetime={post.data.pubDate.toISOString()}>{publicationDate(post.data.pubDate)}</time><span class="card-action">Read article <svg class="journal-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14" /></svg></span></div>
+              </div>
+              {post.data.featured && <div class="featured-art" aria-hidden="true"><div class="paper paper-back"></div><div class="paper paper-front"><span>UNDERSTAND</span><strong>Your next<br />chapter.</strong><i></i><i></i><i></i><b>IRC / FIELD NOTES</b></div><span class="art-circle"></span></div>}
+            </a>
           </li>
-        ))
-      }
-    </ul>
+        ))}
+      </ul>
+      <aside class="journal-help">
+        <div><p class="eyebrow">Let’s talk about your paperwork</p><h2>Questions are a good starting point.</h2><p>Our Minneapolis team can explain the preparation services we offer.</p></div>
+        <a class="journal-button" href="/contact">Contact our team <svg class="journal-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14" /></svg></a>
+      </aside>
+    </section>
   </main>
 </BaseLayout>
-
-<style>
-  .blog-index { max-width: 100rem; margin: 0 auto; padding: 5rem 2.4rem 8rem; font-family: 'Catamaran', sans-serif; font-size: max(18px, 1.9rem); line-height: 1.7; color: #263546; }
-  h1 { font-size: clamp(3rem, 5vw, 4.6rem); line-height: 1.2; margin-bottom: 2rem; }
-  ul { list-style: none; padding: 0; display: grid; gap: 2rem; margin-top: 3rem; }
-  li { padding: 2.4rem; border: 1px solid #ccd3da; border-radius: .6rem; }
-  li a { color: #174171; font-size: 2.5rem; font-weight: 700; line-height: 1.3; text-decoration: underline; text-underline-offset: .2em; }
-  time { display: block; font-size: max(16px, 1.6rem); color: #526173; margin: 1rem 0; }
-  a:focus-visible { outline: 2px solid #174171; outline-offset: 3px; }
-</style>
+<script>
+  const root = document.querySelector<HTMLElement>('.journal-index');
+  if (root) {
+    const filters = root.querySelector<HTMLElement>('.topic-filters');
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-topic]'));
+    const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-category]'));
+    const count = root.querySelector<HTMLElement>('.article-count');
+    if (filters) filters.hidden = false;
+    buttons.forEach(button => button.addEventListener('click', () => {
+      buttons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      cards.forEach(card => { card.hidden = button.dataset.topic !== 'All articles' && card.dataset.category !== button.dataset.topic; });
+      const visible = cards.filter(card => !card.hidden).length;
+      if (count) count.textContent = `${visible} ${visible === 1 ? 'article' : 'articles'}${button.dataset.topic === 'All articles' ? ' to explore' : ` in ${button.textContent?.trim()}`}`;
+    }));
+  }
+</script>
