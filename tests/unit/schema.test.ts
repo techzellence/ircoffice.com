@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { BUSINESS, breadcrumbSchema, professionalServiceSchema } from '../../src/lib/schema';
 import { ROUTES, assertDistIsFresh, readDistPage } from './lib/dist';
 
-const ORIGIN = 'https://www.ircoffice.com';
+const ORIGIN = 'https://ircoffice.com';
 
 describe('professionalServiceSchema', () => {
   const schema = professionalServiceSchema(ORIGIN);

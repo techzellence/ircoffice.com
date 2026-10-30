@@ -10,11 +10,12 @@ const posts = (await getCollection('blog', ({ data }) => data.draft === false)).
 
 <BaseLayout
   title="Blog | Immigrant Resource Center"
-  description="News and information from the Immigrant Resource Center in Minneapolis."
-  canonical="https://www.ircoffice.com/blog"
+  description="Practical immigration paperwork guides and historical explainers from Immigrant Resource Center in Minneapolis, with links to government resources."
+  canonical="https://ircoffice.com/blog"
 >
   <main class="blog-index">
-    <h1>Blog</h1>
+    <h1>Immigration guides and history</h1>
+    <p>Explore practical paperwork guides and the history behind U.S. immigration. Each article links to sources for further reading.</p>
     {posts.length === 0 && <p>There are no articles published yet. For information about our services, visit our <a href="/green-card">green card</a>, <a href="/citizenship">citizenship</a>, or <a href="/visa">visa</a> pages, or <a href="/contact">contact our team</a>.</p>}
     <ul>
       {
@@ -22,7 +23,7 @@ const posts = (await getCollection('blog', ({ data }) => data.draft === false)).
           <li>
             <a href={`/blog/${post.id}`}>{post.data.title}</a>
             <time datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate.toLocaleDateString('en-US')}
+              {post.data.pubDate.toLocaleDateString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
             <p>{post.data.description}</p>
           </li>
@@ -31,3 +32,13 @@ const posts = (await getCollection('blog', ({ data }) => data.draft === false)).
     </ul>
   </main>
 </BaseLayout>
+
+<style>
+  .blog-index { max-width: 100rem; margin: 0 auto; padding: 5rem 2.4rem 8rem; font-family: 'Catamaran', sans-serif; font-size: max(18px, 1.9rem); line-height: 1.7; color: #263546; }
+  h1 { font-size: clamp(3rem, 5vw, 4.6rem); line-height: 1.2; margin-bottom: 2rem; }
+  ul { list-style: none; padding: 0; display: grid; gap: 2rem; margin-top: 3rem; }
+  li { padding: 2.4rem; border: 1px solid #ccd3da; border-radius: .6rem; }
+  li a { color: #174171; font-size: 2.5rem; font-weight: 700; line-height: 1.3; text-decoration: underline; text-underline-offset: .2em; }
+  time { display: block; font-size: max(16px, 1.6rem); color: #526173; margin: 1rem 0; }
+  a:focus-visible { outline: 2px solid #174171; outline-offset: 3px; }
+</style>

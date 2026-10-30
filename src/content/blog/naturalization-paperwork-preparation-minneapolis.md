@@ -2,7 +2,7 @@
 title: "Preparing for Naturalization: Organize Your N-400 Paperwork"
 description: "A practical guide to organizing records for an N-400 preparation appointment in Minneapolis, with official USCIS resources and questions to ask."
 pubDate: 2026-10-29
-draft: true
+draft: false
 ---
 
 Preparing for a naturalization appointment is easier when your records are organized. Start with your immigration documents, then gather the information needed to describe your address, work, travel, and family history accurately. The current Form N-400 instructions—not a generic online checklist—determine what your application needs. [1]
@@ -46,7 +46,7 @@ For an appointment, write down both kinds of questions. That makes it easier to 
 
 Check that the completed answers reflect the information you provided. Ask about any answer you do not understand. Keep a copy of the final submission and the documents included with it.
 
-For test or interview preparation, use USCIS's current naturalization resources. Do not assume that an old study sheet matches the requirements applicable to your application. [3]
+For test or interview preparation, use USCIS's current naturalization resources. Do not assume that an old study sheet matches the requirements applicable to your application. [3][4]
 
 ## Getting help in Minneapolis
 
@@ -57,5 +57,7 @@ Immigrant Resource Center assists with [citizenship paperwork and document organ
 1. [USCIS: Form N-400 and instructions](https://www.uscis.gov/n-400)
 2. [USCIS: Find Legal Services](https://www.uscis.gov/avoid-scams/find-legal-services)
 3. [USCIS: Citizenship Resource Center](https://www.uscis.gov/citizenship)
+
+4. [USAGov: Naturalization steps and test resources](https://www.usa.gov/naturalization)
 
 *General educational information only. Immigrant Resource Center is not a law firm and does not provide legal advice. Individual requirements vary.*

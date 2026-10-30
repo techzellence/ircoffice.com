@@ -1,12 +1,25 @@
-# Blog draft pack — October 29, 2026
+# Blog publication record — October 29, 2026
 
-Six unpublished drafts live in `src/content/blog/`. Every file explicitly sets `draft: true`; the existing collection excludes drafts from blog listings, generated post pages, and the sitemap. The frontmatter date is a draft date, not evidence of publication. Set the actual publication date when approving a post.
+Six articles live in `src/content/blog/` and are approved by the user for publication. All now use `draft: false` and the publication date October 29, 2026 (America/Chicago). This records editorial approval, not proof of a successful production deployment.
 
-## Source status and editorial scope
+## Source review
 
-These are first drafts, not fact-checked current-policy reporting. Official-source requests returned HTTP 403 from the environment's network proxy. Source links identify intended authoritative references; they were not successfully retrieved or checked in this session. No claim is made that October 2026 policies have been verified.
+Network access was rechecked before publication. The following sources were retrieved and read successfully:
 
-The four practical pieces address current reader needs using stable distinctions. They intentionally omit current fees, wait times, form editions, test versions, and specific eligibility deadlines. The two historical pieces distinguish past legislation and records from present-day eligibility. Numbered references connect claims to the proposed sources. Verify those sources and the corresponding claims before publication.
+- USAGov: Naturalization; How to Get a Green Card; Renew or Replace a Green Card; Proving U.S. Citizenship; Check Your Immigration Case Status.
+- State Department: What Is a U.S. Visa; Visa Expiration Date; Visitor Visas; the 1924 Immigration Act historical overview. The Visa Bulletin and International Travel landing pages were also reachable.
+- GovInfo: the original Public Law 89-236 (79 Stat. 911), including the numerical framework, preferences, nondiscrimination provision, and quota transition ending June 30, 1968.
+- The American Presidency Project: Lyndon Johnson’s October 3, 1965 signing remarks, including the Liberty Island location.
+- National Park Service: Ellis Island History & Culture and Chronology. The article now specifies that the 12 million figure refers to 1892–1924.
+- National Archives: Immigration Records and Naturalization Records.
+
+The proposed National Archives 1965 milestone link returned 404 and was removed. The replacement is the actual statute on GovInfo, supplemented by the signing remarks. A broad demographic-impact claim was replaced with directly supported statutory details.
+
+USCIS and its case-status/processing-time endpoints returned origin access-denied or bot-protection responses. Their official URLs remain useful reader resources, but this session did not verify their page contents. Accessible USAGov pages were used to cross-check stable naturalization, card-renewal, citizenship-documentation, and case-status distinctions. No article claims newly verified 2026 fees, deadlines, or processing times. No attorney review or named human authorship is claimed.
+
+## Publication implementation
+
+The blog index links all six posts. Each generated article has a canonical URL on `https://ircoffice.com`, article Open Graph metadata, BlogPosting JSON-LD, UTC-stable publication-date display, and a link back to the blog. Article typography and tables have narrow-screen checks. The site uses the apex domain because live requests confirmed a permanent redirect from www to apex.
 
 ## Search intent and publication order
 
@@ -21,20 +34,20 @@ The four practical pieces address current reader needs using stable distinctions
 
 These targets are editorial search-intent hypotheses, not measured search-volume or ranking claims. Practical guides should be considered first because they directly support the site's services. Historical articles add context rather than competing with service pages for the same query.
 
-## Publication checklist
+## Future editorial maintenance
 
-- Open every cited source; confirm the page is current or an authoritative historical source and record the actual review date.
+- Recheck cited sources periodically, and retry USCIS pages in a normal browser for a fuller source review.
 - Check each numbered claim against its source, especially status vs card expiration, I-94 terminology, citizenship through parents, and descriptions of legislation.
 - Have a qualified immigration reviewer check legal explanations before publication; do not imply the business provides legal advice or representation.
 - Confirm the historical dates, visitor totals, and descriptions of selection rules against the NPS / Archives / State Department sources.
 - Confirm local service scope and contact details with the business. Do not add testimonials, case outcomes, language lists, prices, or credentials without support.
 - Set an actual publication date and a real author/reviewer attribution if available. Do not invent a staff author or claim government endorsement.
-- Change only approved posts to `draft: false`; build and inspect each article's rendered page, metadata, canonical URL, internal links, and sitemap entry.
-- Review typography and narrow-screen readability on actual article pages before releasing the first post. Current live-page tests exercise the nine existing pages, not unpublished articles.
+- For future posts, change only approved drafts to `draft: false` and validate the generated page, metadata, internal links, and sitemap entry.
+- Recheck article typography and narrow-screen readability whenever templates or tables change. Publication tests now cover all six article routes.
 - Recheck practical guides when USCIS or State Department rules change. Revisit historical citations if source pages move.
 
 ## SEO approach
 
 Each post has a unique title, meta description, descriptive slug, a direct opening answer, clear section headings, relevant internal links, and numbered official references. There is no keyword stuffing, invented search-volume data, backdating, or promise of ranking. The existing blog template supplies the page H1, canonical URL, and article Open Graph type; article bodies begin below that H1.
 
-Do not publish all drafts simply to create volume. Source verification and useful, accurate answers take priority over a calendar.
+Source verification and useful, accurate answers take priority over a publication calendar.

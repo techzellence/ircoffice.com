@@ -20,7 +20,7 @@ function makeEnv(overrides: Record<string, unknown> = {}) {
 function makeRequest(body: Record<string, string>): Request {
   const form = new FormData();
   for (const [k, v] of Object.entries(body)) form.append(k, v);
-  return new Request('https://www.ircoffice.com/api/contact', {
+  return new Request('https://ircoffice.com/api/contact', {
     method: 'POST',
     body: form,
     headers: { 'CF-Connecting-IP': '203.0.113.5' },

@@ -2,7 +2,7 @@
 title: "Passport, Visa, and U.S. Admission: Three Different Things"
 description: "Understand the difference between a passport, a U.S. visa, and admission, including why visa expiration is not necessarily your permitted stay."
 pubDate: 2026-10-29
-draft: true
+draft: false
 ---
 
 A passport, a visa, and permission to enter a country serve different purposes. Confusing them can lead to expensive travel mistakes—particularly when someone assumes that a valid U.S. visa guarantees entry or that its expiration date determines how long they can stay. [1][2]

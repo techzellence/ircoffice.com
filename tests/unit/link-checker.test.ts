@@ -61,14 +61,14 @@ describe('internal links resolve across all 9 built pages', () => {
 });
 
 function isLegacyInternalHtml(href: string): boolean {
-  const url = new URL(href, 'https://www.ircoffice.com');
-  return url.origin === 'https://www.ircoffice.com' && /\.html$/i.test(url.pathname);
+  const url = new URL(href, 'https://ircoffice.com');
+  return url.origin === 'https://ircoffice.com' && /\.html$/i.test(url.pathname);
 }
 
 describe('no leftover .html links', () => {
   it('distinguishes retired site URLs from official external HTML resources', () => {
     expect(isLegacyInternalHtml('/visa.html#details')).toBe(true);
-    expect(isLegacyInternalHtml('https://www.ircoffice.com/contact.html')).toBe(true);
+    expect(isLegacyInternalHtml('https://ircoffice.com/contact.html')).toBe(true);
     expect(isLegacyInternalHtml('https://travel.state.gov/content/travel/en/us-visas/tourism-visit/visitor.html')).toBe(false);
     expect(isLegacyInternalHtml('/visa')).toBe(false);
   });

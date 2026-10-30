@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { beforeAll, expect, it } from 'vitest';
 import { ROUTES, assertDistIsFresh, readDistPage, resolveInternalPath } from './lib/dist';
 
-const origin = 'https://www.ircoffice.com';
+const origin = 'https://ircoffice.com';
 const built = (name: string) => readFileSync(new URL(`../../dist/${name}`, import.meta.url), 'utf8');
 beforeAll(assertDistIsFresh);
 
@@ -43,7 +43,7 @@ it('provides an AI reading guide whose page links resolve to built content', () 
   const guide = built('llms.txt');
   expect(guide).toContain('not a law firm');
   expect(guide).toContain('not affiliated with USCIS');
-  for (const match of guide.matchAll(/\]\((https:\/\/www\.ircoffice\.com[^)]*)\)/g)) {
+  for (const match of guide.matchAll(/\]\((https:\/\/ircoffice\.com[^)]*)\)/g)) {
     expect(resolveInternalPath(new URL(match[1]!).pathname).exists, match[1]).toBe(true);
   }
 });

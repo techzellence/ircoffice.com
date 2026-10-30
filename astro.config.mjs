@@ -19,7 +19,7 @@ const requireProductionEnv = {
 };
 
 export default defineConfig({
-  site: 'https://www.ircoffice.com',
+  site: 'https://ircoffice.com',
   output: 'static',
   build: {
     format: 'file',

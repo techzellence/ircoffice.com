@@ -2,7 +2,7 @@
 title: "USCIS Receipt Notices and Case Status: How to Stay Organized"
 description: "Learn how to organize USCIS notices, check case status through official tools, and distinguish receipt, processing estimates, and approval."
 pubDate: 2026-10-29
-draft: true
+draft: false
 ---
 
 After an immigration filing, a notice can tell you that an agency received something, scheduled an appointment, requested more information, or made a decision. Those messages mean different things. A receipt notice is not the same as an approval notice, and an online processing estimate is not a promise about when your case will finish. [1][2]
@@ -19,7 +19,7 @@ If something is unclear, ask for help promptly. A request for evidence or a noti
 
 ## Keep receipt numbers separate
 
-USCIS's online case-status tool uses a receipt number to look up a case. If you filed more than one application or petition, you may have separate receipt numbers. Checking one does not necessarily tell you the status of the others. [1]
+USCIS's online case-status tool uses a receipt number to look up a case. If you filed more than one application or petition, you may have separate receipt numbers. Checking one does not necessarily tell you the status of the others. [1][5]
 
 Create a private record with the form name, receipt number, filing date, and the location of the corresponding notice. Avoid posting an unredacted notice or receipt number in a public forum.
 
@@ -27,7 +27,7 @@ Use [USCIS Case Status Online](https://egov.uscis.gov/) or your applicable USCIS
 
 ## Treat processing times as estimates
 
-USCIS publishes processing-time information by form and relevant processing category or office. The tool also provides guidance on when a case inquiry may be appropriate. Read the tool's explanation before applying a displayed number to your case. [2]
+USCIS publishes processing-time information by form and relevant processing category or office. The tool also provides guidance on when a case inquiry may be appropriate. Read the tool's explanation before applying a displayed number to your case. [2][5]
 
 A friend's faster approval does not establish that your case is overdue. Cases can differ in category, evidence, required checks, and processing location. Equally, an estimate is not a reason to ignore a request or appointment notice that gives you specific instructions.
 
@@ -55,5 +55,7 @@ If your question involves a denial, an allegation, or the legal consequences of 
 2. [USCIS: Check Case Processing Times](https://egov.uscis.gov/processing-times/)
 3. [USCIS: Avoid Scams](https://www.uscis.gov/avoid-scams)
 4. [USCIS: Contact Center](https://www.uscis.gov/contactcenter)
+
+5. [USAGov: Check Your Immigration Case Status](https://www.usa.gov/immigration-case-status)
 
 *General educational information only. Follow the instructions on your own notices and seek qualified advice when needed.*

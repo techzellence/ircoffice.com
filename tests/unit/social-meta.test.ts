@@ -31,7 +31,7 @@ describe('social sharing meta', () => {
       const img = meta(readDistPage(route), 'og:image');
       expect(img, 'og:image missing').toBeTruthy();
       expect(img, 'og:image must be absolute — relative URLs fail in most scrapers').toMatch(
-        /^https:\/\/www\.ircoffice\.com\//,
+        /^https:\/\/ircoffice\.com\//,
       );
     });
 

@@ -9,6 +9,17 @@ interface Props {
 }
 
 const { title, description, canonical, pubDate } = Astro.props;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString().slice(0, 10),
+  mainEntityOfPage: canonical,
+  url: canonical,
+  image: 'https://ircoffice.com/og-card.png',
+  publisher: { '@id': 'https://ircoffice.com/#business' },
+};
 ---
 
 <BaseLayout
@@ -17,9 +28,36 @@ const { title, description, canonical, pubDate } = Astro.props;
   canonical={canonical}
   ogType="article"
 >
+  <script slot="head" type="application/ld+json" is:inline
+    set:html={JSON.stringify(articleSchema).replace(/</g, '\\u003c')} />
   <main class="blog-post">
+    <a href="/blog">All articles</a>
     <h1>{title}</h1>
-    <time datetime={pubDate.toISOString()}>{pubDate.toLocaleDateString('en-US')}</time>
+    <time datetime={pubDate.toISOString()}>{pubDate.toLocaleDateString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })}</time>
     <slot />
   </main>
 </BaseLayout>
+
+<style>
+  .blog-post {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 5rem 2.4rem 8rem;
+    color: #263546;
+    font-family: 'Catamaran', sans-serif;
+    font-size: max(18px, 1.9rem);
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
+  h1 { font-size: clamp(3rem, 5vw, 4.6rem); line-height: 1.2; margin-bottom: 1.6rem; }
+  time { display: block; color: #526173; margin-bottom: 3rem; font-size: max(16px, 1.6rem); }
+  .blog-post :global(h2) { font-size: 2.8rem; line-height: 1.3; margin: 3.5rem 0 1.5rem; }
+  .blog-post :global(h3) { font-size: 2.3rem; line-height: 1.4; margin: 2.5rem 0 1rem; }
+  .blog-post :global(p) { margin: 1.5rem 0; }
+  .blog-post :global(ul), .blog-post :global(ol) { padding-left: 2.5rem; margin: 1.5rem 0; }
+  .blog-post :global(li) { margin-bottom: .8rem; }
+  .blog-post :global(a) { color: #174171; text-decoration: underline; text-underline-offset: .2em; }
+  .blog-post :global(a:focus-visible) { outline: 2px solid #174171; outline-offset: 3px; }
+  .blog-post :global(table) { width: 100%; border-collapse: collapse; font-size: max(16px, 1.6rem); margin: 2rem 0; }
+  .blog-post :global(th), .blog-post :global(td) { padding: .8rem; border: 1px solid #ccd3da; text-align: left; vertical-align: top; }
+</style>

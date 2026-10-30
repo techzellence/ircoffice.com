@@ -2,10 +2,10 @@
 title: "Ellis Island: Immigration History and Family Records"
 description: "Learn what Ellis Island was, what passenger records can reveal, and why family-history evidence is different from proof of current immigration status."
 pubDate: 2026-10-29
-draft: true
+draft: false
 ---
 
-Ellis Island is one of the best-known places in American immigration history. It opened as a federal immigration station in 1892 and closed in 1954. More than 12 million immigrants passed through it during its years of operation. [1]
+Ellis Island is one of the best-known places in American immigration history. It opened as a federal immigration station in 1892 and closed in 1954. [4] More than 12 million immigrants were processed there between 1892 and 1924, its busiest period. [1]
 
 Those figures explain its place in public memory. They do not mean that every immigrant entered through Ellis Island, or that every family's immigration story can be found in its records.
 
@@ -50,5 +50,7 @@ For families in Minneapolis, organizing records can be a useful first step befor
 1. [National Park Service: Ellis Island History & Culture](https://www.nps.gov/elis/learn/historyculture/index.htm)
 2. [National Archives: Immigration Records](https://www.archives.gov/research/immigration)
 3. [National Archives: Naturalization Records](https://www.archives.gov/research/immigration/naturalization)
+
+4. [National Park Service: Ellis Island Chronology](https://www.nps.gov/elis/learn/historyculture/ellis-island-chronology.htm)
 
 *This article is a historical and research guide. It does not establish anyone's citizenship or immigration status.*

@@ -2,10 +2,10 @@
 title: "The Immigration Act of 1965: What Changed and Why It Matters"
 description: "Explore how the 1965 Immigration and Nationality Act changed the national-origins quota system and reshaped U.S. immigration history."
 pubDate: 2026-10-29
-draft: true
+draft: false
 ---
 
-On October 3, 1965, President Lyndon B. Johnson signed a major amendment to U.S. immigration law at Liberty Island in New York Harbor. Often called the Hart–Celler Act or the Immigration and Nationality Act of 1965, the law dismantled the national-origins quota system and established a different framework for selecting immigrants. [1]
+On October 3, 1965, President Lyndon B. Johnson signed a major amendment to U.S. immigration law at Liberty Island in New York Harbor. [5] Often called the Hart–Celler Act or the Immigration and Nationality Act of 1965, the law dismantled the national-origins quota system and established a different framework for selecting immigrants. [1]
 
 It was a turning point in immigration history. It was not an abolition of immigration limits, and it did not create an automatic right to immigrate for everyone with a family connection in the United States.
 
@@ -23,7 +23,7 @@ The law moved away from the national-origins quota system toward preferences emp
 
 That distinction matters. Ending a discriminatory selection system was not the same as removing every limit on immigration. Family relationships, categories, and numerical rules still shaped who could immigrate and when.
 
-Over subsequent decades, immigration from Asia and Latin America became a larger part of the nation's immigration story. The 1965 legislation is a central part of explaining that shift, alongside later laws, economic conditions, and events in countries of origin. [1]
+The change was phased in: the statute provided for the national quotas and immigration pool to terminate on June 30, 1968. It also stated that immigrant-visa issuance should not discriminate on specified grounds, including race and national origin, subject to the law’s stated exceptions. [1]
 
 ## Why is this history relevant to families today?
 
@@ -47,9 +47,11 @@ At Immigrant Resource Center, our [family petition paperwork services](/visa) fo
 
 ## Sources and further reading
 
-1. [National Archives: Immigration and Nationality Act of 1965](https://www.archives.gov/milestone-documents/immigration-and-nationality-act)
+1. [GovInfo: Public Law 89-236, October 3, 1965 (original statute, PDF)](https://www.govinfo.gov/content/pkg/STATUTE-79/pdf/STATUTE-79-Pg911.pdf)
 2. [Office of the Historian: The Immigration Act of 1924](https://history.state.gov/milestones/1921-1936/immigration-act)
 3. [USCIS: Family](https://www.uscis.gov/family)
 4. [State Department: Visa Bulletin](https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html)
+
+5. [The American Presidency Project: Johnson’s signing remarks, October 3, 1965](https://www.presidency.ucsb.edu/documents/remarks-the-signing-the-immigration-bill-liberty-island-new-york)
 
 *This is a historical overview, not advice about eligibility under current law.*
