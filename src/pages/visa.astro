@@ -10,7 +10,7 @@
 // Duda page-editor cruft stripped from the two external <a> links in tab-2 (matching the Task 7
 // precedent of stripping dm_dont_rewrite_url/file/runtime_url/numeric id): the legacy `value`,
 // `type="url"`, and `data-runtime-url` attributes duplicated `href` and carried no meaning here.
-import Icon from '../components/Icon.astro';
+import ServiceNextSteps from '../components/ServiceNextSteps.astro';
 import ConsultForm from '../components/ConsultForm.astro';
 import Tabs from '../components/Tabs.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -27,7 +27,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="header__main-area">
         <div class="header-flexbox-content-left">
           <h1 class="heading__primary--greencard my-25">
-            <span class="secondary-color-text">Your travel plans.<br />The paperwork to match.</span>
+            <span class="secondary-color-text">Visa paperwork for<br />your next journey.</span>
           </h1>
           <p class="header__paragraph--greencard my-25" style="max-width: 400px;">
       Get help organizing visa applications and family petition paperwork. Start with your destination and purpose of travel, and we’ll explain the preparation support available.
@@ -59,7 +59,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       organize application information and supporting documents so you can prepare for the next
       step.
     </p>
-    <a href="#visa-services" class="btn--primary__blue btn--animated">Learn More</a>
+    <a href="#visa-services" class="btn--primary__blue btn--animated">Explore the paperwork below</a>
   </section>
 
   <!--tab layout-->
@@ -151,28 +151,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </Tabs>
   </section>
 
-  <!--Section save time-->
-  <section class="section section__save-time">
-    <div class="facility__wrapper">
-      <div class="facility__block">
-        <Icon name="document" />
-        <h4 class="facility__heading--small align-middle">Practical Help</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="price" />
-        <h4 class="facility__heading--small align-middle">Clear Pricing</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="heart" />
-        <h4 class="facility__heading--small align-middle">Friendly Support</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="document" />
-        <h4 class="facility__heading align-middle">Document Organization</h4>
-      </div>
-    </div>
-  </section>
+  <ServiceNextSteps topic="visa" />
 </BaseLayout>

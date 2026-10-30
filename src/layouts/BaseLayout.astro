@@ -76,8 +76,9 @@ const beaconToken =
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Cardo&family=Catamaran:wght@200;400;600;700&family=Prata&family=Raleway:wght@300;500;600;700&display=swap"
     />
-    <link rel="stylesheet" href="/css/style.css?v=27-layout-3" />
-    <link rel="stylesheet" href="/css/refinement.css?v=27-layout-3" />
+    <link rel="stylesheet" href="/css/style.css?v=editorial-4" />
+    <link rel="stylesheet" href="/css/refinement.css?v=editorial-4" />
+    <link rel="stylesheet" href="/css/editorial-pages.css?v=editorial-4" />
     <script
       src="https://challenges.cloudflare.com/turnstile/v0/api.js"
       async
@@ -87,7 +88,7 @@ const beaconToken =
     {crumbs && <script type="application/ld+json" is:inline set:html={JSON.stringify(crumbs)} />}
     <slot name="head" />
   </head>
-  <body>
+  <body class:list={[!pagePath.startsWith('/blog') && 'editorial-pages']}>
     <Nav />
     <slot />
     <Footer />

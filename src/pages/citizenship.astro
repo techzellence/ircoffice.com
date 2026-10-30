@@ -7,7 +7,7 @@
 // citizenship.html has no visible <div id="map"> in the body (only the head's font stylesheet
 // uses a googleapis.com host, not maps.googleapis.com) — there is no Map component usage on this
 // page.
-import Icon from '../components/Icon.astro';
+import ServiceNextSteps from '../components/ServiceNextSteps.astro';
 import ConsultForm from '../components/ConsultForm.astro';
 import Tabs from '../components/Tabs.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -57,12 +57,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       team explains the paperwork process and the services we provide; USCIS decides each
       application.
     </p>
-    <a href="#citizenship-services" class="btn--primary__blue btn--animated">Learn More</a>
+    <a href="#citizenship-services" class="btn--primary__blue btn--animated">Explore the paperwork below</a>
   </section>
 
   <!--tab layout-->
   <section class="section section-greencard__services" id="citizenship-services">
-    <h2 class="service__header my-20">Citizenship Application Process</h2>
+    <h2 class="service__header my-20">Choose the citizenship process you need</h2>
     <p class="service__paragraph my-35">
       Learn about naturalization and documentation of citizenship acquired at birth. These are
       different processes, with different requirements.
@@ -135,28 +135,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </Tabs>
   </section>
 
-  <!--Section save time-->
-  <section class="section section__save-time">
-    <div class="facility__wrapper">
-      <div class="facility__block">
-        <Icon name="document" />
-        <h4 class="facility__heading--small align-middle">Practical Help</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="price" />
-        <h4 class="facility__heading--small align-middle">Clear Pricing</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="heart" />
-        <h4 class="facility__heading--small align-middle">Friendly Support</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="document" />
-        <h4 class="facility__heading align-middle">Document Organization</h4>
-      </div>
-    </div>
-  </section>
+  <ServiceNextSteps topic="citizenship" />
 </BaseLayout>

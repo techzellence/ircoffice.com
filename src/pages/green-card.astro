@@ -7,7 +7,7 @@
 //
 // greencard.html has no visible <div id="map"> in the body (only the head's font stylesheet uses
 // a googleapis.com host, not maps.googleapis.com) — there is no Map component usage on this page.
-import Icon from '../components/Icon.astro';
+import ServiceNextSteps from '../components/ServiceNextSteps.astro';
 import ConsultForm from '../components/ConsultForm.astro';
 import Tabs from '../components/Tabs.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -55,12 +55,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       A green card is evidence of lawful permanent resident status in the United States. We assist
       with paperwork preparation; USCIS determines eligibility and decides applications.
     </p>
-    <a href="#greencard-services" class="btn--primary__blue btn--animated">Learn More</a>
+    <a href="#greencard-services" class="btn--primary__blue btn--animated">Explore the paperwork below</a>
   </section>
 
   <!--tab layout-->
   <section class="section section-greencard__services" id="greencard-services">
-    <h2 class="service__header my-20">Green Card Applications</h2>
+    <h2 class="service__header my-20">Understand your application type</h2>
     <p class="service__paragraph my-35">
       Different applications require different forms and supporting records. Explore the common
       processes below and use the linked USCIS instructions for current requirements and fees.
@@ -151,28 +151,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </Tabs>
   </section>
 
-  <!--Section save time-->
-  <section class="section section__save-time">
-    <div class="facility__wrapper">
-      <div class="facility__block">
-        <Icon name="document" />
-        <h4 class="facility__heading--small align-middle">Practical Help</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="price" />
-        <h4 class="facility__heading--small align-middle">Clear Pricing</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="heart" />
-        <h4 class="facility__heading--small align-middle">Friendly Support</h4>
-      </div>
-
-      <div class="facility__block">
-        <Icon name="document" />
-        <h4 class="facility__heading align-middle">Document Organization</h4>
-      </div>
-    </div>
-  </section>
+  <ServiceNextSteps topic="green-card" />
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 // Editorial copy reviewed in October 2026; confirm current travel availability with the office.
+import ServiceNextSteps from '../components/ServiceNextSteps.astro';
 import ConsultForm from '../components/ConsultForm.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
@@ -58,11 +59,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </p>
   </section>
 
+  <ServiceNextSteps topic="umra" />
+
   <!--section-book-a-consultation, same pattern as index.astro-->
   <section class="section-booking">
     <h3 class="heading__booking align-middle my-30 pu-70">Get in touch</h3>
     <p class="paragraph-form align-middle my-40 max-410">
-      Drop us a line and we'll get back to you about Umrah travel.
+      Tell us your preferred dates, departure city, and how many people will be traveling. We’ll discuss the options currently available.
     </p>
 
     <div class="form-wrapper">

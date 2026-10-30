@@ -1,0 +1,78 @@
+/* Editorial rhythm shared by the service pages; blog keeps its own reading layout. */
+.editorial-pages { background:#f8f6f1; color:#263c4b; }
+.editorial-pages h1,.editorial-pages h2,.editorial-pages .heading__tab { font-family:'Cardo',Georgia,serif; font-weight:400; letter-spacing:-.025em; }
+.editorial-pages h1 { line-height:1.15; }
+.editorial-pages h2 { font-size:clamp(28px,3vw,40px); line-height:1.2; }
+.editorial-pages .home-intro h1 { font-size:clamp(38px,4.1vw,58px); font-weight:400; }
+.editorial-pages .heading__section,.editorial-pages .service__header { text-transform:none; }
+.editorial-pages .paragraph-section,.editorial-pages .paragraph-section--3,.editorial-pages .service__paragraph,.editorial-pages .tab-paragraph { font-size:18px; font-weight:400; line-height:1.75; color:#435766; }
+.editorial-pages .section-greencard-definition,.editorial-pages .section-greencard__services,.editorial-pages .section-services,.editorial-pages .section-why-choose,.editorial-pages .section-about-company { padding:64px max(24px,calc((100% - 1120px)/2)) !important; }
+.editorial-pages .section-greencard-definition { background:#eeeee6; }
+.editorial-pages .paragraph-section { max-width:760px; }
+.editorial-pages .heading__tab { font-size:30px; line-height:1.3; color:#183e60; }
+.editorial-pages .tab-paragraph { margin-block:20px; }
+.editorial-pages .tab-wrapper { border:1px solid #d8dedc; border-radius:14px; overflow:hidden; background:white; }
+.editorial-pages .tab-sticky { position:static; gap:0; background:#e8ece7; }
+.editorial-pages .tab-name { background:transparent; color:#183e60; font-size:16px; font-weight:600; padding:20px 16px; border:0; border-right:1px solid #d8dedc; border-radius:0; text-transform:none; }
+.editorial-pages .tab-name[aria-selected="true"] { background:#183e60; color:#fff; }
+.editorial-pages .all-tab-content-holder { padding:12px 36px 32px; background:white; }
+.editorial-pages .tab-content-wrapper { padding:0; }
+.editorial-pages .green-card--list { font-size:18px; line-height:1.75; max-width:760px; margin:24px auto; padding-left:24px; }
+.editorial-pages .green-card--list li { margin-block:10px; }
+.editorial-pages .tab-text-link { color:#865019; text-decoration:underline; text-underline-offset:3px; }
+.editorial-pages .facility-container { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin-top:32px; }
+.editorial-pages .facility__card,.editorial-pages .facility__card:not(:last-child) { width:auto; margin:0; }
+.editorial-pages .facility__heading { font-size:21px; line-height:1.3; }
+.editorial-pages .facility__pargraph { font-size:17px; font-weight:400; }
+.editorial-pages .divider { display:none; }
+.editorial-pages .section-services { padding-bottom:0 !important; }
+.editorial-pages .section__save-time { display:none; }
+.editorial-section { padding:64px max(24px,calc((100% - 1120px)/2)); }
+.section-intro { max-width:720px; margin-bottom:32px; }
+.section-intro h2 { color:#183e60; margin:12px 0 20px; }
+.section-intro p { font-size:18px; line-height:1.7; }
+.editorial-pages .eyebrow { color:#865019; font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; }
+.next-steps { background:#eeeee6; }
+.steps-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); list-style:none; gap:32px; margin:32px 0; padding:0; }
+.steps-grid li { border-top:1px solid #bdc8c5; padding-top:20px; }
+.step-number { font-family:Georgia,serif; font-size:28px; color:#865019; }
+.steps-grid h3 { font-size:21px; margin:14px 0; color:#183e60; }
+.steps-grid p { font-size:17px; line-height:1.7; }
+.editorial-link { font-size:17px; font-weight:600; color:#865019; text-decoration:underline; text-underline-offset:5px; }
+.guide-links { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.guide-links a { display:block; background:white; border:1px solid #d8dedc; border-radius:12px; padding:28px; color:#183e60; }
+.guide-links a:hover { border-color:#865019; }
+.guide-links span { font-size:13px; color:#865019; }
+.guide-links h3 { font-family:'Cardo',Georgia,serif; font-size:26px; line-height:1.3; font-weight:400; margin:14px 0; }
+.form-reference { max-width:1120px; margin:0 auto 48px; padding:0 24px; }
+.form-reference summary { font-size:17px; font-weight:600; color:#183e60; cursor:pointer; padding:20px 0; border-bottom:1px solid #d8dedc; }
+.form-reference .service__information-table { margin:20px 0; width:100%; }
+.editorial-pages .service-name,.editorial-pages .service-form-no { font-size:16px; padding:12px; }
+.editorial-pages .section-booking { padding:56px 24px; }
+.editorial-pages .section-booking .form-wrapper { max-width:600px; margin:auto; }
+.editorial-pages .header__main-area { max-width:1120px; margin:auto; }
+.editorial-pages .header-flexbox .container-main { width:100%; }
+.editorial-pages .service__paragraph { max-width:760px; }
+.editorial-pages .section-contact__block { padding-inline:max(24px,calc((100% - 1120px)/2)); }
+.editorial-pages .contact-information-form { max-width:none; }
+.editorial-pages .paragraph-form--information { font-size:18px; }
+.editorial-pages .policy-page { max-width:800px; margin:auto; padding:64px 24px; }
+.editorial-pages .policy-page section { padding:0 0 28px !important; }
+.editorial-pages .policy-page .align-middle { text-align:left; }
+.editorial-pages .policy-page h2 { font-size:28px; }
+@media(max-width:840px) {
+ .editorial-pages .facility-container,.steps-grid,.guide-links { grid-template-columns:1fr; }
+ .editorial-pages .section-greencard-definition,.editorial-pages .section-greencard__services,.editorial-pages .section-services,.editorial-pages .section-why-choose,.editorial-pages .section-about-company,.editorial-section { padding:40px 24px !important; }
+ .editorial-pages .tab-sticky { display:flex; flex-wrap:wrap; }
+ .editorial-pages .tab-name { flex:1 1 45%; font-size:15px; min-width:0; }
+ .editorial-pages .all-tab-content-holder { padding:8px 20px 24px; }
+ .editorial-pages .facility__card { padding:24px; }
+ .editorial-pages .policy-page { padding-top:100px; }
+}
+.office-hours { font-size:17px; line-height:1.7; padding:20px 0 0; color:#435766; }
+.editorial-pages .tab-content-wrapper { max-width:780px; margin-inline:auto; }
+.editorial-pages .section-greencard-definition .paragraph-section { text-align:left; }
+.editorial-pages .header .secondary-color-text { font-weight:inherit; }
+.editorial-pages .contact-information__heading { font-size:36px; line-height:1.2; }
+.editorial-pages .office-hours { text-align:left; }
+.editorial-pages [id] { scroll-margin-top:100px; }

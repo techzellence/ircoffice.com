@@ -12,6 +12,7 @@
 // `id="who-are-we"` / `id="why-us"` become `id="WhoAreWe"` / `id="WhyUs"` to
 // match the anchors Nav/Footer already link to (`/#WhoAreWe`, `/#WhyUs`).
 import Icon from '../components/Icon.astro';
+import ServiceNextSteps from '../components/ServiceNextSteps.astro';
 import ConsultForm from '../components/ConsultForm.astro';
 import Map from '../components/Map.astro';
 import Tabs from '../components/Tabs.astro';
@@ -59,31 +60,15 @@ const years = getYearsInBusiness();
   <!--section services of the company-->
 
   <section class="section section-services" id="services">
-    <h2 class="heading__section align-middle my-15">OUR SERVICES</h2>
+    <h2 class="heading__section align-middle my-15">Find the help you need</h2>
     <p class="paragraph-section align-middle my-20">
-      Immigration paperwork can be difficult to organize. With {years} years of experience, we help
-      individuals and families prepare forms, gather documents, and understand the filing steps.
-      Contact us to discuss the scope and cost of the help you need.
+      Choose a service to learn how we can help you prepare forms, organize supporting documents, or plan your travel. We’ll discuss the scope and cost with you before work begins.
     </p>
 
     <div class="divider-image align-middle my-40">
       <img src="/img/Divider-Decorative_01.png" alt="" class="decorative-divider" />
     </div>
 
-    <div class="service__information-table">
-<div class="service-grid-title cc-2-column"><div class="title-1 cc-title">Service</div><div class="title-1 cc-title">Related form</div></div>
-<div class="service-features"><div class="service-name">Naturalization and citizenship documentation</div><div class="service-form-no">N-400 / N-600</div></div>
-<div class="service-features"><div class="service-name">Adjustment of status</div><div class="service-form-no">I-485</div></div>
-<div class="service-features"><div class="service-name">Green card renewal or replacement</div><div class="service-form-no">I-90</div></div>
-<div class="service-features"><div class="service-name">Removal of conditions on residence</div><div class="service-form-no">I-751</div></div>
-<div class="service-features"><div class="service-name">Employment authorization</div><div class="service-form-no">I-765</div></div>
-<div class="service-features"><div class="service-name">Family petitions</div><div class="service-form-no">I-130</div></div>
-<div class="service-features"><div class="service-name">Fiancé(e) petitions</div><div class="service-form-no">I-129F</div></div>
-<div class="service-features"><div class="service-name">Affidavit of support</div><div class="service-form-no">I-864</div></div>
-<div class="service-features"><div class="service-name">Change of address</div><div class="service-form-no">AR-11</div></div>
-<div class="service-features"><div class="service-name">Visa and travel paperwork</div><div class="service-form-no">Depends on destination</div></div>
-<div class="service-features"><div class="service-name">Notary services and passport photos</div><div class="service-form-no">Contact us</div></div>
-          </div>
   </section>
 
   <!--section services of the company End-->
@@ -130,10 +115,27 @@ const years = getYearsInBusiness();
     </Tabs>
   </section>
 
+  <details class="form-reference"><summary>Looking for a specific immigration form? View our preparation services.</summary>
+    <div class="service__information-table">
+<div class="service-grid-title cc-2-column"><div class="title-1 cc-title">Service</div><div class="title-1 cc-title">Related form</div></div>
+<div class="service-features"><div class="service-name">Naturalization and citizenship documentation</div><div class="service-form-no">N-400 / N-600</div></div>
+<div class="service-features"><div class="service-name">Adjustment of status</div><div class="service-form-no">I-485</div></div>
+<div class="service-features"><div class="service-name">Green card renewal or replacement</div><div class="service-form-no">I-90</div></div>
+<div class="service-features"><div class="service-name">Removal of conditions on residence</div><div class="service-form-no">I-751</div></div>
+<div class="service-features"><div class="service-name">Employment authorization</div><div class="service-form-no">I-765</div></div>
+<div class="service-features"><div class="service-name">Family petitions</div><div class="service-form-no">I-130</div></div>
+<div class="service-features"><div class="service-name">Fiancé(e) petitions</div><div class="service-form-no">I-129F</div></div>
+<div class="service-features"><div class="service-name">Affidavit of support</div><div class="service-form-no">I-864</div></div>
+<div class="service-features"><div class="service-name">Change of address</div><div class="service-form-no">AR-11</div></div>
+<div class="service-features"><div class="service-name">Visa and travel paperwork</div><div class="service-form-no">Depends on destination</div></div>
+<div class="service-features"><div class="service-name">Notary services and passport photos</div><div class="service-form-no">Contact us</div></div>
+          </div>
+  </details>
+
   <!--Why Choose Us-->
 
   <section class="section section-why-choose" id="WhyUs">
-    <h2 class="heading__section align-middle my-15">WHY CHOOSE US</h2>
+    <h2 class="heading__section align-middle my-15">Practical help. Personal attention.</h2>
     <p class="paragraph-section--2 align-middle" style="margin-bottom: 60px;">
       Get practical support with your forms and documents from a local team you can reach.
     </p>
@@ -168,7 +170,7 @@ const years = getYearsInBusiness();
         <div class="shape-container align-middle"><Icon name="document" /></div>
         <h4 class="facility__heading align-middle my-20">Experience</h4>
         <p class="facility__pargraph align-middle my-20">
-          Our multilingual team has helped clients prepare immigration paperwork for {years} years.
+          Serving Minneapolis since {FOUNDED_YEAR}, our team brings {years} years of experience to paperwork preparation.
           Ask us about language support when you contact the office.
         </p>
         <div class="arrow-icon align-middle"><Icon name="arrow" />
@@ -235,7 +237,7 @@ const years = getYearsInBusiness();
   >
     <div class="about-container">
       <div class="about-content">
-        <h2 class="heading__section who-are-we my-25">WHO ARE WE</h2>
+        <h2 class="heading__section who-are-we my-25">A local team, here since 1999.</h2>
         <p class="paragraph-section--3 paragraph-middle my-40">
           We are an immigrant-owned, family-run business established in {FOUNDED_YEAR}. From our
           Minneapolis office, we help individuals and families organize immigration and travel
@@ -247,10 +249,12 @@ const years = getYearsInBusiness();
     </div>
   </section>
 
+  <ServiceNextSteps />
+
   <!--section-book-a-consultation-->
 
   <section class="section section-booking">
-    <h3 class="heading__booking align-middle my-30 pu-70">Book a consultation</h3>
+    <h3 class="heading__booking align-middle my-30 pu-70">Tell us what you’re preparing for</h3>
     <p class="paragraph-form align-middle my-40 max-410">
       Have a question? We&rsquo;re here to help. Send us a message and we&rsquo;ll get back to you.
     </p>

@@ -1,0 +1,36 @@
+---
+interface Props { topic?: 'home' | 'green-card' | 'citizenship' | 'visa' | 'umra'; }
+const { topic = 'home' } = Astro.props;
+const travel = topic === 'umra';
+const guides = {
+  home: ['green-card-vs-citizenship', 'naturalization-paperwork-preparation-minneapolis'],
+  'green-card': ['green-card-vs-citizenship', 'uscis-receipt-notice-case-status'],
+  citizenship: ['naturalization-paperwork-preparation-minneapolis', 'green-card-vs-citizenship'],
+  visa: ['visa-passport-admission-differences', 'uscis-receipt-notice-case-status'],
+  umra: ['visa-passport-admission-differences'],
+};
+const titles: Record<string, string> = {
+  'green-card-vs-citizenship': 'Green card or citizenship: understand the difference',
+  'naturalization-paperwork-preparation-minneapolis': 'Getting your naturalization paperwork ready',
+  'uscis-receipt-notice-case-status': 'Understanding a USCIS receipt notice',
+  'visa-passport-admission-differences': 'Passports, visas, and admission explained',
+  'ellis-island-immigration-history-records': 'Ellis Island and the records of immigration',
+};
+---
+<section class="next-steps editorial-section" aria-labelledby={`steps-${topic}`}>
+  <div class="section-intro">
+    <p class="eyebrow">A practical place to start</p>
+    <h2 id={`steps-${topic}`}>{travel ? 'Plan your journey, one detail at a time.' : 'From your first question to organized paperwork.'}</h2>
+    <p>{travel ? 'Tell us your travel plans so we can discuss current availability and the arrangements you need.' : 'You don’t need to have every document ready to ask about our services. Start with what you need help preparing.'}</p>
+  </div>
+  <ol class="steps-grid">
+    <li><span class="step-number">01</span><h3>{travel ? 'Share your plans' : 'Tell us what you need'}</h3><p>{travel ? 'Let us know your preferred dates, departure city, and number of travelers.' : 'Explain the application or paperwork you are working on. Mention any notices or deadlines you have received.'}</p></li>
+    <li><span class="step-number">02</span><h3>Discuss the details</h3><p>{travel ? 'Ask about visas, flights, accommodation, transport, and exactly what is included in the quoted price.' : 'We’ll explain the preparation help available, the documents to bring, and the service cost before you decide to proceed.'}</p></li>
+    <li><span class="step-number">03</span><h3>{travel ? 'Confirm before booking' : 'Prepare together'}</h3><p>{travel ? 'Review current entry requirements, payment terms, and cancellation conditions before making arrangements.' : 'We help organize your information and prepare forms at your direction. Government agencies make the decisions on applications.'}</p></li>
+  </ol>
+  <a class="editorial-link" href="/contact">Talk with our Minneapolis team <span aria-hidden="true">→</span></a>
+</section>
+<section class="reading-next editorial-section" aria-labelledby={`reading-${topic}`}>
+  <div class="section-intro"><p class="eyebrow">Before your visit</p><h2 id={`reading-${topic}`}>A little preparation goes a long way.</h2><p>Explore our guides for background and practical ways to organize your questions.</p></div>
+  <div class="guide-links">{guides[topic].map(slug => <a href={`/blog/${slug}`}><span>Read the guide</span><h3>{titles[slug]}</h3><span aria-hidden="true">↗</span></a>)}</div>
+</section>

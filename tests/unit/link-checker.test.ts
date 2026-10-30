@@ -49,7 +49,7 @@ describe('internal links resolve across all 9 built pages', () => {
       const broken: string[] = [];
 
       for (const ref of internalRefs(html)) {
-        const [pathname] = ref.split('#');
+        const pathname = new URL(ref, 'https://ircoffice.com').pathname;
         if (!pathname) continue; // fragment-only ref (e.g. "#tab-1"), not a resource fetch.
         const { exists } = resolveInternalPath(pathname);
         if (!exists) broken.push(ref);
