@@ -11,6 +11,9 @@
 // Section id rename (cross-task interface, see Nav.astro): the legacy
 // `id="who-are-we"` / `id="why-us"` become `id="WhoAreWe"` / `id="WhyUs"` to
 // match the anchors Nav/Footer already link to (`/#WhoAreWe`, `/#WhyUs`).
+import { Image } from 'astro:assets';
+
+import divider from '../assets/img/Divider-Decorative_01.png';
 import ConsultForm from '../components/ConsultForm.astro';
 import Map from '../components/Map.astro';
 import Tabs from '../components/Tabs.astro';
@@ -66,7 +69,7 @@ const years = getYearsInBusiness();
     </p>
 
     <div class="divider-image align-middle my-40">
-      <img src="/img/Divider-Decorative_01.png" alt="" class="decorative-divider" />
+      <Image src={divider} alt="" class="decorative-divider" densities={[1, 2]} />
     </div>
 
     <div class="service__information-table">

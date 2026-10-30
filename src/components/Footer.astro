@@ -1,6 +1,9 @@
 ---
-import Disclaimer from './Disclaimer.astro';
+import { Image } from 'astro:assets';
+
+import companyLogo from '../assets/img/company-logo.jpeg';
 import { getCurrentYear } from '../lib/business';
+import Disclaimer from './Disclaimer.astro';
 
 // Computed at build time so the copyright year never goes stale (the legacy
 // footer was frozen at "2020").
@@ -11,7 +14,13 @@ const year = getCurrentYear();
   <div class="footer__main">
     <div class="footer__column">
       <div class="footer__logo-wrapper">
-        <img src="/img/company-logo.jpeg" alt="" class="nav__logo--footer" width="224px" />
+        <Image
+          src={companyLogo}
+          alt=""
+          class="nav__logo--footer"
+          width={224}
+          densities={[1, 2, 3]}
+        />
       </div>
       <Disclaimer />
     </div>
