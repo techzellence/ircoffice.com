@@ -69,3 +69,21 @@ textarea.form__input { height:auto; min-height:90px; resize:vertical; }
 @media(max-width:700px) { .section-booking { padding:32px 24px; } }
 .contact__information { height:auto; align-self:start; border:1px solid #dce2e7; border-radius:14px; box-shadow:none !important; }
 .paragraph-form--information { max-width:none; color:var(--irc-ink); font-size:18px; line-height:1.65; }
+
+/* Keep the original Statue of Liberty artwork visible behind the introduction. */
+.home-intro {
+ background-image:linear-gradient(90deg,rgba(15,42,68,.68),rgba(15,42,68,.5)),url('/img/photo-1520885161078-041b9f6ad3ef.webp');
+ background-position:left center;
+ background-size:auto 100%;
+ background-repeat:no-repeat;
+}
+.home-anniversary { display:block; width:calc(100% - 40px); height:auto; margin-left:40px; border-radius:20px; }
+@media(max-width:840px) {
+ .home-intro { background-image:none; padding:60px 0 32px; }
+ .home-intro .header--home {
+  padding:48px 24px;
+  background:linear-gradient(rgba(15,42,68,.65),rgba(15,42,68,.65)),url('/img/home-mobile-banner.webp') center 45% / cover no-repeat;
+ }
+ .home-intro .section__form { margin:0 24px; }
+ .home-anniversary { width:100%; margin-left:0; }
+}
