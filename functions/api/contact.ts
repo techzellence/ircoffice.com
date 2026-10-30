@@ -62,7 +62,7 @@ async function verifyTurnstile(
 // deploy time; `any` here avoids pulling in @cloudflare/workers-types purely
 // for a signature that the platform validates itself.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function onRequestPost(context: any): Promise<Response> {
+async function handlePost(context: any): Promise<Response> {
   const { request, env } = context as { request: Request; env: Env };
   const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
 
@@ -94,7 +94,12 @@ export async function onRequestPost(context: any): Promise<Response> {
     );
   }
 
-  const form = await request.formData();
+  let form: FormData;
+  try {
+    form = await request.formData();
+  } catch {
+    return json({ error: 'Please submit the contact form with valid fields.' }, 400);
+  }
   const raw: Record<string, string> = {};
   for (const [key, value] of form.entries()) {
     if (typeof value === 'string') raw[key] = value;
@@ -137,6 +142,11 @@ export async function onRequestPost(context: any): Promise<Response> {
     return json({ error: 'Please check the form and try again.', details: result.errors }, 400);
   }
 
+  if (!env.RESEND_API_KEY || !env.CONTACT_RECIPIENT) {
+    console.error('Contact email configuration is incomplete.');
+    return json({ error: CALL_US }, 503);
+  }
+
   const { subject, text } = buildEmail(result.value);
 
   const resendResponse = await fetch('https://api.resend.com/emails', {
@@ -167,4 +177,14 @@ export async function onRequestPost(context: any): Promise<Response> {
   }
 
   return json({ ok: true }, 200);
+}
+
+// Upstream outages must preserve a usable JSON error and let the visitor retry.
+export async function onRequestPost(context: any): Promise<Response> {
+  try {
+    return await handlePost(context);
+  } catch {
+    console.error('Contact submission could not complete because a dependency failed.');
+    return json({ error: CALL_US }, 503);
+  }
 }

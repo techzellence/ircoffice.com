@@ -20,22 +20,22 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <div class="form__group">
     <label class="form__label" for={`${formId}-name`}>Name</label>
     <input class="form__input input-information" type="text" id={`${formId}-name`}
-           name="name" maxlength="100" placeholder="Name" required />
+           name="name" autocomplete="name" maxlength="100" placeholder="Name" required />
   </div>
   <div class="form__group">
     <label class="form__label" for={`${formId}-email`}>Email</label>
     <input class="form__input input-information" type="email" id={`${formId}-email`}
-           name="email" maxlength="254" placeholder="Email" required />
+           name="email" autocomplete="email" maxlength="254" placeholder="Email" required />
   </div>
   <div class="form__group">
     <label class="form__label" for={`${formId}-phone`}>Phone</label>
     <input class="form__input input-information" type="tel" id={`${formId}-phone`}
-           name="phone" maxlength="40" placeholder="Phone" required />
+           name="phone" autocomplete="tel" maxlength="40" placeholder="Phone" required />
   </div>
   <div class="form__group">
-    <label class="form__label" for={`${formId}-message`}>Message</label>
+    <label class="form__label" for={`${formId}-message`}>Message (optional)</label>
     <textarea class="form__input input-information" id={`${formId}-message`}
-              name="message" maxlength="5000" style="height: 50px;" spellcheck="false"
+              name="message" maxlength="5000" rows="3"
               placeholder="How can we help?"></textarea>
   </div>
 
@@ -47,7 +47,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <input type="text" id={`${formId}-website`} name="website" tabindex="-1" autocomplete="off" />
   </div>
 
-  <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
+  <p class="form__privacy">Please leave out passport numbers and other sensitive records. <a href="/privacy">Privacy policy</a></p>
+
+  <div class="cf-turnstile" data-size="compact" data-sitekey={turnstileSiteKey}></div>
 
   <p class="form__error" role="alert" hidden></p>
   <p class="form__success success-message" role="status"></p>
@@ -60,6 +62,11 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 </form>
 
 <style>
+  .form__label { position: static; width: auto; height: auto; clip: auto; clip-path: none; overflow: visible; display: block; font-size: 15px; font-weight: 600; margin: 0 0 5px; transform: none; opacity: 1; }
+  .form[data-surface="dark"] .form__label { color: #fff; }
+  .form__privacy { font-size: 14px; line-height: 1.5; margin: 12px 0; }
+  .form__privacy a { color: inherit; text-decoration: underline; }
+  .form[data-surface="dark"] .form__privacy { color: #e4ebf0; }
   .form__hp {
     position: absolute;
     left: -9999px;
@@ -80,12 +87,12 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
      the light orange on the navy panels (the dark one is about 2:1 there). */
   .form[data-surface='light'] .form__error,
   .form[data-surface='light'] .form__success {
-    color: #b75e0c;
+    color: #865019;
   }
 
   .form[data-surface='dark'] .form__error,
   .form[data-surface='dark'] .form__success {
-    color: #f39b4b;
+    color: #e7b680;
   }
 </style>
 

@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 // Shared nav, extracted from index.html's `.navbar-container` + `nav.site-navbar`
 // blocks (cross-checked against contact.html). Two markup variants ship together
 // because the legacy CSS/JS toggles between them by viewport width, not this
@@ -20,14 +21,7 @@ const isContact = currentPath === '/contact';
     <!-- Menu Toggle btn-->
     <div class="menu-toggle">
       <a href="tel:(612) 822-5747">
-        <svg width="20" height="20" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M51.3333 42C46.6667 46.6667 46.6667 51.3333 42 51.3333C37.3333 51.3333 32.6667 46.6667 28 42C23.3333 37.3333 18.6667 32.6667 18.6667 28C18.6667 23.3333 23.3333 23.3333 28 18.6667C32.6667 14 18.6667 0 14 0C9.33333 0 0 14 0 14C0 23.3333 9.59 42.2567 18.6667 51.3333C27.7387 60.41 46.6667 70 56 70C56 70 70 60.6667 70 56C70 51.3333 56 37.3333 51.3333 42"
-            fill="#b46016"
-          ></path>
-        </svg>
+        <Icon name="phone" />
       </a>
       <div class="mobile-icon">
         <img src="/img/logo-640w.jpeg" width="77px" alt="" class="nav__logo-mobile" />
@@ -182,14 +176,7 @@ const isContact = currentPath === '/contact';
     <img src="/img/logo-640w.jpeg" width="77px" alt="" class="nav__logo-mobile" />
   </div>
   <a href="tel:(612) 822-5747">
-    <svg width="20" height="20" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M51.3333 42C46.6667 46.6667 46.6667 51.3333 42 51.3333C37.3333 51.3333 32.6667 46.6667 28 42C23.3333 37.3333 18.6667 32.6667 18.6667 28C18.6667 23.3333 23.3333 23.3333 28 18.6667C32.6667 14 18.6667 0 14 0C9.33333 0 0 14 0 14C0 23.3333 9.59 42.2567 18.6667 51.3333C27.7387 60.41 46.6667 70 56 70C56 70 70 60.6667 70 56C70 51.3333 56 37.3333 51.3333 42"
-        fill="#b46016"
-      ></path>
-    </svg>
+    <Icon name="phone" />
   </a>
 </nav>
 

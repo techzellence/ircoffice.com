@@ -100,3 +100,22 @@ test.describe('contact form', () => {
     await expect(page.locator(`${FORM} input[name="email"]`)).toHaveCount(0);
   });
 });
+
+for (const path of ['/', '/green-card', '/citizenship', '/visa', '/umra']) {
+  test(`mobile form is usable on ${path}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.route('https://challenges.cloudflare.com/**', route =>
+      route.fulfill({ contentType: 'application/javascript', body: TURNSTILE_STUB }));
+    await page.route('**/api/contact', route =>
+      route.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' }));
+    await page.goto(path);
+    const form = page.locator('form.form').first();
+    await form.locator('[name="name"]').fill('Test Visitor');
+    await form.locator('[name="email"]').fill('visitor@example.com');
+    await form.locator('[name="phone"]').fill('612-555-0100');
+    await form.locator('[name="message"]').fill('First line\nSecond line');
+    await form.locator('button[type="submit"]').click();
+    await expect(form.locator('[role="status"]')).toContainText('Thank you for contacting us.');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  });
+}

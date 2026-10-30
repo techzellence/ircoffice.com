@@ -233,3 +233,31 @@ describe('onRequestPost', () => {
     expect(res.status).toBe(502);
   });
 });
+
+
+describe('contact recovery', () => {
+  it('returns a usable error when a verification dependency is unavailable', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('network unavailable')));
+    const response = await onRequestPost({ request: makeRequest(validBody), env: makeEnv() });
+    expect(response.status).toBe(503);
+    expect((await response.json()).error).toContain('(612) 822-5747');
+  });
+  it('handles malformed form bodies without an internal server error', async () => {
+    const request = new Request('https://ircoffice.com/api/contact', { method: 'POST', body: 'invalid' });
+    const response = await onRequestPost({ request, env: makeEnv() });
+    expect(response.status).toBe(400);
+  });
+  it('does not send mail when recipient configuration is missing', async () => {
+    const response = await onRequestPost({ request: makeRequest(validBody), env: makeEnv({ CONTACT_RECIPIENT: '' }) });
+    expect(response.status).toBe(503);
+    expect(fetch).toHaveBeenCalledTimes(1);
+  });
+  it('reports an email network failure without claiming success', async () => {
+    vi.stubGlobal('fetch', vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true })))
+      .mockRejectedValueOnce(new Error('email network unavailable')));
+    const response = await onRequestPost({ request: makeRequest(validBody), env: makeEnv() });
+    expect(response.status).toBe(503);
+    expect((await response.json()).error).toContain('(612) 822-5747');
+  });
+});

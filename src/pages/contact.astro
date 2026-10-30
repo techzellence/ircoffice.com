@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 // Ported from the legacy contact.html body. Nav, Footer (with its own Disclaimer), and the
 // BaseLayout head are supplied by BaseLayout.astro. Static port, same approach as Task 7/8: no
 // page-level GSAP/jQuery script tags. No tabs on this page (contact.html never had a #tab-1
@@ -36,25 +37,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!--row-1-->
       <div class="contact-information__row">
         <a href="#office-map" aria-label="View the office map">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
-            id="1964441355"
-            class="contact-information__svg"
-            data-icon-name="li-map-marker"
-          >
-            <g id="1461430744">
-              <path
-                d="M69.1,25.3C64,20.2,57.2,17.4,50,17.4c-7.2,0-14,2.8-19.1,7.9c-10.5,10.5-10.5,27.6,0,38.2L50,82.6l19.1-19.1
-                C79.6,53,79.6,35.8,69.1,25.3z M67.6,62L50,79.6L32.4,62c-9.7-9.7-9.7-25.5,0-35.2c4.7-4.7,11-7.3,17.6-7.3
-                c6.7,0,12.9,2.6,17.6,7.3C77.3,36.5,77.3,52.3,67.6,62z"
-                id="1909852713"></path>
-              <path
-                d="M50,33c-6.3,0-11.4,5.1-11.4,11.4c0,6.3,5.1,11.4,11.4,11.4c6.3,0,11.4-5.1,11.4-11.4C61.4,38.1,56.3,33,50,33z M50,53.8
-                c-5.2,0-9.3-4.2-9.3-9.3c0-5.2,4.2-9.3,9.3-9.3c5.2,0,9.3,4.2,9.3,9.3C59.3,49.6,55.2,53.8,50,53.8z"
-                id="1867642177"></path>
-            </g>
-          </svg>
+          <Icon name="pin" />
         </a>
 
         <address class="row__text row-address">
@@ -66,24 +49,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!--row-2-->
       <a href="tel:(612) 822-5747">
         <div class="contact-information__row">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 70 70"
-            id="1002509430"
-            class="contact-information__svg"
-            data-icon-name="wp-phone_thin"
-          >
-            <g id="1644455627">
-              <path
-                d="M21,14h2.4l0,0c1,0,1.9,0.6,2.2,1.6l3,9.5c0.3,0.8,0,1.7-0.6,2.3l-3.5,3.5c-0.1,0.1-0.1,0.2-0.1,0.4c0.8,1.5,2.8,4.4,6.3,8
-                c3.5,3.5,6.5,5.5,8,6.3c0.1,0.1,0.3,0,0.4-0.1l3.5-3.5c0.6-0.6,1.5-0.8,2.3-0.6l9.5,3c1,0.3,1.6,1.2,1.6,2.2V49c0,2-6,7-10,7
-                c-2.3,0-10.8-0.8-21-11l0,0C14.8,34.8,14,26.3,14,24C14,20.1,18.9,14,21,14z M26.4,43.5L26.4,43.5C36.1,53.2,43.9,54,46,54
-                c3,0,7.6-3.9,8-5v-2.3c0-0.1-0.1-0.3-0.2-0.3l-9.5-3c-0.1,0-0.2,0-0.3,0.1L40.5,47c-0.7,0.7-1.9,0.9-2.8,0.4
-                c-1.5-0.9-4.7-2.9-8.4-6.6c-3.7-3.7-5.7-6.9-6.6-8.4c-0.5-0.9-0.4-2,0.4-2.8l3.5-3.5c0.1-0.1,0.1-0.2,0.1-0.3l-3-9.5
-                c0-0.1-0.2-0.2-0.3-0.2l0,0L21,16c-1.1,0.4-5,4.9-5,8C16,26.1,16.8,33.9,26.4,43.5z"
-                id="1263332737"></path>
-            </g>
-          </svg>
+          <Icon name="phone" />
 
           <div class="row__text">(612) 822-5747</div>
         </div>
@@ -92,17 +58,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!--row-3-->
       <a href="mailto:info@ircoffice.com">
         <div class="contact-information__row">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
-            id="1279002652"
-            class="contact-information__svg"
-            data-icon-name="li-envelope"
-          >
-            <path
-              d="M17.8,28.2v43.6h64.4V28.2H17.8z M77.7,30.3L50,48.8L22.3,30.3H77.7z M19.9,69.7V31.2L50,51.2l30.1-20.1v38.5H19.9z"
-              id="1800235705"></path>
-          </svg>
+          <Icon name="mail" />
 
           <div class="row__text row__text--light">info@ircoffice.com</div>
         </div>

@@ -14,40 +14,10 @@ gsap.registerPlugin(ScrollTrigger);
 // guarded. Same reasoning as the nav-toggle note above: don't run page-specific code everywhere.
 const has = (selector: string): boolean => document.querySelector(selector) !== null;
 
-// Service-page hero: form box slides in from the right.
-if (has('.form-box--greencard')) {
-  gsap.from('.form-box--greencard', {
-    opacity: 0,
-    xPercent: 100,
-    duration: 1.3,
-    ease: 'back.out(1.2)',
-    delay: 0.5,
-  });
-}
-
-// Home hero: header content slides in from the left, then the form scales up behind it.
-if (has('.header__home--animation') && has('.form__home--animation')) {
-  const heroTimeline = gsap.timeline({ delay: 1 });
-
-  heroTimeline.from('.header__home--animation', {
-    opacity: 0,
-    xPercent: -100,
-    duration: 1.3,
-  });
-
-  heroTimeline.from(
-    '.form__home--animation',
-    {
-      opacity: 0,
-      scale: 0.2,
-      duration: 1,
-    },
-    '-=1',
-  );
-}
+// Keep the main heading and form visible immediately, including on slow devices.
 
 // "Who are we" section: slides in from the left once scrolled into view.
-if (has('.section-about-company')) {
+if (has('.section-about-company') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const aboutTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: '.section-about-company',

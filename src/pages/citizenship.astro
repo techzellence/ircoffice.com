@@ -7,6 +7,7 @@
 // citizenship.html has no visible <div id="map"> in the body (only the head's font stylesheet
 // uses a googleapis.com host, not maps.googleapis.com) — there is no Map component usage on this
 // page.
+import Icon from '../components/Icon.astro';
 import ConsultForm from '../components/ConsultForm.astro';
 import Tabs from '../components/Tabs.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -23,10 +24,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="header__main-area">
         <div class="header-flexbox-content-left">
           <h1 class="heading__primary--greencard my-25">
-            <span class="secondary-color-text">Citizenship <br />Applications</span>
+            <span class="secondary-color-text">Ready for your<br />citizenship application?</span>
           </h1>
           <p class="header__paragraph--greencard my-25" style="max-width: 500px;">
-      Prepare your citizenship paperwork with practical support from our Minneapolis team.
+      Bring your questions and records. We help you prepare naturalization forms and organize supporting documents, so the paperwork is easier to manage.
     </p>
         </div>
 
@@ -36,10 +37,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             class="heading-form align-middle my-15"
             style="color: rgb(49, 49, 49); font-weight: 600;"
           >
-            Get Help Today
+            Talk with our team
           </h2>
           <p class="paragraph-form paragraph-form--greencard align-middle my-30">
-            Tell us what paperwork you need help with.
+            Share your plans or questions. We’ll explain the preparation services available and the next steps.
           </p>
           <ConsultForm subject="Citizenship" formId="form__citizenship" />
         </div>
@@ -138,90 +139,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section section__save-time">
     <div class="facility__wrapper">
       <div class="facility__block">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 70 70"
-          id="1112241606"
-          class="checkmark"
-          data-icon-name="wp-checked_icon"
-          data-hover-effect="float"
-        >
-          <g id="1299641105">
-            <path
-              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
-              s23-10.3,23-23S47.7,12,35,12z"
-              id="1262257561"></path>
-            <polygon
-              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
-              id="1219245274"></polygon>
-          </g>
-        </svg>
+        <Icon name="document" />
         <h4 class="facility__heading--small align-middle">Practical Help</h4>
       </div>
 
       <div class="facility__block">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 70 70"
-          id="1112241606"
-          class="checkmark"
-          data-icon-name="wp-checked_icon"
-          data-hover-effect="float"
-        >
-          <g id="1299641105">
-            <path
-              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
-              s23-10.3,23-23S47.7,12,35,12z"
-              id="1262257561"></path>
-            <polygon
-              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
-              id="1219245274"></polygon>
-          </g>
-        </svg>
+        <Icon name="price" />
         <h4 class="facility__heading--small align-middle">Clear Pricing</h4>
       </div>
 
       <div class="facility__block">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 70 70"
-          id="1112241606"
-          class="checkmark"
-          data-icon-name="wp-checked_icon"
-          data-hover-effect="float"
-        >
-          <g id="1299641105">
-            <path
-              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
-              s23-10.3,23-23S47.7,12,35,12z"
-              id="1262257561"></path>
-            <polygon
-              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
-              id="1219245274"></polygon>
-          </g>
-        </svg>
+        <Icon name="heart" />
         <h4 class="facility__heading--small align-middle">Friendly Support</h4>
       </div>
 
       <div class="facility__block">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 70 70"
-          id="1112241606"
-          class="checkmark"
-          data-icon-name="wp-checked_icon"
-          data-hover-effect="float"
-        >
-          <g id="1299641105">
-            <path
-              d="M35,60c-13.8,0-25-11.2-25-25s11.2-25,25-25s25,11.2,25,25S48.8,60,35,60z M35,12c-12.7,0-23,10.3-23,23s10.3,23,23,23
-              s23-10.3,23-23S47.7,12,35,12z"
-              id="1262257561"></path>
-            <polygon
-              points="32,43.4 23.3,34.7 24.7,33.3 32,40.6 48.3,24.3 49.7,25.7 	"
-              id="1219245274"></polygon>
-          </g>
-        </svg>
+        <Icon name="document" />
         <h4 class="facility__heading align-middle">Document Organization</h4>
       </div>
     </div>
