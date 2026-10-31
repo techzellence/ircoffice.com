@@ -54,3 +54,23 @@ test('the library remains useful without JavaScript', async ({ browser }) => {
   await expect(page.locator('.topic-filters')).toBeHidden();
   await context.close();
 });
+
+test('showing topic controls does not move the article list', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 900 });
+  let releaseScripts!: () => void;
+  const scriptsReady = new Promise<void>(resolve => { releaseScripts = resolve; });
+  await page.route('**/_astro/*.js', async route => {
+    await scriptsReady;
+    await route.continue();
+  });
+  await page.route('https://fonts.googleapis.com/**', route => route.fulfill({ contentType: 'text/css', body: '' }));
+  await page.goto('/blog', { waitUntil: 'commit' });
+  const grid = page.locator('.article-grid');
+  await expect(grid).toBeVisible();
+  await expect(page.locator('.topic-filters')).toBeHidden();
+  const before = await grid.boundingBox();
+  releaseScripts();
+  await expect(page.locator('.topic-filters')).toBeVisible();
+  const after = await grid.boundingBox();
+  expect(after!.y).toBeCloseTo(before!.y, 0);
+});

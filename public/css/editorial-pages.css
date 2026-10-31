@@ -76,3 +76,16 @@
 .editorial-pages .contact-information__heading { font-size:36px; line-height:1.2; }
 .editorial-pages .office-hours { text-align:left; }
 .editorial-pages [id] { scroll-margin-top:100px; }
+
+/* Keep review alignment independent of Swiper's stylesheet load order. */
+.slider__image-wrapper .swiper { height:auto; max-width:1120px; }
+.slider__image-wrapper .swiper-wrapper { height:auto; align-items:stretch; }
+.slider__image-wrapper .swiper .swiper-slide { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; height:auto; box-sizing:border-box; padding-inline:48px; }
+.slider__image-wrapper .swiper-slide .paragraph__slider { width:100%; max-width:800px; margin:24px auto; text-align:center; }
+.slider__image-wrapper .swiper-slide > .btn { margin-top:auto; }
+.slider__image-wrapper .swiper-button-next,.slider__image-wrapper .swiper-button-prev { color:white; }
+@media(max-width:600px) {
+ .slider__image-wrapper .swiper .swiper-slide { padding-inline:32px; }
+ .slider__image-wrapper .swiper-slide .paragraph__slider { font-size:18px; line-height:1.7; }
+ .slider__image-wrapper .swiper-button-next,.slider__image-wrapper .swiper-button-prev { --swiper-navigation-size:24px; }
+}

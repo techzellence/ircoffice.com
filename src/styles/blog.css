@@ -115,3 +115,5 @@
 .journal-arrow { width:20px; height:20px; flex-shrink:0; vertical-align:middle; }
 .note-mark .journal-arrow { width:36px; height:36px; }
 @media(max-width:840px) { .journal { padding-top:60px; } }
+/* Reserve filter space before initialization so articles do not move on load. */
+.journal .topic-filters[hidden] { display:flex !important; visibility:hidden; }
