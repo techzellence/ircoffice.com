@@ -27,33 +27,25 @@ const years = getYearsInBusiness();
   description="Immigration form preparation and travel assistance in Minneapolis. Get help with green card, citizenship, and visa paperwork. Call (612) 822-5747."
   canonical="https://ircoffice.com/"
 >
-  <div class="home-intro">
+  <div class="home-intro home-intro--simple">
   <!--website hero image with form-->
   <header class="header-2 header--home">
-    <div class="header-home__content header__home--animation flex-center">
+    <div class="header-home__content header__home--animation">
       <p class="anniversary-line">{years} years of service · Since {FOUNDED_YEAR}</p>
       <h1 class="heading__primary align-middle my-25">
-        <span class="secondary-color-text">Your next chapter.</span><br />Let’s prepare for it.
+        Immigration application help in Minneapolis.
       </h1>
       <p class="header__paragraph align-middle my-25">
         Immigration form preparation in Minneapolis, with a local team to help you organize the details. Get support with green card, citizenship, and visa paperwork, or plan your next journey.
       </p>
-      <a href="#services" class="btn btn--primary btn--animated">Find the help you need</a>
+      <div class="home-hero-actions">
+        <a href="#inquiry" class="btn btn--primary">Ask about your paperwork</a>
+        <a href="#services" class="home-hero-service-link">Explore our services</a>
+      </div>
+      <p class="home-hero-contact">Prefer to call? <a href="tel:+16128225747">(612) 822-5747</a></p>
     </div>
   </header>
 
-  <section class="section section__form">
-    <div
-      class="form-box form__home--animation"
-      style="box-shadow: rgba(0, 0, 0, 0.25) 0 3px 11px 0;"
-    >
-      <h2 class="heading-form align-middle my-20">Let’s start with your questions</h2>
-      <p class="paragraph-form align-middle my-30">
-        Tell us what you’re preparing for. We’ll explain how we can help and what to do next.
-      </p>
-      <ConsultForm subject="Consultation" formId="form__consultation" />
-    </div>
-  </section>
   </div>
   <div class="divider"></div>
 
@@ -253,7 +245,7 @@ const years = getYearsInBusiness();
 
   <!--section-book-a-consultation-->
 
-  <section class="section section-booking">
+  <section class="section section-booking" id="inquiry">
     <h3 class="heading__booking align-middle my-30 pu-70">Tell us what you’re preparing for</h3>
     <p class="paragraph-form align-middle my-40 max-410">
       Have a question? We&rsquo;re here to help. Send us a message and we&rsquo;ll get back to you.

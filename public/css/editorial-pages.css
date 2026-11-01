@@ -89,3 +89,18 @@
  .slider__image-wrapper .swiper-slide .paragraph__slider { font-size:18px; line-height:1.7; }
  .slider__image-wrapper .swiper-button-next,.slider__image-wrapper .swiper-button-prev { --swiper-navigation-size:24px; }
 }
+
+/* A focused homepage introduction; inquiries remain in the section below. */
+.editorial-pages .home-intro--simple { display:block; padding:72px max(24px,calc((100% - 1120px)/2)); min-height:560px; background-image:linear-gradient(90deg,#183e60 15%,rgba(24,62,96,.92) 42%,rgba(24,62,96,.2)),url('/img/photo-1520885161078-041b9f6ad3ef.webp'); background-size:cover,auto 100%; background-position:center,right center; }
+.editorial-pages .home-intro--simple .header--home { max-width:650px; background:none; padding:0; }
+.editorial-pages .home-intro--simple .header-home__content { align-items:flex-start; }
+.editorial-pages .home-intro--simple .heading__primary { max-width:650px; font-size:clamp(36px,4vw,56px); text-align:left; line-height:1.12; margin:24px 0; }
+.editorial-pages .home-intro--simple .header__paragraph { max-width:540px; text-align:left; font-size:19px; line-height:1.7; }
+.home-hero-actions { display:flex; align-items:center; flex-wrap:wrap; gap:24px; margin-top:12px; }
+.home-hero-service-link { color:white; text-decoration:underline; text-underline-offset:5px; font-size:17px; }
+.home-hero-contact { font-size:16px; color:#e4ebf0; margin-top:24px; }
+.home-hero-contact a { color:white; text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:840px) {
+ .editorial-pages .home-intro--simple { padding:100px 24px 44px; min-height:0; background-image:linear-gradient(rgba(24,62,96,.88),rgba(24,62,96,.88)),url('/img/home-mobile-banner.webp'); background-size:cover; background-position:center; }
+ .editorial-pages .home-intro--simple .heading__primary { font-size:38px; }
+}

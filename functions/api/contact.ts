@@ -12,13 +12,14 @@ interface KVNamespace {
 
 export interface Env {
   RESEND_API_KEY: string;
-  CONTACT_RECIPIENT: string;
   TURNSTILE_SECRET_KEY: string;
   RATE_LIMIT: KVNamespace;
 }
 
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_SECONDS = 3600;
+// Confirmed business inbox; deliberately independent of stale deployment overrides.
+const CONTACT_RECIPIENT = 'info@ircoffice.com';
 const SENDER = 'IRC Website <noreply@send.ircoffice.com>';
 const CALL_US = 'We could not send your message. Please call us at (612) 822-5747.';
 
@@ -142,7 +143,7 @@ async function handlePost(context: any): Promise<Response> {
     return json({ error: 'Please check the form and try again.', details: result.errors }, 400);
   }
 
-  if (!env.RESEND_API_KEY || !env.CONTACT_RECIPIENT) {
+  if (!env.RESEND_API_KEY) {
     console.error('Contact email configuration is incomplete.');
     return json({ error: CALL_US }, 503);
   }
@@ -158,7 +159,7 @@ async function handlePost(context: any): Promise<Response> {
     body: JSON.stringify({
       from: SENDER,
       // Recipient is a server-side constant. It is never read from the request.
-      to: env.CONTACT_RECIPIENT,
+      to: CONTACT_RECIPIENT,
       reply_to: result.value.email,
       subject,
       text,

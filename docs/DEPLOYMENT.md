@@ -91,9 +91,9 @@ Cloudflare dashboard → Turnstile → add a widget for `ircoffice.com`. You get
    Put the returned id into `wrangler.toml` under `[[kv_namespaces]]`.
 3. Set **secrets** (never in git):
    - `RESEND_API_KEY`
-   - `CONTACT_RECIPIENT` — the inbox that receives leads. This is a server-side constant and is
-     never read from the request; that is what stops the endpoint being used as an open relay.
    - `TURNSTILE_SECRET_KEY`
+   Website inquiries go to `info@ircoffice.com`, fixed in `functions/api/contact.ts`.
+   Legacy `CONTACT_RECIPIENT` secrets are ignored.
 4. Set **build-time public vars**:
    - `PUBLIC_TURNSTILE_SITE_KEY`
    - `PUBLIC_CF_BEACON_TOKEN` (Cloudflare Web Analytics)
@@ -113,14 +113,14 @@ This is the first time the contact form is exercised end-to-end against real inf
 automated tests cover the handler's logic with a mocked KV; they cannot prove the deployment
 wiring. **Do not skip this.**
 
-1. Submit the contact form on the preview URL. Confirm the email arrives at `CONTACT_RECIPIENT`.
+1. Submit the contact form on the preview URL. Confirm the email arrives at `info@ircoffice.com`.
 2. Confirm **Reply-To** is the submitter's address, so replying reaches the client.
 3. Check the email did not land in spam (that is Phase 0 + Phase 2 working).
 4. Submit with an invalid email — confirm you see an error and **not** a success message.
    (The original site showed "Thank you" regardless and lost the lead.)
 5. Submit 6+ times quickly — the 6th should return 429. If it does not, the KV binding is
    missing; check the Function logs for the `RATE_LIMIT` error.
-6. Test every form: home hero, home booking, green-card, visa, citizenship, contact, umra.
+6. Test every form: home inquiry, green-card, visa, citizenship, contact, umra.
 7. Check the Function logs for errors.
 
 ---

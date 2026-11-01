@@ -20,9 +20,11 @@ id = "395ed050cf484e52b770c999be1157bb"
 # Secrets are set with `wrangler pages secret put <NAME>` or in the Pages dashboard, never in
 # this file and never in git:
 #   RESEND_API_KEY         Resend API key
-#   CONTACT_RECIPIENT      inbox that receives leads (server-side constant; never user-supplied)
 #   TURNSTILE_SECRET_KEY   Turnstile server-side secret
 #
 # Build-time public vars go in the Pages build settings (they are compiled into the HTML):
 #   PUBLIC_TURNSTILE_SITE_KEY
 #   PUBLIC_CF_BEACON_TOKEN
+
+# Website inquiries are routed to info@ircoffice.com in functions/api/contact.ts.
+# A legacy CONTACT_RECIPIENT secret is no longer used.

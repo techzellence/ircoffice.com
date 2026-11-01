@@ -2,12 +2,11 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { onRequestPost } from '../../functions/api/contact';
 
-const RECIPIENT = 'office@ircoffice.com';
+const RECIPIENT = 'info@ircoffice.com';
 
 function makeEnv(overrides: Record<string, unknown> = {}) {
   return {
     RESEND_API_KEY: 're_test_key',
-    CONTACT_RECIPIENT: RECIPIENT,
     TURNSTILE_SECRET_KEY: 'turnstile_test',
     RATE_LIMIT: {
       get: vi.fn().mockResolvedValue(null),
@@ -51,7 +50,7 @@ beforeEach(() => {
 });
 
 describe('onRequestPost', () => {
-  it('sends to the configured recipient on a valid submission', async () => {
+  it('sends to the business inbox on a valid submission', async () => {
     const res = await onRequestPost({ request: makeRequest(validBody), env: makeEnv() } as never);
     expect(res.status).toBe(200);
 
@@ -63,10 +62,10 @@ describe('onRequestPost', () => {
     expect(payload.to).toBe(RECIPIENT);
   });
 
-  it('ignores an attacker-supplied recipient and still sends to the configured one', async () => {
+  it('ignores request recipients and stale deployment recipients', async () => {
     const res = await onRequestPost({
       request: makeRequest({ ...validBody, to: 'attacker@example.com' }),
-      env: makeEnv(),
+      env: makeEnv({ CONTACT_RECIPIENT: 'old-inbox@example.com' }),
     } as never);
     expect(res.status).toBe(200);
 
@@ -247,8 +246,8 @@ describe('contact recovery', () => {
     const response = await onRequestPost({ request, env: makeEnv() });
     expect(response.status).toBe(400);
   });
-  it('does not send mail when recipient configuration is missing', async () => {
-    const response = await onRequestPost({ request: makeRequest(validBody), env: makeEnv({ CONTACT_RECIPIENT: '' }) });
+  it('does not claim success when the email API key is missing', async () => {
+    const response = await onRequestPost({ request: makeRequest(validBody), env: makeEnv({ RESEND_API_KEY: '' }) });
     expect(response.status).toBe(503);
     expect(fetch).toHaveBeenCalledTimes(1);
   });
